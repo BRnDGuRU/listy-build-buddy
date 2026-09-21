@@ -48,6 +48,7 @@ export const Route = createFileRoute("/")({
 
 const volumes = [1000, 2000, 3000, 5000, 10000];
 const pricing: Record<number, number> = { 1000: 597, 2000: 797, 3000: 997, 5000: 1497, 10000: 2497 };
+const getPrice = (volume: number) => pricing[volume] ?? pricing[1000] ?? 597;
 
 function Logo() {
   return (
@@ -192,7 +193,7 @@ function PricingSection() {
         <div className="mx-auto mt-12 grid max-w-5xl overflow-hidden rounded-lg border border-ink-border bg-ink-card lg:grid-cols-[.9fr_1.1fr]">
           <div className="p-7 sm:p-10">
             <p className="text-sm font-semibold text-brand-light">Full Cold Email Stack</p>
-            <div className="mt-4 flex items-end gap-2"><span className="font-display text-6xl font-bold">${pricing[volume].toLocaleString()}</span><span className="mb-2 text-ink-muted">/month</span></div>
+            <div className="mt-4 flex items-end gap-2"><span className="font-display text-6xl font-bold">${getPrice(volume).toLocaleString()}</span><span className="mb-2 text-ink-muted">/month</span></div>
             <p className="mt-3 text-ink-muted">Send {volume.toLocaleString()} cold emails per day</p>
             <p className="mt-8 text-xs font-semibold uppercase text-ink-muted">Select your daily volume</p>
             <div className="mt-3 grid grid-cols-5 gap-1 rounded-md bg-ink p-1.5">
@@ -242,7 +243,7 @@ function RoiSection() {
     const meetings = Math.max(1, Math.round(positive * 0.4));
     const deals = meetings * (closeRate / 100);
     const revenue = Math.round(deals * ltv);
-    const cost = pricing[volume];
+    const cost = getPrice(volume);
     return { replies, positive, meetings, deals: Math.round(deals * 10) / 10, revenue, cost, roi: Math.round(((revenue - cost) / cost) * 100) };
   }, [volume, ltv, closeRate]);
   return (
