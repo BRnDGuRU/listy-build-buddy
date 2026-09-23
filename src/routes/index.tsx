@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
 
 const inclusions = [
   { icon: Mail, title: "100K Email Infrastructure", text: "Up to 100,000 outbound emails sent every month through premium, optimized infrastructure." },
-  { icon: CalendarCheck, title: "Email Credits", text: "1,00,000 email credits provided every month to power your outreach." },
+  { icon: CalendarCheck, title: "Email Credits", text: "100,000 email credits provided every month to power your outreach." },
   { icon: Bot, title: "AI Lead Scraping Agent", text: "Automatically discovers and extracts highly targeted prospects." },
   { icon: MessageSquareText, title: "AI Lead Reply Agent", text: "Captures, classifies, and helps respond to incoming replies." },
   { icon: Users, title: "8 Million B2B Leads", text: "Access to a massive database of 8 million B2B decision-makers." },
