@@ -97,9 +97,12 @@ function CtaButton({ children = "Book a Strategy Call", inverse = false }: { chi
 
 function Logo({ inverse = false }: { inverse?: boolean }) {
   return (
-    <a href="#top" className={`flex items-center gap-2.5 font-display text-base font-bold sm:text-lg ${inverse ? "text-primary-foreground" : "text-foreground"}`} aria-label="BrndGuru home">
+    <a href="#top" className={`flex items-center gap-2.5 ${inverse ? "text-primary-foreground" : "text-foreground"}`} aria-label="BrndGuru home">
       <img src={brndGuruLogo.url} alt="" className="h-10 w-10 object-contain" />
-      <span>BRND GURU</span>
+      <span className="flex flex-col">
+        <span className="font-display text-sm font-bold sm:text-base">BRND GURU</span>
+        <span className="mt-0.5 text-[9px] font-bold uppercase text-primary">GTM Infrastructure</span>
+      </span>
     </a>
   );
 }
@@ -107,49 +110,57 @@ function Logo({ inverse = false }: { inverse?: boolean }) {
 function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
-      <div className="page-container flex h-18 items-center justify-between">
-        <Logo />
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
-          <a className="nav-link" href="#system">The System</a>
-          <a className="nav-link" href="#process">Process</a>
-          <a className="nav-link" href="#investment">Investment</a>
-          <a className="nav-link" href="#faq">FAQ</a>
+    <>
+      <div className="border-b border-ink-border bg-ink-card px-4 py-2.5 text-center text-[10px] font-bold uppercase text-primary-foreground sm:text-xs">
+        <span className="text-primary">⚡</span> Early-bird pricing ends soon <span className="ml-2 text-brand-light">Limited onboarding spots</span>
+      </div>
+      <header className="sticky top-0 z-50 border-b border-ink-border bg-ink/95 backdrop-blur-md">
+        <div className="page-container flex h-18 items-center justify-between">
+        <Logo inverse />
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#system">Why GTM Email</a>
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#process">How It Works</a>
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#system">What&apos;s Included</a>
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#investment">Pricing</a>
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#faq">FAQ</a>
           <CtaButton>Book a Call</CtaButton>
         </nav>
-        <Button type="button" variant="outline" size="icon" className="md:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
+        <Button type="button" variant="outline" size="icon" className="border-ink-border bg-ink-card text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
           {open ? <X /> : <Menu />}
         </Button>
       </div>
       {open && (
-        <nav className="border-t border-border bg-background px-5 py-5 md:hidden" aria-label="Mobile navigation">
+        <nav className="border-t border-ink-border bg-ink px-5 py-5 lg:hidden" aria-label="Mobile navigation">
           <div className="flex flex-col gap-5">
-            {[['The System', '#system'], ['Process', '#process'], ['Investment', '#investment'], ['FAQ', '#faq']].map(([label, href]) => <a key={href} className="nav-link" href={href} onClick={() => setOpen(false)}>{label}</a>)}
+            {[['Why GTM Email', '#system'], ['How It Works', '#process'], ["What's Included", '#system'], ['Pricing', '#investment'], ['FAQ', '#faq']].map(([label, href]) => <a key={label} className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href={href} onClick={() => setOpen(false)}>{label}</a>)}
             <CtaButton>Book a Call</CtaButton>
           </div>
         </nav>
       )}
-    </header>
+      </header>
+    </>
   );
 }
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-background py-16 sm:py-24 lg:py-28">
-      <div className="page-container grid items-center gap-14 lg:grid-cols-[1.12fr_.88fr]">
-        <div>
-          <span className="eyebrow">Done-for-you outbound GTM system</span>
-          <h1 className="mt-7 max-w-4xl font-display text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-7xl">
-            You don&apos;t need more software. <span className="text-primary">You need more meetings.</span>
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">The 100K GTM Email Guaranteed System builds, launches, and manages your outbound engine from first send to qualified appointment.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row"><CtaButton /><Button asChild size="lg" variant="outline" className="h-12 rounded-md px-7 font-bold"><a href="#system">See what&apos;s included</a></Button></div>
-          <p className="font-script mt-7 text-2xl font-bold text-primary">We build. We manage. You close.</p>
-        </div>
-        <div className="dark-grid relative overflow-hidden rounded-lg p-7 text-primary-foreground shadow-card sm:p-10">
-          <div className="flex items-start justify-between border-b border-ink-border pb-7"><div><p className="text-xs font-semibold uppercase text-ink-muted">The commitment</p><strong className="mt-2 block font-display text-7xl font-bold text-primary">10</strong></div><Target className="h-10 w-10 text-brand-light" /></div>
-          <h2 className="mt-7 max-w-sm font-display text-3xl font-bold leading-tight">High-qualified V2P appointments in 90 days.</h2>
-          <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md bg-ink-border"><div className="bg-ink-card p-5"><span className="text-xs text-ink-muted">Monthly capacity</span><strong className="mt-2 block text-xl">100K emails</strong></div><div className="bg-ink-card p-5"><span className="text-xs text-ink-muted">Built for you</span><strong className="mt-2 block text-xl">End to end</strong></div></div>
+    <section id="top" className="dark-grid relative overflow-hidden border-b border-ink-border py-12 text-primary-foreground sm:py-16 lg:py-20">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_42%)]" />
+      <div className="page-container relative flex flex-col items-center text-center">
+        <span className="eyebrow eyebrow-dark"><Rocket className="h-3.5 w-3.5" /> You don&apos;t need more software. You need more meetings.</span>
+        <h1 className="mt-7 max-w-5xl font-display text-[clamp(2.7rem,7vw,6rem)] font-bold leading-[.98]">
+          We Build Your <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
+          <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
+        </h1>
+        <p className="mt-7 max-w-3xl text-base leading-relaxed text-ink-muted sm:text-lg">
+          One partner builds your complete outbound email infrastructure—targeting, lead supply, campaigns, AI-assisted replies, and optimization—<strong className="text-primary-foreground">then runs it for you, every single day.</strong>
+        </p>
+        <div className="mt-8 flex max-w-xl items-start gap-3 rounded-md border border-success/40 bg-ink-card/90 px-5 py-4 text-left shadow-soft">
+          <CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-success" />
+          <div>
+            <strong className="block text-sm sm:text-base">10 High-Qualified V2P Appointments in 90 Days</strong>
+            <span className="mt-1 block text-xs text-ink-muted sm:text-sm">We handle the complete engine while you focus on selling and closing.</span>
+          </div>
         </div>
       </div>
     </section>
