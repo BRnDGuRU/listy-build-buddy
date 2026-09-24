@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
+  ArrowUpRight,
   Bot,
   BriefcaseBusiness,
   Building2,
@@ -17,7 +18,9 @@ import {
   ServerCog,
   Settings2,
   ShieldCheck,
+  Sparkles,
   Target,
+  TrendingUp,
   Users,
   X,
   XCircle,
@@ -25,6 +28,7 @@ import {
 import { useState, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
+import brndGuruLogo from "@/assets/brndguru-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,6 +65,20 @@ const steps = [
   { number: "04", title: "Book the meetings", text: "Qualified opportunities reach your calendar. You focus on showing up, selling, and closing." },
 ];
 
+const enginePillars = [
+  { number: "01", icon: ServerCog, title: "Sending infrastructure", text: "Domains, inboxes, DNS records, warmup, rotation, and sending capacity are configured and managed as one system." },
+  { number: "02", icon: Target, title: "Targeted lead supply", text: "Prospects are sourced, filtered, validated, and segmented around the buyers your offer is built to serve." },
+  { number: "03", icon: Sparkles, title: "Campaign intelligence", text: "GTM scripts, follow-up sequences, testing, and campaign decisions are continuously refined around live response data." },
+  { number: "04", icon: MessageSquareText, title: "Reply to meeting", text: "Replies are classified and managed so qualified conversations move toward a booked appointment without getting lost." },
+];
+
+const roadmap = [
+  { phase: "Days 1–15", title: "Strategy and setup", text: "Define the ICP, prepare lead segments, secure domains, configure inboxes, and shape the first campaign angles." },
+  { phase: "Days 16–30", title: "Warmup and launch", text: "Complete infrastructure checks, warm the sending environment, validate prospect data, and launch controlled campaigns." },
+  { phase: "Days 31–60", title: "Optimize the engine", text: "Review replies and deliverability, refine scripts, adjust targeting, and scale the strongest-performing segments." },
+  { phase: "Days 61–90", title: "Scale qualified conversations", text: "Keep the system running at capacity while routing qualified interest toward your calendar and sales process." },
+];
+
 const faqs = [
   { question: "What does the 100K number mean?", answer: "The system is designed with capacity for up to 100,000 outbound emails each month, supported by 100,000 monthly email credits." },
   { question: "What result are you committing to?", answer: "The offer commits to 10 high-qualified V2P appointments within 90 days while we handle the GTM system." },
@@ -79,9 +97,9 @@ function CtaButton({ children = "Book a Strategy Call", inverse = false }: { chi
 
 function Logo({ inverse = false }: { inverse?: boolean }) {
   return (
-    <a href="#top" className={`flex items-center gap-2 font-display text-lg font-bold ${inverse ? "text-primary-foreground" : "text-foreground"}`} aria-label="BrndGuru home">
-      <span className="grid h-9 w-9 place-items-center rounded-md bg-primary text-primary-foreground"><Mail className="h-5 w-5" /></span>
-      BRND GURU
+    <a href="#top" className={`flex items-center gap-2.5 font-display text-base font-bold sm:text-lg ${inverse ? "text-primary-foreground" : "text-foreground"}`} aria-label="BrndGuru home">
+      <img src={brndGuruLogo.url} alt="" className="h-10 w-10 object-contain" />
+      <span>BRND GURU</span>
     </a>
   );
 }
@@ -142,6 +160,16 @@ function OutcomeStrip() {
   return <section className="border-y border-border bg-soft"><div className="page-container grid gap-px bg-border sm:grid-cols-3">{[["100K", "monthly email capacity"], ["10", "qualified appointments"], ["90 days", "result commitment"]].map(([value, label]) => <div key={label} className="bg-soft px-6 py-7 text-center"><strong className="font-display text-3xl text-primary">{value}</strong><span className="mt-1 block text-xs font-semibold uppercase text-muted-foreground">{label}</span></div>)}</div></section>;
 }
 
+function CapabilityStrip() {
+  return (
+    <section aria-label="Core capabilities" className="overflow-hidden border-b border-border bg-background py-5">
+      <div className="page-container flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-bold uppercase text-muted-foreground sm:justify-between">
+        {["Lead intelligence", "Email infrastructure", "GTM scripting", "Reply management", "Campaign optimization"].map((item) => <span key={item} className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-primary" />{item}</span>)}
+      </div>
+    </section>
+  );
+}
+
 function ProblemSection() {
   return (
     <section className="section-space bg-background">
@@ -168,6 +196,68 @@ function IncludedSection() {
   );
 }
 
+function PipelineSection() {
+  return (
+    <section className="section-space bg-soft">
+      <div className="page-container">
+        <div className="mx-auto max-w-3xl text-center"><span className="eyebrow">Your pipeline, end to end</span><h2 className="section-title mt-5">One connected path from market to meeting.</h2><p className="mt-5 leading-relaxed text-muted-foreground">Instead of piecing together software, data, domains, copy, and operators, you get one managed system with a single outcome.</p></div>
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-5">
+          {["Define the ICP", "Build lead segments", "Launch campaigns", "Manage replies", "Book meetings"].map((item, index) => <div key={item} className="relative bg-card p-6"><span className="text-xs font-bold text-primary">0{index + 1}</span><p className="mt-8 font-display font-bold">{item}</p>{index < 4 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 rounded-full bg-primary p-1 text-primary-foreground md:block" />}</div>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EnginePillarsSection() {
+  return (
+    <section className="section-space bg-background">
+      <div className="page-container">
+        <div className="grid gap-8 lg:grid-cols-[.85fr_1.15fr]"><div><span className="eyebrow">Four parts. One job.</span><h2 className="section-title mt-5">Build a dependable source of qualified conversations.</h2></div><p className="max-w-xl self-end leading-relaxed text-muted-foreground">Every layer supports the next. Better infrastructure protects deliverability. Better data sharpens targeting. Better campaigns create replies. Better reply handling creates meetings.</p></div>
+        <div className="mt-14 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+          {enginePillars.map((pillar) => <article key={pillar.number} className="bg-card p-7 sm:p-9"><div className="flex items-center justify-between"><span className="text-sm font-bold text-primary">{pillar.number}</span><pillar.icon className="h-6 w-6 text-primary" /></div><h3 className="mt-12 font-display text-2xl font-bold">{pillar.title}</h3><p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">{pillar.text}</p></article>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OldWaySection() {
+  return (
+    <section className="section-space dark-grid text-primary-foreground">
+      <div className="page-container">
+        <div className="max-w-3xl"><span className="eyebrow eyebrow-dark">A better operating model</span><h2 className="section-title mt-5">The old way creates more work. The engine creates momentum.</h2></div>
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <article className="border border-ink-border bg-ink-card p-7 sm:p-9"><p className="text-xs font-bold uppercase text-ink-muted">Disconnected outbound</p><h3 className="mt-4 font-display text-2xl font-bold">Tools without an operator</h3><ul className="mt-8 space-y-4 text-sm text-ink-muted">{["Separate vendors for data, inboxes, and campaigns", "Your team troubleshoots deliverability", "Generic lists and one-size-fits-all scripts", "Replies depend on manual follow-up"].map((item) => <li key={item} className="flex gap-3"><XCircle className="h-5 w-5 shrink-0 text-ink-muted" />{item}</li>)}</ul></article>
+          <article className="border border-primary bg-ink-elevated p-7 sm:p-9"><p className="text-xs font-bold uppercase text-brand-light">100K GTM Email Engine</p><h3 className="mt-4 font-display text-2xl font-bold">One managed growth system</h3><ul className="mt-8 space-y-4 text-sm text-ink-muted">{["Infrastructure, lead supply, scripts, and operations aligned", "Deliverability and sending capacity actively managed", "Targeting shaped around your ideal customer profile", "Replies organized around the next sales action"].map((item) => <li key={item} className="flex gap-3"><CircleCheck className="h-5 w-5 shrink-0 text-brand-light" />{item}</li>)}</ul></article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InfrastructureSection() {
+  return (
+    <section className="section-space bg-background">
+      <div className="page-container grid items-center gap-14 lg:grid-cols-2">
+        <div><span className="eyebrow">Built beneath every send</span><h2 className="section-title mt-5">Infrastructure that can carry the campaign.</h2><p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">High-volume outbound only works when the foundation is managed with the same care as the message. We prepare and operate the sending environment before asking it to scale.</p><div className="mt-8"><CtaButton>Discuss Your Infrastructure</CtaButton></div></div>
+        <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">{["Domain setup", "Sender accounts", "Inbox warmup", "Deliverability checks", "Sending rotation", "Ongoing monitoring"].map((item, index) => <div key={item} className="bg-soft p-6"><span className="text-xs font-bold text-primary">0{index + 1}</span><p className="mt-7 font-semibold">{item}</p></div>)}</div>
+      </div>
+    </section>
+  );
+}
+
+function AiWorkflowSection() {
+  return (
+    <section className="section-space bg-soft">
+      <div className="page-container grid gap-14 lg:grid-cols-[.9fr_1.1fr]">
+        <div><span className="eyebrow">AI-assisted operations</span><h2 className="section-title mt-5">Find the right prospects. Understand every reply.</h2><p className="mt-5 leading-relaxed text-muted-foreground">The scraping and reply agents support the repetitive work around prospect discovery and response classification, while the campaign remains focused on qualified business conversations.</p></div>
+        <div className="space-y-3">{[[Target,"Discover","Identify prospects that match the campaign audience."],[Database,"Prepare","Extract, validate, and organize lead data for outreach."],[Mail,"Engage","Run structured email sequences and follow-ups."],[MessageSquareText,"Classify","Separate interest, questions, objections, and non-opportunities."],[CalendarCheck,"Route","Move qualified responses toward the appointment workflow."]].map(([Icon,label,text], index) => { const ItemIcon = Icon as typeof Target; return <div key={String(label)} className="flex items-start gap-5 border border-border bg-card p-5"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-primary-soft text-primary"><ItemIcon className="h-5 w-5" /></span><div><p className="text-xs font-bold text-primary">0{index + 1}</p><h3 className="mt-1 font-bold">{String(label)}</h3><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{String(text)}</p></div></div>})}</div>
+      </div>
+    </section>
+  );
+}
+
 function ProcessSection() {
   return (
     <section id="process" className="section-space bg-background">
@@ -183,6 +273,41 @@ function CommitmentSection() {
         <div><p className="text-sm font-bold uppercase">Our commitment</p><h2 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-6xl">10 high-qualified V2P appointments in 90 days.</h2></div>
         <ul className="space-y-4 border-t border-primary-foreground/30 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">{["We handle the entire GTM system.", "You get qualified appointments.", "You show up, sell, and close."].map((item) => <li key={item} className="flex gap-3 font-semibold"><Check className="h-5 w-5 shrink-0" />{item}</li>)}</ul>
       </div>
+    </section>
+  );
+}
+
+function RoadmapSection() {
+  return (
+    <section className="section-space bg-background">
+      <div className="page-container"><div className="mx-auto max-w-3xl text-center"><span className="eyebrow">The first 90 days</span><h2 className="section-title mt-5">From foundation to a running GTM engine.</h2></div><div className="mt-14 grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">{roadmap.map((item) => <article key={item.phase} className="border-b border-r border-border p-7"><span className="text-xs font-bold uppercase text-primary">{item.phase}</span><h3 className="mt-8 font-display text-xl font-bold">{item.title}</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.text}</p></article>)}</div></div>
+    </section>
+  );
+}
+
+function ValueSection() {
+  return (
+    <section className="section-space dark-grid text-primary-foreground">
+      <div className="page-container grid items-center gap-12 lg:grid-cols-[1.15fr_.85fr]">
+        <div><span className="eyebrow eyebrow-dark">Think beyond cost per email</span><h2 className="section-title mt-5">What is a predictable meeting engine worth to your business?</h2><p className="mt-5 max-w-2xl leading-relaxed text-ink-muted">The useful question is not how cheaply an email can be sent. It is what consistent access to the right buyers can create when your team has a strong offer and a sales process ready to convert demand.</p></div>
+        <div className="border border-ink-border bg-ink-card p-7 sm:p-9"><TrendingUp className="h-8 w-8 text-brand-light" /><p className="mt-8 text-xs font-bold uppercase text-ink-muted">Evaluate the engine against</p><ul className="mt-6 space-y-4">{["Your average client value", "Your current cost to create a sales opportunity", "The time your team spends managing outbound", "The pipeline value of 10 qualified appointments"].map((item) => <li key={item} className="flex gap-3 text-sm"><Check className="h-5 w-5 shrink-0 text-brand-light" />{item}</li>)}</ul></div>
+      </div>
+    </section>
+  );
+}
+
+function FitSection() {
+  return (
+    <section className="section-space bg-background">
+      <div className="page-container grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><span className="eyebrow">Built for the right offer</span><h2 className="section-title mt-5">This engine is not for everyone.</h2><p className="mt-5 leading-relaxed text-muted-foreground">It is designed for businesses prepared to turn qualified conversations into revenue—not teams looking for another passive software subscription.</p></div><div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">{["You sell a clear B2B offer", "Your team can take sales calls", "You know the buyers you want to reach", "You want outbound managed end to end"].map((item) => <div key={item} className="flex min-h-32 items-start gap-4 bg-soft p-6"><CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" /><p className="font-semibold leading-relaxed">{item}</p></div>)}</div></div>
+    </section>
+  );
+}
+
+function IncludedRecapSection() {
+  return (
+    <section className="section-space bg-soft">
+      <div className="page-container"><div className="grid gap-8 lg:grid-cols-2"><div><span className="eyebrow">The complete system</span><h2 className="section-title mt-5">Everything required to operate at scale.</h2></div><p className="max-w-xl self-end leading-relaxed text-muted-foreground">The offer combines infrastructure, data, automation, creative strategy, and ongoing management under one engagement.</p></div><div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{inclusions.map((item) => <div key={item.title} className="flex items-center gap-3 border border-border bg-card p-4"><Check className="h-5 w-5 shrink-0 text-primary" /><span className="text-sm font-semibold">{item.title}</span></div>)}</div><div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-border pt-8 sm:flex-row sm:items-center"><p className="max-w-2xl font-display text-xl font-bold">Ready to see whether the 100K GTM Email Engine fits your offer?</p><CtaButton>Book a Strategy Call</CtaButton></div></div>
     </section>
   );
 }
@@ -217,9 +342,9 @@ function FinalCta() {
 }
 
 function Footer() {
-  return <footer className="border-t border-ink-border bg-ink py-10 text-primary-foreground"><div className="page-container flex flex-col justify-between gap-7 sm:flex-row sm:items-center"><div><Logo inverse /><p className="mt-3 text-sm text-ink-muted">We build brands. We build systems. We build growth.</p></div><div className="flex flex-wrap gap-6 text-sm text-ink-muted"><a href="#system">The System</a><a href="#process">Process</a><a href="#investment">Investment</a><a href="#faq">FAQ</a></div></div></footer>;
+  return <footer className="border-t border-ink-border bg-ink py-10 text-primary-foreground"><div className="page-container flex flex-col justify-between gap-7 sm:flex-row sm:items-center"><div><Logo inverse /><p className="mt-3 text-sm text-ink-muted">We build brands. We build systems. We build growth.</p></div><div className="flex flex-wrap gap-6 text-sm text-ink-muted"><a href="#system">The System</a><a href="#process">Process</a><a href="#investment">Investment</a><a href="#faq">FAQ</a><a href="#strategy-call" className="inline-flex items-center gap-1 text-brand-light">Book a call <ArrowUpRight className="h-4 w-4" /></a></div></div></footer>;
 }
 
 function HomePage() {
-  return <main className="min-h-screen overflow-x-hidden"><Header /><Hero /><OutcomeStrip /><ProblemSection /><IncludedSection /><ProcessSection /><CommitmentSection /><InvestmentSection /><FaqSection /><FinalCta /><Footer /></main>;
+  return <main className="min-h-screen overflow-x-hidden"><Header /><Hero /><OutcomeStrip /><CapabilityStrip /><ProblemSection /><PipelineSection /><IncludedSection /><EnginePillarsSection /><OldWaySection /><InfrastructureSection /><AiWorkflowSection /><ProcessSection /><CommitmentSection /><RoadmapSection /><ValueSection /><InvestmentSection /><FitSection /><IncludedRecapSection /><FaqSection /><FinalCta /><Footer /></main>;
 }
