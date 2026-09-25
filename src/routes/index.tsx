@@ -168,10 +168,9 @@ function Hero() {
       <div className="page-container relative flex flex-col items-center text-center">
         <span className="eyebrow eyebrow-dark"><Rocket className="h-3.5 w-3.5 text-primary" /> You don&apos;t need more software. You need more meetings.</span>
         
-        {/* Scaled Headline exactly matching linkedin.brndguru.com */}
-        <h1 className="font-hero mt-7 max-w-5xl text-[2.35rem] leading-[1.15] font-black tracking-tight text-primary-foreground sm:text-[3.25rem] sm:leading-[1.08] md:text-6xl lg:text-[4.25rem]">
-          We Build Your <span className="inline-block rounded-xl bg-primary px-3 py-1 text-primary-foreground sm:px-4 font-black">100K Email GTM</span>{" "}
-          <span className="inline-block rounded-xl bg-primary px-3 py-1 text-primary-foreground sm:px-4 font-black">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light font-black">Guesswork.</span>
+        <h1 className="font-hero mt-7 max-w-5xl text-[clamp(2.7rem,7vw,6rem)] font-black leading-[1.08]">
+          We Build Your <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
+          <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
         </h1>
 
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
