@@ -2,9 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
   ArrowUpRight,
+  BadgeCheck,
   Bot,
   BriefcaseBusiness,
   Building2,
+  Calendar,
   CalendarCheck,
   Check,
   ChevronDown,
@@ -19,11 +21,13 @@ import {
   Settings2,
   ShieldCheck,
   Sparkles,
+  Star,
   Target,
   TrendingUp,
   Users,
   X,
   XCircle,
+  Zap,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
@@ -79,6 +83,21 @@ const roadmap = [
   { phase: "Days 61–90", title: "Scale qualified conversations", text: "Keep the system running at capacity while routing qualified interest toward your calendar and sales process." },
 ];
 
+const volumeTiers = [
+  { volume: "25,000", inboxes: 25, leads: "15,000", meetings: "5–8", label: "25k / mo" },
+  { volume: "50,000", inboxes: 50, leads: "30,000", meetings: "8–12", label: "50k / mo" },
+  { volume: "100,000", inboxes: 100, leads: "60,000", meetings: "10–20", label: "100k / mo" },
+  { volume: "150,000", inboxes: 150, leads: "90,000", meetings: "20–35", label: "150k / mo" },
+  { volume: "200,000", inboxes: 200, leads: "120,000", meetings: "35–50+", label: "200k / mo" },
+];
+
+const industries = [
+  { name: "B2B SaaS", icon: Sparkles, desc: "High-LTV outbound targeting founders, VPs of Sales, and CTOs with zero deliverability friction." },
+  { name: "Agencies & Dev", icon: BriefcaseBusiness, desc: "Predictable client acquisition reaching decision-makers ready for specialized agency services." },
+  { name: "Consulting & Advisory", icon: TrendingUp, desc: "Personalized executive outreach that fills partners' calendars with qualified discovery calls." },
+  { name: "Enterprise Tech", icon: Building2, desc: "Multi-touch account-based sequences targeting buying committees across mid-market & enterprise." },
+];
+
 const faqs = [
   { question: "What does the 100K number mean?", answer: "The system is designed with capacity for up to 100,000 outbound emails each month, supported by 100,000 monthly email credits." },
   { question: "What result are you committing to?", answer: "The offer commits to 10 high-qualified V2P appointments within 90 days while we handle the GTM system." },
@@ -89,8 +108,8 @@ const faqs = [
 
 function CtaButton({ children = "Book a Strategy Call", inverse = false }: { children?: ReactNode; inverse?: boolean }) {
   return (
-    <Button asChild size="lg" variant={inverse ? "secondary" : "default"} className="h-12 rounded-md px-7 font-bold shadow-soft">
-      <a href="#strategy-call">{children}<ArrowRight /></a>
+    <Button asChild size="lg" variant={inverse ? "secondary" : "default"} className="h-12 rounded-xl px-7 font-display font-bold shadow-soft transition-all duration-300 hover:-translate-y-0.5">
+      <a href="#strategy-call">{children}<ArrowRight className="size-4" /></a>
     </Button>
   );
 }
@@ -98,10 +117,10 @@ function CtaButton({ children = "Book a Strategy Call", inverse = false }: { chi
 function Logo({ inverse = false }: { inverse?: boolean }) {
   return (
     <a href="#top" className={`flex items-center gap-2.5 ${inverse ? "text-primary-foreground" : "text-foreground"}`} aria-label="BrndGuru home">
-      <img src={brndGuruLogo.url} alt="" className="h-10 w-10 object-contain" />
-      <span className="flex flex-col">
-        <span className="font-display text-sm font-bold sm:text-base">BRND GURU</span>
-        <span className="mt-0.5 text-[9px] font-bold uppercase text-primary">GTM Infrastructure</span>
+      <img src={brndGuruLogo.url} alt="" className="h-9 w-9 object-contain" />
+      <span className="flex flex-col leading-none">
+        <span className="font-display text-sm font-bold tracking-tight sm:text-base">BRND GURU</span>
+        <span className="mt-0.5 text-[9px] font-bold uppercase tracking-widest text-primary">GTM Infrastructure</span>
       </span>
     </a>
   );
@@ -111,32 +130,32 @@ function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="border-b border-ink-border bg-ink-card px-4 py-2.5 text-center text-[10px] font-bold uppercase text-primary-foreground sm:text-xs">
-        <span className="text-primary">⚡</span> Early-bird pricing ends soon <span className="ml-2 text-brand-light">Limited onboarding spots</span>
+      <div className="border-b border-ink-border bg-ink-card px-4 py-2 text-center text-[10px] font-bold uppercase tracking-wider text-primary-foreground sm:text-xs">
+        <span className="text-primary">⚡</span> Early-bird pricing ends soon <span className="ml-2 text-brand-light">✦ Limited onboarding spots</span>
       </div>
-      <header className="sticky top-0 z-50 border-b border-ink-border bg-ink/95 backdrop-blur-md">
-        <div className="page-container flex h-18 items-center justify-between">
-        <Logo inverse />
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#system">Why GTM Email</a>
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#process">How It Works</a>
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#system">What&apos;s Included</a>
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#investment">Pricing</a>
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href="#faq">FAQ</a>
-          <CtaButton>Book a Call</CtaButton>
-        </nav>
-        <Button type="button" variant="outline" size="icon" className="border-ink-border bg-ink-card text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
-          {open ? <X /> : <Menu />}
-        </Button>
-      </div>
-      {open && (
-        <nav className="border-t border-ink-border bg-ink px-5 py-5 lg:hidden" aria-label="Mobile navigation">
-          <div className="flex flex-col gap-5">
-            {[['Why GTM Email', '#system'], ['How It Works', '#process'], ["What's Included", '#system'], ['Pricing', '#investment'], ['FAQ', '#faq']].map(([label, href]) => <a key={label} className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href={href} onClick={() => setOpen(false)}>{label}</a>)}
+      <header className="sticky top-0 z-50 border-b border-ink-border bg-ink/95 backdrop-blur-md transition-all duration-300">
+        <div className="page-container flex h-16 items-center justify-between">
+          <Logo inverse />
+          <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
+            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#system">The System</a>
+            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#calculator">ROI Calculator</a>
+            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#process">Process</a>
+            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#investment">Pricing</a>
+            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#faq">FAQ</a>
             <CtaButton>Book a Call</CtaButton>
-          </div>
-        </nav>
-      )}
+          </nav>
+          <Button type="button" variant="outline" size="icon" className="border-ink-border bg-ink-card text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
+            {open ? <X className="size-4" /> : <Menu className="size-4" />}
+          </Button>
+        </div>
+        {open && (
+          <nav className="border-t border-ink-border bg-ink px-5 py-5 lg:hidden" aria-label="Mobile navigation">
+            <div className="flex flex-col gap-4">
+              {[['The System', '#system'], ['ROI Calculator', '#calculator'], ['Process', '#process'], ['Pricing', '#investment'], ['FAQ', '#faq']].map(([label, href]) => <a key={label} className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href={href} onClick={() => setOpen(false)}>{label}</a>)}
+              <CtaButton>Book a Call</CtaButton>
+            </div>
+          </nav>
+        )}
       </header>
     </>
   );
@@ -145,21 +164,119 @@ function Header() {
 function Hero() {
   return (
     <section id="top" className="dark-grid relative overflow-hidden border-b border-ink-border py-12 text-primary-foreground sm:py-16 lg:py-20">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_42%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,color-mix(in_oklab,var(--primary)_12%,transparent),transparent_48%)]" />
       <div className="page-container relative flex flex-col items-center text-center">
-        <span className="eyebrow eyebrow-dark"><Rocket className="h-3.5 w-3.5" /> You don&apos;t need more software. You need more meetings.</span>
-        <h1 className="font-hero mt-7 max-w-5xl text-[clamp(2.7rem,7vw,6rem)] font-black leading-[1.08]">
-          We Build Your <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
-          <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
+        <span className="eyebrow eyebrow-dark"><Rocket className="h-3.5 w-3.5 text-primary" /> You don&apos;t need more software. You need more meetings.</span>
+        
+        {/* Refined, Balanced Headline matching linkedin.brndguru.com scale */}
+        <h1 className="font-hero mt-6 max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] tracking-tight">
+          We Build Your <span className="inline-block rounded-lg bg-primary px-2.5 py-0.5 text-primary-foreground sm:px-3 font-extrabold">100K Email GTM</span>{" "}
+          <span className="inline-block rounded-lg bg-primary px-2.5 py-0.5 text-primary-foreground sm:px-3 font-extrabold">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light font-extrabold">Guesswork.</span>
         </h1>
-        <p className="mt-7 max-w-3xl text-base leading-relaxed text-ink-muted sm:text-lg">
-          One partner builds your complete outbound email infrastructure—targeting, lead supply, campaigns, AI-assisted replies, and optimization—<strong className="text-primary-foreground">then runs it for you, every single day.</strong>
+
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
+          One partner builds your complete outbound email infrastructure—targeting, lead supply, campaigns, AI-assisted replies, and optimization—<strong className="text-primary-foreground font-semibold">then runs it for you, every single day.</strong>
         </p>
-        <div className="mt-8 flex max-w-xl items-start gap-3 rounded-md border border-success/40 bg-ink-card/90 px-5 py-4 text-left shadow-soft">
+
+        {/* Commitment Badge */}
+        <div className="mt-6 flex max-w-lg items-start gap-3 rounded-xl border border-success/40 bg-ink-card/90 px-5 py-3.5 text-left shadow-soft transition-transform hover:scale-[1.01]">
           <CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-success" />
           <div>
-            <strong className="block text-sm sm:text-base">10 High-Qualified V2P Appointments in 90 Days</strong>
-            <span className="mt-1 block text-xs text-ink-muted sm:text-sm">We handle the complete engine while you focus on selling and closing.</span>
+            <strong className="block text-sm sm:text-base font-display">10 High-Qualified V2P Appointments in 90 Days</strong>
+            <span className="mt-0.5 block text-xs text-ink-muted sm:text-sm">We handle the complete engine while you focus on selling and closing.</span>
+          </div>
+        </div>
+
+        {/* Hero CTA & Trust Metrics */}
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+          <CtaButton>Book Your Strategy Call</CtaButton>
+          <Button asChild variant="outline" size="lg" className="h-12 rounded-xl border-ink-border bg-ink-card px-6 font-display font-semibold text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground">
+            <a href="#calculator">Calculate Pipeline ROI <TrendingUp className="ml-2 size-4" /></a>
+          </Button>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-muted">
+          <span className="flex items-center gap-1.5"><CircleCheck className="size-3.5 text-success" /> Setup in 7–14 Days</span>
+          <span className="flex items-center gap-1.5"><CircleCheck className="size-3.5 text-success" /> Done-for-you execution</span>
+          <span className="flex items-center gap-1.5"><CircleCheck className="size-3.5 text-success" /> No long-term lock-in</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function VolumeSliderSection() {
+  const [tierIndex, setTierIndex] = useState(2);
+  const currentTier = volumeTiers[tierIndex];
+
+  return (
+    <section id="calculator" className="border-b border-ink-border bg-ink-card py-12 text-primary-foreground sm:py-16">
+      <div className="page-container max-w-4xl">
+        <div className="text-center">
+          <span className="eyebrow eyebrow-dark">Interactive Pipeline Calculator</span>
+          <h2 className="font-display mt-4 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+            See What Managed Outbound Volume Delivers
+          </h2>
+          <p className="mt-2 text-sm sm:text-base text-ink-muted">
+            Drag the slider to adjust monthly sending volume and view real-time engine capacity.
+          </p>
+        </div>
+
+        {/* Slider Card */}
+        <div className="mt-8 rounded-2xl border border-ink-border bg-ink p-6 sm:p-8 shadow-card">
+          <div className="flex items-center justify-between gap-4">
+            <span className="font-display text-sm sm:text-base font-semibold text-ink-muted">Monthly Sending Volume</span>
+            <span className="font-display text-xl sm:text-2xl font-bold text-primary tabular-nums">
+              {currentTier.volume} <span className="text-xs font-normal text-ink-muted">emails/mo</span>
+            </span>
+          </div>
+
+          <input
+            type="range"
+            min="0"
+            max="4"
+            step="1"
+            value={tierIndex}
+            onChange={(e) => setTierIndex(Number(e.target.value))}
+            className="range-input"
+            aria-label="Monthly sending volume slider"
+          />
+
+          <div className="mt-3 flex justify-between text-xs font-display font-medium text-ink-muted">
+            {volumeTiers.map((t, idx) => (
+              <button
+                key={t.label}
+                type="button"
+                onClick={() => setTierIndex(idx)}
+                className={`cursor-pointer transition-colors ${idx === tierIndex ? "font-bold text-primary" : "hover:text-primary-foreground"}`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Dynamic Metrics Row */}
+          <div className="mt-8 grid grid-cols-2 gap-4 border-t border-ink-border pt-6 sm:grid-cols-4">
+            <div className="rounded-xl border border-ink-border bg-ink-elevated p-4 text-center">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Dedicated Inboxes</p>
+              <strong className="mt-1 block font-display text-2xl font-bold text-primary-foreground">{currentTier.inboxes}</strong>
+              <span className="text-[10px] text-ink-muted">Warmed & Rotated</span>
+            </div>
+            <div className="rounded-xl border border-ink-border bg-ink-elevated p-4 text-center">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Verified Prospects</p>
+              <strong className="mt-1 block font-display text-2xl font-bold text-brand-light">{currentTier.leads}</strong>
+              <span className="text-[10px] text-ink-muted">Zero-Bounce Target</span>
+            </div>
+            <div className="rounded-xl border border-ink-border bg-ink-elevated p-4 text-center">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Est. Booked Calls</p>
+              <strong className="mt-1 block font-display text-2xl font-bold text-success">{currentTier.meetings}</strong>
+              <span className="text-[10px] text-ink-muted">Per Quarter</span>
+            </div>
+            <div className="rounded-xl border border-ink-border bg-ink-elevated p-4 text-center">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Management</p>
+              <strong className="mt-1 block font-display text-2xl font-bold text-primary">100%</strong>
+              <span className="text-[10px] text-ink-muted">Fully Done For You</span>
+            </div>
           </div>
         </div>
       </div>
@@ -168,14 +285,45 @@ function Hero() {
 }
 
 function OutcomeStrip() {
-  return <section className="border-y border-border bg-soft"><div className="page-container grid gap-px bg-border sm:grid-cols-3">{[["100K", "monthly email capacity"], ["10", "qualified appointments"], ["90 days", "result commitment"]].map(([value, label]) => <div key={label} className="bg-soft px-6 py-7 text-center"><strong className="font-display text-3xl text-primary">{value}</strong><span className="mt-1 block text-xs font-semibold uppercase text-muted-foreground">{label}</span></div>)}</div></section>;
+  return (
+    <section className="border-y border-border bg-soft">
+      <div className="page-container grid gap-px bg-border sm:grid-cols-3">
+        {[
+          ["100K", "monthly email capacity"],
+          ["10", "guaranteed qualified appointments"],
+          ["90 days", "result commitment"],
+        ].map(([value, label]) => (
+          <div key={label} className="bg-soft px-6 py-7 text-center transition-colors hover:bg-card">
+            <strong className="font-display text-3xl font-bold text-primary">{value}</strong>
+            <span className="mt-1 block text-xs font-semibold uppercase text-muted-foreground">{label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function CapabilityStrip() {
+  const capabilities = [
+    "Lead Intelligence",
+    "Email Infrastructure",
+    "GTM Scripting",
+    "Reply Management",
+    "Campaign Optimization",
+    "Multi-Inbox Warmup",
+    "AI Scraping Agent",
+    "AI Reply Agent",
+  ];
+
   return (
-    <section aria-label="Core capabilities" className="overflow-hidden border-b border-border bg-background py-5">
-      <div className="page-container flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-bold uppercase text-muted-foreground sm:justify-between">
-        {["Lead intelligence", "Email infrastructure", "GTM scripting", "Reply management", "Campaign optimization"].map((item) => <span key={item} className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-primary" />{item}</span>)}
+    <section aria-label="Core capabilities" className="overflow-hidden border-b border-border bg-background py-4">
+      <div className="animate-marquee flex gap-8 items-center">
+        {[...capabilities, ...capabilities].map((item, i) => (
+          <span key={i} className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-muted-foreground whitespace-nowrap">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            {item}
+          </span>
+        ))}
       </div>
     </section>
   );
@@ -185,9 +333,17 @@ function ProblemSection() {
   return (
     <section className="section-space bg-background">
       <div className="page-container grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
-        <div><span className="eyebrow">The real problem</span><h2 className="section-title mt-5">Your offer isn&apos;t stalled. Your outbound system is.</h2></div>
-        <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">
-          {["Inconsistent prospecting", "Fragile email infrastructure", "Generic scripts and targeting", "Replies slipping through the cracks"].map((item) => <div key={item} className="flex min-h-32 items-start gap-4 bg-card p-6"><XCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" /><p className="font-semibold leading-relaxed">{item}</p></div>)}
+        <div>
+          <span className="eyebrow">The real problem</span>
+          <h2 className="section-title mt-5">Your offer isn&apos;t stalled. Your outbound system is.</h2>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {["Inconsistent prospecting", "Fragile email infrastructure", "Generic scripts and targeting", "Replies slipping through the cracks"].map((item) => (
+            <div key={item} className="flex min-h-28 items-start gap-4 rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40">
+              <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <p className="font-semibold leading-relaxed">{item}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -198,9 +354,21 @@ function IncludedSection() {
   return (
     <section id="system" className="section-space dark-grid text-primary-foreground">
       <div className="page-container">
-        <div className="max-w-3xl"><span className="eyebrow eyebrow-dark">Everything included</span><h2 className="section-title mt-5">One engine. Every moving part managed.</h2><p className="mt-5 max-w-2xl leading-relaxed text-ink-muted">Data, infrastructure, campaigns, replies, and optimization work as one managed growth system—not another collection of tools for your team to operate.</p></div>
-        <div className="mt-12 grid border-l border-t border-ink-border sm:grid-cols-2 lg:grid-cols-3">
-          {inclusions.map((item) => <article key={item.title} className="border-b border-r border-ink-border bg-ink/80 p-6 transition-colors hover:bg-ink-card"><item.icon className="h-6 w-6 text-brand-light" /><h3 className="mt-8 font-display text-base font-bold">{item.title}</h3><p className="mt-3 text-sm leading-relaxed text-ink-muted">{item.text}</p></article>)}
+        <div className="max-w-3xl">
+          <span className="eyebrow eyebrow-dark">Everything included</span>
+          <h2 className="section-title mt-5">One engine. Every moving part managed.</h2>
+          <p className="mt-5 max-w-2xl leading-relaxed text-ink-muted">
+            Data, infrastructure, campaigns, replies, and optimization work as one managed growth system—not another collection of tools for your team to operate.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {inclusions.map((item) => (
+            <article key={item.title} className="rounded-xl border border-ink-border bg-ink/80 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-ink-card hover:border-primary/50">
+              <item.icon className="h-6 w-6 text-brand-light" />
+              <h3 className="mt-6 font-display text-base font-bold">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">{item.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -211,9 +379,21 @@ function PipelineSection() {
   return (
     <section className="section-space bg-soft">
       <div className="page-container">
-        <div className="mx-auto max-w-3xl text-center"><span className="eyebrow">Your pipeline, end to end</span><h2 className="section-title mt-5">One connected path from market to meeting.</h2><p className="mt-5 leading-relaxed text-muted-foreground">Instead of piecing together software, data, domains, copy, and operators, you get one managed system with a single outcome.</p></div>
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow">Your pipeline, end to end</span>
+          <h2 className="section-title mt-5">One connected path from market to meeting.</h2>
+          <p className="mt-5 leading-relaxed text-muted-foreground">
+            Instead of piecing together software, data, domains, copy, and operators, you get one managed system with a single outcome.
+          </p>
+        </div>
         <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-5">
-          {["Define the ICP", "Build lead segments", "Launch campaigns", "Manage replies", "Book meetings"].map((item, index) => <div key={item} className="relative bg-card p-6"><span className="text-xs font-bold text-primary">0{index + 1}</span><p className="mt-8 font-display font-bold">{item}</p>{index < 4 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 rounded-full bg-primary p-1 text-primary-foreground md:block" />}</div>)}
+          {["Define the ICP", "Build lead segments", "Launch campaigns", "Manage replies", "Book meetings"].map((item, index) => (
+            <div key={item} className="relative bg-card p-6 transition-colors hover:bg-primary-soft/20">
+              <span className="text-xs font-bold text-primary">0{index + 1}</span>
+              <p className="mt-8 font-display font-bold">{item}</p>
+              {index < 4 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 rounded-full bg-primary p-1 text-primary-foreground md:block" />}
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -224,9 +404,26 @@ function EnginePillarsSection() {
   return (
     <section className="section-space bg-background">
       <div className="page-container">
-        <div className="grid gap-8 lg:grid-cols-[.85fr_1.15fr]"><div><span className="eyebrow">Four parts. One job.</span><h2 className="section-title mt-5">Build a dependable source of qualified conversations.</h2></div><p className="max-w-xl self-end leading-relaxed text-muted-foreground">Every layer supports the next. Better infrastructure protects deliverability. Better data sharpens targeting. Better campaigns create replies. Better reply handling creates meetings.</p></div>
-        <div className="mt-14 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
-          {enginePillars.map((pillar) => <article key={pillar.number} className="bg-card p-7 sm:p-9"><div className="flex items-center justify-between"><span className="text-sm font-bold text-primary">{pillar.number}</span><pillar.icon className="h-6 w-6 text-primary" /></div><h3 className="mt-12 font-display text-2xl font-bold">{pillar.title}</h3><p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">{pillar.text}</p></article>)}
+        <div className="grid gap-8 lg:grid-cols-[.85fr_1.15fr]">
+          <div>
+            <span className="eyebrow">Four parts. One job.</span>
+            <h2 className="section-title mt-5">Build a dependable source of qualified conversations.</h2>
+          </div>
+          <p className="max-w-xl self-end leading-relaxed text-muted-foreground">
+            Every layer supports the next. Better infrastructure protects deliverability. Better data sharpens targeting. Better campaigns create replies. Better reply handling creates meetings.
+          </p>
+        </div>
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {enginePillars.map((pillar) => (
+            <article key={pillar.number} className="rounded-2xl border border-border bg-card p-7 sm:p-9 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold text-primary">{pillar.number}</span>
+                <pillar.icon className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="mt-8 font-display text-2xl font-bold">{pillar.title}</h3>
+              <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">{pillar.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -237,10 +434,29 @@ function OldWaySection() {
   return (
     <section className="section-space dark-grid text-primary-foreground">
       <div className="page-container">
-        <div className="max-w-3xl"><span className="eyebrow eyebrow-dark">A better operating model</span><h2 className="section-title mt-5">The old way creates more work. The engine creates momentum.</h2></div>
+        <div className="max-w-3xl">
+          <span className="eyebrow eyebrow-dark">A better operating model</span>
+          <h2 className="section-title mt-5">The old way creates more work. The engine creates momentum.</h2>
+        </div>
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          <article className="border border-ink-border bg-ink-card p-7 sm:p-9"><p className="text-xs font-bold uppercase text-ink-muted">Disconnected outbound</p><h3 className="mt-4 font-display text-2xl font-bold">Tools without an operator</h3><ul className="mt-8 space-y-4 text-sm text-ink-muted">{["Separate vendors for data, inboxes, and campaigns", "Your team troubleshoots deliverability", "Generic lists and one-size-fits-all scripts", "Replies depend on manual follow-up"].map((item) => <li key={item} className="flex gap-3"><XCircle className="h-5 w-5 shrink-0 text-ink-muted" />{item}</li>)}</ul></article>
-          <article className="border border-primary bg-ink-elevated p-7 sm:p-9"><p className="text-xs font-bold uppercase text-brand-light">100K GTM Email Engine</p><h3 className="mt-4 font-display text-2xl font-bold">One managed growth system</h3><ul className="mt-8 space-y-4 text-sm text-ink-muted">{["Infrastructure, lead supply, scripts, and operations aligned", "Deliverability and sending capacity actively managed", "Targeting shaped around your ideal customer profile", "Replies organized around the next sales action"].map((item) => <li key={item} className="flex gap-3"><CircleCheck className="h-5 w-5 shrink-0 text-brand-light" />{item}</li>)}</ul></article>
+          <article className="rounded-2xl border border-ink-border bg-ink-card p-7 sm:p-9">
+            <p className="text-xs font-bold uppercase text-ink-muted">Disconnected outbound</p>
+            <h3 className="mt-4 font-display text-2xl font-bold">Tools without an operator</h3>
+            <ul className="mt-8 space-y-4 text-sm text-ink-muted">
+              {["Separate vendors for data, inboxes, and campaigns", "Your team troubleshoots deliverability", "Generic lists and one-size-fits-all scripts", "Replies depend on manual follow-up"].map((item) => (
+                <li key={item} className="flex gap-3"><XCircle className="h-5 w-5 shrink-0 text-ink-muted" />{item}</li>
+              ))}
+            </ul>
+          </article>
+          <article className="rounded-2xl border border-primary bg-ink-elevated p-7 sm:p-9 shadow-soft">
+            <p className="text-xs font-bold uppercase text-brand-light">100K GTM Email Engine</p>
+            <h3 className="mt-4 font-display text-2xl font-bold">One managed growth system</h3>
+            <ul className="mt-8 space-y-4 text-sm text-ink-muted">
+              {["Infrastructure, lead supply, scripts, and operations aligned", "Deliverability and sending capacity actively managed", "Targeting shaped around your ideal customer profile", "Replies organized around the next sales action"].map((item) => (
+                <li key={item} className="flex gap-3"><CircleCheck className="h-5 w-5 shrink-0 text-brand-light" />{item}</li>
+              ))}
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -251,8 +467,22 @@ function InfrastructureSection() {
   return (
     <section className="section-space bg-background">
       <div className="page-container grid items-center gap-14 lg:grid-cols-2">
-        <div><span className="eyebrow">Built beneath every send</span><h2 className="section-title mt-5">Infrastructure that can carry the campaign.</h2><p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">High-volume outbound only works when the foundation is managed with the same care as the message. We prepare and operate the sending environment before asking it to scale.</p><div className="mt-8"><CtaButton>Discuss Your Infrastructure</CtaButton></div></div>
-        <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">{["Domain setup", "Sender accounts", "Inbox warmup", "Deliverability checks", "Sending rotation", "Ongoing monitoring"].map((item, index) => <div key={item} className="bg-soft p-6"><span className="text-xs font-bold text-primary">0{index + 1}</span><p className="mt-7 font-semibold">{item}</p></div>)}</div>
+        <div>
+          <span className="eyebrow">Built beneath every send</span>
+          <h2 className="section-title mt-5">Infrastructure that can carry the campaign.</h2>
+          <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
+            High-volume outbound only works when the foundation is managed with the same care as the message. We prepare and operate the sending environment before asking it to scale.
+          </p>
+          <div className="mt-8"><CtaButton>Discuss Your Infrastructure</CtaButton></div>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {["Domain setup", "Sender accounts", "Inbox warmup", "Deliverability checks", "Sending rotation", "Ongoing monitoring"].map((item, index) => (
+            <div key={item} className="rounded-xl border border-border bg-soft p-5 transition-transform hover:-translate-y-0.5">
+              <span className="text-xs font-bold text-primary">0{index + 1}</span>
+              <p className="mt-4 font-semibold">{item}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -262,8 +492,36 @@ function AiWorkflowSection() {
   return (
     <section className="section-space bg-soft">
       <div className="page-container grid gap-14 lg:grid-cols-[.9fr_1.1fr]">
-        <div><span className="eyebrow">AI-assisted operations</span><h2 className="section-title mt-5">Find the right prospects. Understand every reply.</h2><p className="mt-5 leading-relaxed text-muted-foreground">The scraping and reply agents support the repetitive work around prospect discovery and response classification, while the campaign remains focused on qualified business conversations.</p></div>
-        <div className="space-y-3">{[[Target,"Discover","Identify prospects that match the campaign audience."],[Database,"Prepare","Extract, validate, and organize lead data for outreach."],[Mail,"Engage","Run structured email sequences and follow-ups."],[MessageSquareText,"Classify","Separate interest, questions, objections, and non-opportunities."],[CalendarCheck,"Route","Move qualified responses toward the appointment workflow."]].map(([Icon,label,text], index) => { const ItemIcon = Icon as typeof Target; return <div key={String(label)} className="flex items-start gap-5 border border-border bg-card p-5"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-primary-soft text-primary"><ItemIcon className="h-5 w-5" /></span><div><p className="text-xs font-bold text-primary">0{index + 1}</p><h3 className="mt-1 font-bold">{String(label)}</h3><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{String(text)}</p></div></div>})}</div>
+        <div>
+          <span className="eyebrow">AI-assisted operations</span>
+          <h2 className="section-title mt-5">Find the right prospects. Understand every reply.</h2>
+          <p className="mt-5 leading-relaxed text-muted-foreground">
+            The scraping and reply agents support the repetitive work around prospect discovery and response classification, while the campaign remains focused on qualified business conversations.
+          </p>
+        </div>
+        <div className="space-y-3">
+          {[
+            [Target, "Discover", "Identify prospects that match the campaign audience."],
+            [Database, "Prepare", "Extract, validate, and organize lead data for outreach."],
+            [Mail, "Engage", "Run structured email sequences and follow-ups."],
+            [MessageSquareText, "Classify", "Separate interest, questions, objections, and non-opportunities."],
+            [CalendarCheck, "Route", "Move qualified responses toward the appointment workflow."],
+          ].map(([Icon, label, text], index) => {
+            const ItemIcon = Icon as typeof Target;
+            return (
+              <div key={String(label)} className="flex items-start gap-5 rounded-xl border border-border bg-card p-5 shadow-sm transition-transform hover:-translate-y-0.5">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary-soft text-primary">
+                  <ItemIcon className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-xs font-bold text-primary">0{index + 1}</p>
+                  <h3 className="mt-1 font-bold">{String(label)}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{String(text)}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -272,7 +530,26 @@ function AiWorkflowSection() {
 function ProcessSection() {
   return (
     <section id="process" className="section-space bg-background">
-      <div className="page-container"><div className="grid gap-8 lg:grid-cols-2"><div><span className="eyebrow">Our end-to-end process</span><h2 className="section-title mt-5">From cold list to qualified meeting.</h2></div><p className="max-w-xl self-end leading-relaxed text-muted-foreground">We own the operational work between your offer and your next sales conversation, so your team stays focused on revenue.</p></div><div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-4">{steps.map((step) => <article key={step.number} className="bg-card p-7"><span className="text-sm font-bold text-primary">{step.number}</span><h3 className="mt-12 font-display text-xl font-bold">{step.title}</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{step.text}</p></article>)}</div></div>
+      <div className="page-container">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div>
+            <span className="eyebrow">Our end-to-end process</span>
+            <h2 className="section-title mt-5">From cold list to qualified meeting.</h2>
+          </div>
+          <p className="max-w-xl self-end leading-relaxed text-muted-foreground">
+            We own the operational work between your offer and your next sales conversation, so your team stays focused on revenue.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-4">
+          {steps.map((step) => (
+            <article key={step.number} className="rounded-2xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40">
+              <span className="text-sm font-bold text-primary">{step.number}</span>
+              <h3 className="mt-8 font-display text-xl font-bold">{step.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
@@ -281,8 +558,17 @@ function CommitmentSection() {
   return (
     <section className="orange-grid py-20 text-primary-foreground">
       <div className="page-container grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
-        <div><p className="text-sm font-bold uppercase">Our commitment</p><h2 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-6xl">10 high-qualified V2P appointments in 90 days.</h2></div>
-        <ul className="space-y-4 border-t border-primary-foreground/30 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">{["We handle the entire GTM system.", "You get qualified appointments.", "You show up, sell, and close."].map((item) => <li key={item} className="flex gap-3 font-semibold"><Check className="h-5 w-5 shrink-0" />{item}</li>)}</ul>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/80">Our commitment</p>
+          <h2 className="mt-4 max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl">
+            10 high-qualified V2P appointments in 90 days.
+          </h2>
+        </div>
+        <ul className="space-y-4 border-t border-primary-foreground/30 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+          {["We handle the entire GTM system.", "You get qualified appointments.", "You show up, sell, and close."].map((item) => (
+            <li key={item} className="flex gap-3 font-semibold"><Check className="h-5 w-5 shrink-0" />{item}</li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -291,34 +577,70 @@ function CommitmentSection() {
 function RoadmapSection() {
   return (
     <section className="section-space bg-background">
-      <div className="page-container"><div className="mx-auto max-w-3xl text-center"><span className="eyebrow">The first 90 days</span><h2 className="section-title mt-5">From foundation to a running GTM engine.</h2></div><div className="mt-14 grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">{roadmap.map((item) => <article key={item.phase} className="border-b border-r border-border p-7"><span className="text-xs font-bold uppercase text-primary">{item.phase}</span><h3 className="mt-8 font-display text-xl font-bold">{item.title}</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.text}</p></article>)}</div></div>
-    </section>
-  );
-}
-
-function ValueSection() {
-  return (
-    <section className="section-space dark-grid text-primary-foreground">
-      <div className="page-container grid items-center gap-12 lg:grid-cols-[1.15fr_.85fr]">
-        <div><span className="eyebrow eyebrow-dark">Think beyond cost per email</span><h2 className="section-title mt-5">What is a predictable meeting engine worth to your business?</h2><p className="mt-5 max-w-2xl leading-relaxed text-ink-muted">The useful question is not how cheaply an email can be sent. It is what consistent access to the right buyers can create when your team has a strong offer and a sales process ready to convert demand.</p></div>
-        <div className="border border-ink-border bg-ink-card p-7 sm:p-9"><TrendingUp className="h-8 w-8 text-brand-light" /><p className="mt-8 text-xs font-bold uppercase text-ink-muted">Evaluate the engine against</p><ul className="mt-6 space-y-4">{["Your average client value", "Your current cost to create a sales opportunity", "The time your team spends managing outbound", "The pipeline value of 10 qualified appointments"].map((item) => <li key={item} className="flex gap-3 text-sm"><Check className="h-5 w-5 shrink-0 text-brand-light" />{item}</li>)}</ul></div>
+      <div className="page-container">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow">The first 90 days</span>
+          <h2 className="section-title mt-5">From foundation to a running GTM engine.</h2>
+        </div>
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {roadmap.map((item) => (
+            <article key={item.phase} className="rounded-2xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40">
+              <span className="text-xs font-bold uppercase text-primary">{item.phase}</span>
+              <h3 className="mt-5 font-display text-xl font-bold">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
 function FitSection() {
+  const [selectedIndustry, setSelectedIndustry] = useState(0);
+
   return (
     <section className="section-space bg-background">
-      <div className="page-container grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><span className="eyebrow">Built for the right offer</span><h2 className="section-title mt-5">This engine is not for everyone.</h2><p className="mt-5 leading-relaxed text-muted-foreground">It is designed for businesses prepared to turn qualified conversations into revenue—not teams looking for another passive software subscription.</p></div><div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">{["You sell a clear B2B offer", "Your team can take sales calls", "You know the buyers you want to reach", "You want outbound managed end to end"].map((item) => <div key={item} className="flex min-h-32 items-start gap-4 bg-soft p-6"><CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" /><p className="font-semibold leading-relaxed">{item}</p></div>)}</div></div>
-    </section>
-  );
-}
+      <div className="page-container">
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] items-end">
+          <div>
+            <span className="eyebrow">Built for the right offer</span>
+            <h2 className="section-title mt-5">This engine is engineered for B2B models.</h2>
+          </div>
+          <p className="leading-relaxed text-muted-foreground">
+            Explore how our multi-inbox outbound system creates pipeline across target market segments.
+          </p>
+        </div>
 
-function IncludedRecapSection() {
-  return (
-    <section className="section-space bg-soft">
-      <div className="page-container"><div className="grid gap-8 lg:grid-cols-2"><div><span className="eyebrow">The complete system</span><h2 className="section-title mt-5">Everything required to operate at scale.</h2></div><p className="max-w-xl self-end leading-relaxed text-muted-foreground">The offer combines infrastructure, data, automation, creative strategy, and ongoing management under one engagement.</p></div><div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{inclusions.map((item) => <div key={item.title} className="flex items-center gap-3 border border-border bg-card p-4"><Check className="h-5 w-5 shrink-0 text-primary" /><span className="text-sm font-semibold">{item.title}</span></div>)}</div><div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-border pt-8 sm:flex-row sm:items-center"><p className="max-w-2xl font-display text-xl font-bold">Ready to see whether the 100K GTM Email Engine fits your offer?</p><CtaButton>Book a Strategy Call</CtaButton></div></div>
+        {/* Industry Filter Buttons */}
+        <div className="mt-10 flex flex-wrap gap-3">
+          {industries.map((ind, idx) => (
+            <button
+              key={ind.name}
+              type="button"
+              onClick={() => setSelectedIndustry(idx)}
+              className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                selectedIndustry === idx
+                  ? "bg-primary text-primary-foreground shadow-soft"
+                  : "border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
+              }`}
+            >
+              <ind.icon className="size-4" />
+              {ind.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Industry Card */}
+        <div className="mt-6 rounded-2xl border border-border bg-soft p-6 sm:p-8">
+          <h3 className="font-display text-xl font-bold text-foreground">
+            {industries[selectedIndustry].name} Outreach Architecture
+          </h3>
+          <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl">
+            {industries[selectedIndustry].desc}
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
@@ -327,12 +649,54 @@ function InvestmentSection() {
   return (
     <section id="investment" className="section-space bg-soft">
       <div className="page-container">
-        <div className="mx-auto max-w-3xl text-center"><span className="eyebrow">Simple investment</span><h2 className="section-title mt-5">Built once. Managed every month.</h2><p className="mt-4 text-muted-foreground">Every cost is visible before we start.</p></div>
-        <div className="mt-12 grid overflow-hidden rounded-lg border border-border bg-card lg:grid-cols-[1.2fr_.8fr]">
-          <div className="divide-y divide-border p-6 sm:p-9">{[[Rocket,"GTM activation","One-time","$649"],[Globe2,"Annual domains","Per year","$750"],[Mail,"Running infrastructure","Per month","$750"],[Settings2,"Management","Per month","$297"]].map(([Icon,title,cadence,price]) => { const ItemIcon = Icon as typeof Rocket; return <div key={String(title)} className="flex items-center gap-4 py-5 first:pt-0 last:pb-0"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-primary-soft text-primary"><ItemIcon className="h-5 w-5" /></span><div className="min-w-0 flex-1"><strong className="block">{String(title)}</strong><span className="text-xs text-muted-foreground">{String(cadence)}</span></div><strong className="text-xl text-primary">{String(price)}</strong></div>})}</div>
-          <div className="dark-grid p-7 text-primary-foreground sm:p-10"><p className="text-xs font-bold uppercase text-ink-muted">Due on day one</p><strong className="mt-3 block font-display text-5xl">$2,149</strong><p className="mt-5 text-sm leading-relaxed text-ink-muted">Activation, annual domains, and your first month of running infrastructure.</p><div className="my-8 border-t border-ink-border" /><p className="text-xs font-bold uppercase text-ink-muted">Month two onward</p><strong className="mt-3 block font-display text-3xl text-brand-light">$1,047 / month</strong><p className="mt-8"><CtaButton>Start with a Strategy Call</CtaButton></p></div>
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow">Simple investment</span>
+          <h2 className="section-title mt-5">Built once. Managed every month.</h2>
+          <p className="mt-4 text-muted-foreground">Every cost is visible before we start.</p>
         </div>
-        <div className="mx-auto mt-6 max-w-3xl rounded-md border border-border bg-background p-5 text-center text-sm text-muted-foreground"><CircleCheck className="mr-2 inline h-4 w-4 text-primary" />The $297 management fee begins at day 30.</div>
+        <div className="mt-12 grid overflow-hidden rounded-2xl border border-border bg-card shadow-card lg:grid-cols-[1.2fr_.8fr]">
+          <div className="divide-y divide-border p-6 sm:p-9">
+            {[
+              [Rocket, "GTM activation", "One-time", "$649"],
+              [Globe2, "Annual domains", "Per year", "$750"],
+              [Mail, "Running infrastructure", "Per month", "$750"],
+              [Settings2, "Management", "Per month", "$297"],
+            ].map(([Icon, title, cadence, price]) => {
+              const ItemIcon = Icon as typeof Rocket;
+              return (
+                <div key={String(title)} className="flex items-center gap-4 py-5 first:pt-0 last:pb-0">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary">
+                    <ItemIcon className="h-5 w-5" />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <strong className="block font-display">{String(title)}</strong>
+                    <span className="text-xs text-muted-foreground">{String(cadence)}</span>
+                  </div>
+                  <strong className="text-xl font-display text-primary">{String(price)}</strong>
+                </div>
+              );
+            })}
+          </div>
+          <div className="dark-grid p-7 text-primary-foreground sm:p-10 flex flex-col justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase text-ink-muted">Due on day one</p>
+              <strong className="mt-3 block font-display text-4xl sm:text-5xl font-bold">$2,149</strong>
+              <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+                Activation, annual domains, and your first month of running infrastructure.
+              </p>
+              <div className="my-6 border-t border-ink-border" />
+              <p className="text-xs font-bold uppercase text-ink-muted">Month two onward</p>
+              <strong className="mt-2 block font-display text-3xl font-bold text-brand-light">$1,047 / month</strong>
+            </div>
+            <div className="mt-8">
+              <CtaButton>Start with a Strategy Call</CtaButton>
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto mt-6 max-w-3xl rounded-xl border border-border bg-background p-4 text-center text-xs sm:text-sm text-muted-foreground">
+          <CircleCheck className="mr-2 inline h-4 w-4 text-primary" />
+          The $297 management fee begins at day 30.
+        </div>
       </div>
     </section>
   );
@@ -341,21 +705,93 @@ function InvestmentSection() {
 function FaqSection() {
   return (
     <section id="faq" className="section-space bg-background">
-      <div className="page-container grid gap-12 lg:grid-cols-[.7fr_1.3fr]"><div><span className="eyebrow">Common questions</span><h2 className="section-title mt-5">Everything you need to know.</h2></div><div className="divide-y divide-border border-y border-border">{faqs.map((item) => <details key={item.question} className="group py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold"><span>{item.question}</span><ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform group-open:rotate-180" /></summary><p className="max-w-2xl pt-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p></details>)}</div></div>
+      <div className="page-container grid gap-12 lg:grid-cols-[.7fr_1.3fr]">
+        <div>
+          <span className="eyebrow">Common questions</span>
+          <h2 className="section-title mt-5">Everything you need to know.</h2>
+        </div>
+        <div className="divide-y divide-border border-y border-border">
+          {faqs.map((item) => (
+            <details key={item.question} className="group py-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display font-semibold">
+                <span>{item.question}</span>
+                <ChevronDown className="h-5 w-5 shrink-0 text-primary transition-transform group-open:rotate-180" />
+              </summary>
+              <p className="max-w-2xl pt-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
 
 function FinalCta() {
   return (
-    <section id="strategy-call" className="dark-grid py-24 text-primary-foreground"><div className="page-container text-center"><CalendarCheck className="mx-auto h-11 w-11 text-brand-light" /><p className="font-script mt-6 text-3xl font-bold text-brand-light">Your pipeline, properly built.</p><h2 className="mx-auto mt-4 max-w-4xl font-display text-4xl font-bold leading-tight sm:text-6xl">Stop managing tools. Start taking meetings.</h2><p className="mx-auto mt-6 max-w-xl text-ink-muted">Book a 30-minute strategy call for a clear look at how the 100K GTM system can work for your offer.</p><div className="mt-9"><CtaButton>Book Your Strategy Call</CtaButton></div></div></section>
+    <section id="strategy-call" className="dark-grid py-20 text-primary-foreground">
+      <div className="page-container text-center">
+        <CalendarCheck className="mx-auto h-11 w-11 text-brand-light" />
+        <p className="mt-6 font-display text-xs font-bold uppercase tracking-widest text-brand-light">
+          Your pipeline, properly built.
+        </p>
+        <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl sm:text-5xl font-bold leading-tight">
+          Stop managing tools. Start taking meetings.
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-ink-muted text-sm sm:text-base">
+          Book a 30-minute strategy call for a clear look at how the 100K GTM system can work for your offer.
+        </p>
+        <div className="mt-8">
+          <CtaButton>Book Your Strategy Call</CtaButton>
+        </div>
+      </div>
+    </section>
   );
 }
 
 function Footer() {
-  return <footer className="border-t border-ink-border bg-ink py-10 text-primary-foreground"><div className="page-container flex flex-col justify-between gap-7 sm:flex-row sm:items-center"><div><Logo inverse /><p className="mt-3 text-sm text-ink-muted">We build brands. We build systems. We build growth.</p></div><div className="flex flex-wrap gap-6 text-sm text-ink-muted"><a href="#system">The System</a><a href="#process">Process</a><a href="#investment">Investment</a><a href="#faq">FAQ</a><a href="#strategy-call" className="inline-flex items-center gap-1 text-brand-light">Book a call <ArrowUpRight className="h-4 w-4" /></a></div></div></footer>;
+  return (
+    <footer className="border-t border-ink-border bg-ink py-10 text-primary-foreground">
+      <div className="page-container flex flex-col justify-between gap-7 sm:flex-row sm:items-center">
+        <div>
+          <Logo inverse />
+          <p className="mt-3 text-xs text-ink-muted">We build brands. We build systems. We build growth.</p>
+        </div>
+        <div className="flex flex-wrap gap-6 text-xs text-ink-muted">
+          <a href="#system" className="hover:text-primary-foreground">The System</a>
+          <a href="#calculator" className="hover:text-primary-foreground">ROI Calculator</a>
+          <a href="#process" className="hover:text-primary-foreground">Process</a>
+          <a href="#investment" className="hover:text-primary-foreground">Investment</a>
+          <a href="#faq" className="hover:text-primary-foreground">FAQ</a>
+          <a href="#strategy-call" className="inline-flex items-center gap-1 text-brand-light">Book a call <ArrowUpRight className="h-3.5 w-3.5" /></a>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
 function HomePage() {
-  return <main className="min-h-screen overflow-x-hidden"><Header /><Hero /><OutcomeStrip /><CapabilityStrip /><ProblemSection /><PipelineSection /><IncludedSection /><EnginePillarsSection /><OldWaySection /><InfrastructureSection /><AiWorkflowSection /><ProcessSection /><CommitmentSection /><RoadmapSection /><ValueSection /><InvestmentSection /><FitSection /><IncludedRecapSection /><FaqSection /><FinalCta /><Footer /></main>;
+  return (
+    <main className="min-h-screen overflow-x-hidden">
+      <Header />
+      <Hero />
+      <VolumeSliderSection />
+      <OutcomeStrip />
+      <CapabilityStrip />
+      <ProblemSection />
+      <PipelineSection />
+      <IncludedSection />
+      <EnginePillarsSection />
+      <OldWaySection />
+      <InfrastructureSection />
+      <AiWorkflowSection />
+      <ProcessSection />
+      <CommitmentSection />
+      <RoadmapSection />
+      <InvestmentSection />
+      <FitSection />
+      <FaqSection />
+      <FinalCta />
+      <Footer />
+    </main>
+  );
 }
