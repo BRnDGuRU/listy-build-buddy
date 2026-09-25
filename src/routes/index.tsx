@@ -728,13 +728,23 @@ function PipelineSection() {
             </p>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-5">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {["Define the ICP", "Build lead segments", "Launch campaigns", "Manage replies", "Book meetings"].map((item, index) => (
             <Reveal key={item} delay={80 * (index + 1)}>
-              <div className="relative h-full bg-card p-6 transition-colors hover:bg-primary-soft/20">
-                <span className="text-xs font-bold text-primary">0{index + 1}</span>
-                <p className="mt-8 font-display font-bold">{item}</p>
-                {index < 4 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 rounded-full bg-primary p-1 text-primary-foreground md:block" />}
+              <div className="group relative flex h-full flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft min-h-[140px]">
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-xs font-black uppercase tracking-wider text-primary">
+                    0{index + 1}
+                  </span>
+                  {index < 4 ? (
+                    <ArrowRight className="size-4 text-muted-foreground/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" />
+                  ) : (
+                    <span className="flex items-center gap-1 text-[10px] font-bold text-success">
+                      <span className="size-1.5 rounded-full bg-success animate-pulse" /> Result
+                    </span>
+                  )}
+                </div>
+                <p className="mt-6 font-display text-base font-bold text-foreground leading-snug">{item}</p>
               </div>
             </Reveal>
           ))}
