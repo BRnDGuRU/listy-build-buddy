@@ -148,7 +148,7 @@ function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_42%)]" />
       <div className="page-container relative flex flex-col items-center text-center">
         <span className="eyebrow eyebrow-dark"><Rocket className="h-3.5 w-3.5" /> You don&apos;t need more software. You need more meetings.</span>
-        <h1 className="mt-7 max-w-5xl font-display text-[clamp(2.7rem,7vw,6rem)] font-bold leading-[.98]">
+        <h1 className="font-hero mt-7 max-w-5xl text-[clamp(2.7rem,7vw,6rem)] font-black leading-[1.08]">
           We Build Your <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
           <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
         </h1>
