@@ -172,13 +172,13 @@ function Hero() {
         </span>
         
         {/* Main Headline */}
-        <h1 className="font-hero mt-7 max-w-5xl text-[clamp(2.7rem,7vw,6rem)] font-black leading-[1.08]">
+        <h1 className="font-hero mt-7 max-w-6xl text-[clamp(2.7rem,7vw,6rem)] font-black leading-[1.08]">
           We Build Your <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
           <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-ink-muted sm:text-lg lg:text-xl">
           One partner builds your complete outbound email infrastructure—targeting, lead supply, campaigns, AI-assisted replies, and optimization—<strong className="text-primary-foreground font-semibold">then runs it for you, every single day.</strong>
         </p>
 
@@ -191,7 +191,7 @@ function Hero() {
         </div>
 
         {/* Receptionist-Style Live Engine Feature Cards */}
-        <div className="mt-14 grid w-full max-w-5xl gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid w-full max-w-6xl gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
           {/* Card 1: 100K Outbound Sending */}
           <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
             <div className="flex items-center justify-between">
