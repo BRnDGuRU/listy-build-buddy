@@ -161,13 +161,6 @@ const volumeTiers = [
   { volume: "200,000", inboxes: 200, leads: "120,000", meetings: "35–50+", label: "200k / mo" },
 ];
 
-const industries = [
-  { name: "B2B SaaS", icon: Sparkles, desc: "High-LTV outbound targeting founders, VPs of Sales, and CTOs with zero deliverability friction." },
-  { name: "Agencies & Dev", icon: BriefcaseBusiness, desc: "Predictable client acquisition reaching decision-makers ready for specialized agency services." },
-  { name: "Consulting & Advisory", icon: TrendingUp, desc: "Personalized executive outreach that fills partners' calendars with qualified discovery calls." },
-  { name: "Enterprise Tech", icon: Building2, desc: "Multi-touch account-based sequences targeting buying committees across mid-market & enterprise." },
-];
-
 const faqs = [
   { question: "What does the 100K number mean?", answer: "The system is designed with capacity for up to 100,000 outbound emails each month, supported by 100,000 monthly email credits." },
   { question: "What result are you committing to?", answer: "The offer commits to 10 high-qualified V2P appointments within 90 days while we handle the GTM system." },
@@ -1141,61 +1134,6 @@ function RoadmapSection() {
   );
 }
 
-function FitSection() {
-  const [selectedIndustry, setSelectedIndustry] = useState(0);
-
-  return (
-    <section className="section-space bg-background">
-      <div className="page-container">
-        <Reveal>
-          <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] items-end">
-            <div>
-              <span className="eyebrow">Built for the right offer</span>
-              <h2 className="section-title mt-5">This engine is engineered for B2B models.</h2>
-            </div>
-            <p className="leading-relaxed text-muted-foreground">
-              Explore how our multi-inbox outbound system creates pipeline across target market segments.
-            </p>
-          </div>
-        </Reveal>
-
-        {/* Industry Filter Buttons */}
-        <Reveal delay={100}>
-          <div className="mt-10 flex flex-wrap gap-3">
-            {industries.map((ind, idx) => (
-              <button
-                key={ind.name}
-                type="button"
-                onClick={() => setSelectedIndustry(idx)}
-                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                  selectedIndustry === idx
-                    ? "bg-primary text-primary-foreground shadow-soft"
-                    : "border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
-                }`}
-              >
-                <ind.icon className="size-4" />
-                {ind.name}
-              </button>
-            ))}
-          </div>
-        </Reveal>
-
-        {/* Selected Industry Card */}
-        <Reveal delay={200}>
-          <div className="mt-6 rounded-2xl border border-border bg-soft p-6 sm:p-8">
-            <h3 className="font-display text-xl font-bold text-foreground">
-              {industries[selectedIndustry].name} Outreach Architecture
-            </h3>
-            <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl">
-              {industries[selectedIndustry].desc}
-            </p>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function InvestmentSection() {
   return (
     <section id="investment" className="section-space bg-soft">
@@ -1355,7 +1293,6 @@ function HomePage() {
       <TestimonialsSection />
       <RoadmapSection />
       <InvestmentSection />
-      <FitSection />
       <FaqSection />
       <FinalCta />
       <Footer />
