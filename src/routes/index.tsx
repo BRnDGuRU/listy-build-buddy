@@ -168,10 +168,10 @@ function Hero() {
       <div className="page-container relative flex flex-col items-center text-center">
         <span className="eyebrow eyebrow-dark"><Rocket className="h-3.5 w-3.5 text-primary" /> You don&apos;t need more software. You need more meetings.</span>
         
-        {/* Refined, Balanced Headline matching linkedin.brndguru.com scale */}
-        <h1 className="font-hero mt-6 max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] tracking-tight">
-          We Build Your <span className="inline-block rounded-lg bg-primary px-2.5 py-0.5 text-primary-foreground sm:px-3 font-extrabold">100K Email GTM</span>{" "}
-          <span className="inline-block rounded-lg bg-primary px-2.5 py-0.5 text-primary-foreground sm:px-3 font-extrabold">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light font-extrabold">Guesswork.</span>
+        {/* Scaled Headline exactly matching linkedin.brndguru.com */}
+        <h1 className="font-hero mt-7 max-w-5xl text-[2.35rem] leading-[1.15] font-black tracking-tight text-primary-foreground sm:text-[3.25rem] sm:leading-[1.08] md:text-6xl lg:text-[4.25rem]">
+          We Build Your <span className="inline-block rounded-xl bg-primary px-3 py-1 text-primary-foreground sm:px-4 font-black">100K Email GTM</span>{" "}
+          <span className="inline-block rounded-xl bg-primary px-3 py-1 text-primary-foreground sm:px-4 font-black">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light font-black">Guesswork.</span>
         </h1>
 
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
