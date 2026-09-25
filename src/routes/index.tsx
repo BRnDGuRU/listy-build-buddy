@@ -188,8 +188,8 @@ function Hero() {
         
         {/* Main Headline */}
         <h1 className="font-hero mt-7 max-w-6xl text-[clamp(2.7rem,7vw,6rem)] font-black leading-[1.08]">
-          We Build Your <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
-          <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
+          We Build Your <span className="inline-block rounded-xl sm:rounded-2xl bg-primary px-3 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
+          <span className="inline-block rounded-xl sm:rounded-2xl bg-primary px-3 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
         </h1>
 
         {/* Subtitle */}
