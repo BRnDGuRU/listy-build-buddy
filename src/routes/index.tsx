@@ -116,12 +116,14 @@ function CtaButton({ children = "Book a Strategy Call", inverse = false }: { chi
 
 function Logo({ inverse = false }: { inverse?: boolean }) {
   return (
-    <a href="#top" className={`flex items-center gap-2.5 ${inverse ? "text-primary-foreground" : "text-foreground"}`} aria-label="BrndGuru home">
-      <img src={brndGuruLogo.url} alt="" className="h-9 w-9 object-contain" />
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-sm font-bold tracking-tight sm:text-base">BRND GURU</span>
-        <span className="mt-0.5 text-[9px] font-bold uppercase tracking-widest text-primary">GTM Infrastructure</span>
-      </span>
+    <a href="#top" className={`flex items-center gap-2.5 ${inverse ? "text-primary-foreground" : "text-foreground"}`} aria-label="Brnd Guru home">
+      <img src={brndGuruLogo.url} alt="Brnd Guru logo" className="size-8 shrink-0 rounded-lg object-contain md:size-9" width="36" height="36" />
+      <div className="min-w-0 leading-none">
+        <p className="truncate font-display text-sm font-extrabold leading-tight tracking-tight sm:text-base md:text-lg">
+          Brnd Guru <span className="hidden text-brand-light sm:inline">100K GTM</span>
+        </p>
+        <p className="hidden truncate text-[9px] tracking-wide text-ink-muted sm:block">The Outbound Engine for B2B</p>
+      </div>
     </a>
   );
 }
@@ -129,35 +131,42 @@ function Logo({ inverse = false }: { inverse?: boolean }) {
 function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <>
-      <div className="border-b border-ink-border bg-ink-card px-4 py-2 text-center text-[10px] font-bold uppercase tracking-wider text-primary-foreground sm:text-xs">
-        <span className="text-primary">⚡</span> Early-bird pricing ends soon <span className="ml-2 text-brand-light">✦ Limited onboarding spots</span>
-      </div>
-      <header className="sticky top-0 z-50 border-b border-ink-border bg-ink/95 backdrop-blur-md transition-all duration-300">
-        <div className="page-container flex h-16 items-center justify-between">
-          <Logo inverse />
-          <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
-            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#system">The System</a>
-            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#calculator">ROI Calculator</a>
-            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#process">Process</a>
-            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#investment">Pricing</a>
-            <a className="text-xs font-semibold uppercase tracking-wider text-ink-muted hover:text-primary-foreground transition-colors" href="#faq">FAQ</a>
-            <CtaButton>Book a Call</CtaButton>
-          </nav>
-          <Button type="button" variant="outline" size="icon" className="border-ink-border bg-ink-card text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
+    <header className="sticky top-0 z-50 border-b border-ink-border bg-ink/85 backdrop-blur-xl transition-all duration-300">
+      <div className="page-container flex items-center justify-between gap-4 py-3 md:py-3.5">
+        <Logo inverse />
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#system">The System</a>
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#calculator">ROI Calculator</a>
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#process">Process</a>
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#investment">Pricing</a>
+          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#faq">FAQ</a>
+        </nav>
+        <div className="flex shrink-0 items-center gap-3">
+          <Button asChild size="sm" className="hidden sm:inline-flex rounded-full bg-primary px-5 py-2 text-xs sm:text-sm font-semibold text-primary-foreground shadow-soft transition-transform duration-200 hover:scale-[1.03]">
+            <a href="#strategy-call">Book a Call →</a>
+          </Button>
+          <Button type="button" variant="outline" size="icon" className="size-9 rounded-lg border-ink-border bg-ink-card text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
           </Button>
         </div>
-        {open && (
-          <nav className="border-t border-ink-border bg-ink px-5 py-5 lg:hidden" aria-label="Mobile navigation">
-            <div className="flex flex-col gap-4">
-              {[['The System', '#system'], ['ROI Calculator', '#calculator'], ['Process', '#process'], ['Pricing', '#investment'], ['FAQ', '#faq']].map(([label, href]) => <a key={label} className="text-sm font-semibold text-ink-muted hover:text-primary-foreground" href={href} onClick={() => setOpen(false)}>{label}</a>)}
-              <CtaButton>Book a Call</CtaButton>
+      </div>
+      {open && (
+        <nav className="border-t border-ink-border bg-ink/95 backdrop-blur-xl px-5 py-5 lg:hidden animate-in fade-in slide-in-from-top-2 duration-200" aria-label="Mobile navigation">
+          <div className="flex flex-col gap-4">
+            {[['The System', '#system'], ['ROI Calculator', '#calculator'], ['Process', '#process'], ['Pricing', '#investment'], ['FAQ', '#faq']].map(([label, href]) => (
+              <a key={label} className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href={href} onClick={() => setOpen(false)}>
+                {label}
+              </a>
+            ))}
+            <div className="pt-2">
+              <Button asChild size="lg" className="w-full rounded-xl bg-primary font-semibold text-primary-foreground shadow-soft">
+                <a href="#strategy-call" onClick={() => setOpen(false)}>Book a Call →</a>
+              </Button>
             </div>
-          </nav>
-        )}
-      </header>
-    </>
+          </div>
+        </nav>
+      )}
+    </header>
   );
 }
 
