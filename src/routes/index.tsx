@@ -137,158 +137,129 @@ function Logo({ inverse = false }: { inverse?: boolean }) {
 function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-ink-border bg-ink/85 backdrop-blur-xl transition-all duration-300">
-      <div className="page-container flex items-center justify-between gap-4 py-3 md:py-3.5">
-        <Logo inverse />
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#system">The System</a>
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#calculator">ROI Calculator</a>
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#process">Process</a>
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#investment">Pricing</a>
-          <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#faq">FAQ</a>
-        </nav>
-        <div className="flex shrink-0 items-center gap-3">
-          <Button asChild size="sm" className="hidden sm:inline-flex rounded-full bg-primary px-5 py-2 text-xs sm:text-sm font-semibold text-primary-foreground shadow-soft transition-transform duration-200 hover:scale-[1.03]">
-            <a href="#strategy-call">Book a Call →</a>
-          </Button>
-          <Button type="button" variant="outline" size="icon" className="size-9 rounded-lg border-ink-border bg-ink-card text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
-            {open ? <X className="size-4" /> : <Menu className="size-4" />}
-          </Button>
+    <>
+      {/* Top Animated Announcement Ticker */}
+      <div className="relative overflow-hidden border-b border-primary/20 bg-primary/[0.06] py-2">
+        <div className="animate-marquee flex w-max items-center">
+          {[...Array(6)].map((_, i) => (
+            <span key={i} className="flex items-center gap-2.5 px-8 whitespace-nowrap">
+              <Zap className="size-3.5 shrink-0 text-primary" />
+              <span className="font-display text-[11px] font-bold tracking-[0.16em] text-primary-foreground uppercase">
+                Early-Bird Pricing Ends In:
+              </span>
+              <span className="font-display text-[11px] font-black tracking-[0.12em] text-brand-light tabular-nums">
+                06HRS : 12MIN : 46SEC
+              </span>
+              <span className="text-primary/40">✦</span>
+            </span>
+          ))}
         </div>
       </div>
-      {open && (
-        <nav className="border-t border-ink-border bg-ink/95 backdrop-blur-xl px-5 py-5 lg:hidden animate-in fade-in slide-in-from-top-2 duration-200" aria-label="Mobile navigation">
-          <div className="flex flex-col gap-4">
-            {[['The System', '#system'], ['ROI Calculator', '#calculator'], ['Process', '#process'], ['Pricing', '#investment'], ['FAQ', '#faq']].map(([label, href]) => (
-              <a key={label} className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href={href} onClick={() => setOpen(false)}>
-                {label}
-              </a>
-            ))}
-            <div className="pt-2">
-              <Button asChild size="lg" className="w-full rounded-xl bg-primary font-semibold text-primary-foreground shadow-soft">
-                <a href="#strategy-call" onClick={() => setOpen(false)}>Book a Call →</a>
-              </Button>
-            </div>
+
+      <header className="sticky top-0 z-50 border-b border-ink-border/80 bg-ink/90 backdrop-blur-xl transition-all duration-300">
+        <div className="page-container flex items-center justify-between gap-4 py-3 md:py-3.5">
+          <Logo inverse />
+          <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
+            <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#system">The System</a>
+            <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#calculator">ROI Calculator</a>
+            <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#process">Process</a>
+            <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#investment">Pricing</a>
+            <a className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href="#faq">FAQ</a>
+          </nav>
+          <div className="flex shrink-0 items-center gap-3">
+            <Button asChild size="sm" className="hidden sm:inline-flex rounded-xl bg-gradient-to-r from-primary via-amber-500 to-primary px-5 py-2.5 text-xs font-black uppercase tracking-wider text-ink shadow-[0_4px_20px_rgba(255,107,0,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110">
+              <a href="#strategy-call">Book Your Strategy Call →</a>
+            </Button>
+            <Button type="button" variant="outline" size="icon" className="size-9 rounded-lg border-ink-border bg-ink-card text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">
+              {open ? <X className="size-4" /> : <Menu className="size-4" />}
+            </Button>
           </div>
-        </nav>
-      )}
-    </header>
+        </div>
+        {open && (
+          <nav className="border-t border-ink-border bg-ink/95 backdrop-blur-xl px-5 py-5 lg:hidden animate-in fade-in slide-in-from-top-2 duration-200" aria-label="Mobile navigation">
+            <div className="flex flex-col gap-4">
+              {[['The System', '#system'], ['ROI Calculator', '#calculator'], ['Process', '#process'], ['Pricing', '#investment'], ['FAQ', '#faq']].map(([label, href]) => (
+                <a key={label} className="text-sm font-semibold text-ink-muted hover:text-primary-foreground transition-colors" href={href} onClick={() => setOpen(false)}>
+                  {label}
+                </a>
+              ))}
+              <div className="pt-2">
+                <Button asChild size="lg" className="w-full rounded-xl bg-gradient-to-r from-primary via-amber-500 to-primary font-black uppercase tracking-wider text-ink shadow-soft">
+                  <a href="#strategy-call" onClick={() => setOpen(false)}>Book Your Strategy Call →</a>
+                </Button>
+              </div>
+            </div>
+          </nav>
+        )}
+      </header>
+    </>
   );
 }
 
 function Hero() {
   return (
-    <section id="top" className="dark-grid relative overflow-hidden border-b border-ink-border py-12 text-primary-foreground sm:py-16 lg:py-20">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,color-mix(in_oklab,var(--primary)_12%,transparent),transparent_48%)]" />
+    <section id="top" className="dark-grid relative overflow-hidden border-b border-ink-border py-16 text-primary-foreground sm:py-20 lg:py-24">
+      {/* Dynamic Ambient Background Lighting */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,color-mix(in_oklab,var(--primary)_25%,transparent),transparent_70%)]" />
+      <div className="pointer-events-none absolute -left-40 top-0 size-96 rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 top-20 size-96 rounded-full bg-brand-light/10 blur-3xl" />
+
       <div className="page-container relative flex flex-col items-center text-center">
         {/* Eyebrow Pill */}
-        <span className="eyebrow eyebrow-dark">
-          <Rocket className="h-3.5 w-3.5 text-primary" /> You Don&apos;t Need More Software. You Need More Meetings.
-        </span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-ink-card/80 px-5 py-2 text-xs sm:text-xs font-bold tracking-[0.16em] uppercase text-primary-foreground backdrop-blur-md shadow-sm transition-transform hover:scale-105">
+          <Rocket className="size-4 text-primary animate-pulse" /> You Don&apos;t Need More Software. You Need More Meetings.
+        </div>
         
-        {/* Main Headline */}
-        <h1 className="font-hero mt-7 max-w-6xl text-[clamp(2.7rem,7vw,6rem)] font-black leading-[1.08]">
-          We Build Your <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
-          <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
+        {/* Main Bold Headline */}
+        <h1 className="font-hero mt-8 max-w-6xl text-[clamp(2.8rem,7.5vw,6.5rem)] font-black leading-[1.08] tracking-tight text-white">
+          We Build Your{" "}
+          <span className="inline-block rounded-2xl bg-gradient-to-r from-primary via-amber-500 to-primary px-3.5 py-1 text-ink font-black shadow-[0_0_40px_rgba(255,107,0,0.35)] transition-transform duration-300 hover:scale-[1.03] sm:px-6 sm:py-2">
+            100K Email GTM
+          </span>{" "}
+          <span className="inline-block rounded-2xl bg-gradient-to-r from-primary via-amber-500 to-primary px-3.5 py-1 text-ink font-black shadow-[0_0_40px_rgba(255,107,0,0.35)] transition-transform duration-300 hover:scale-[1.03] sm:px-6 sm:py-2">
+            Engine
+          </span>{" "}
+          And Run It Every Day — So You Stop Losing Pipeline to{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-amber-400 to-brand-light font-black">
+            Guesswork.
+          </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-6 max-w-3xl text-base leading-relaxed text-ink-muted sm:text-lg lg:text-xl">
-          One partner builds your complete outbound email infrastructure—targeting, lead supply, campaigns, AI-assisted replies, and optimization—<strong className="text-primary-foreground font-semibold">then runs it for you, every single day.</strong>
+        <p className="mt-7 max-w-3xl text-base leading-[1.75] text-ink-muted sm:text-lg lg:text-xl">
+          One partner builds your complete outbound email infrastructure—targeting, lead supply, campaigns, AI-assisted replies, and optimization—<strong className="font-semibold text-white">then runs it for you, every single day.</strong>
         </p>
 
+        {/* Guarantee Callout Box (Matching Screenshot) */}
+        <div className="mt-8 flex items-center gap-3.5 rounded-2xl border border-success/30 bg-success/[0.07] px-6 py-3.5 backdrop-blur-md shadow-soft transition-all hover:border-success/50">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-success/20 text-success">
+            <CircleCheck className="size-5" />
+          </div>
+          <p className="text-left text-sm sm:text-base">
+            <span className="font-display font-bold text-white block">10 Qualified B2B Appointments in 90 Days</span>
+            <span className="text-xs sm:text-sm text-ink-muted">Or we keep working on the engine until we deliver.</span>
+          </p>
+        </div>
+
         {/* CTA Group */}
-        <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
-          <CtaButton>Book Your Strategy Call</CtaButton>
-          <Button asChild variant="outline" size="lg" className="h-12 rounded-xl border-ink-border bg-ink-card px-6 font-display font-semibold text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Button asChild size="lg" className="h-13 rounded-xl bg-gradient-to-r from-primary via-amber-500 to-primary px-8 font-display text-sm sm:text-base font-black uppercase tracking-wide text-ink shadow-[0_10px_30px_rgba(255,107,0,0.3)] transition-all duration-300 hover:-translate-y-1 hover:brightness-110">
+            <a href="#strategy-call">
+              Book Your Strategy Call <ArrowRight className="size-4.5" />
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="h-13 rounded-xl border-ink-border bg-white/[0.04] px-7 font-display font-semibold text-white backdrop-blur-md hover:bg-white/[0.08] hover:text-white">
             <a href="#calculator">See How It Works ↘</a>
           </Button>
         </div>
 
-        {/* Receptionist-Style Live Engine Feature Cards */}
-        <div className="mt-14 grid w-full max-w-6xl gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
-          {/* Card 1: 100K Outbound Sending */}
-          <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2 py-0.5 text-[10px] font-semibold text-success">
-                <span className="size-1.5 rounded-full bg-success animate-pulse" /> Live Sending
-              </span>
-              <Mail className="size-4 text-primary" />
-            </div>
-            <h3 className="mt-4 font-display text-base font-bold text-primary-foreground">100K Outbound / Mo</h3>
-            <p className="mt-1 text-xs text-ink-muted">50 inboxes warmed and rotated with zero spam friction.</p>
-            <div className="mt-4 rounded-lg border border-ink-border bg-ink-elevated p-2.5">
-              <span className="text-[10px] text-ink-muted block">Current Status</span>
-              <strong className="text-xs font-semibold text-brand-light font-display">99.4% Inbox Placement</strong>
-            </div>
-          </div>
-
-          {/* Card 2: Books Appointments Mid-Campaign */}
-          <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
-            <div className="flex items-center justify-between">
-              <span className="rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-brand-light font-display">
-                Automated
-              </span>
-              <CalendarCheck className="size-4 text-primary" />
-            </div>
-            <h3 className="mt-4 font-display text-base font-bold text-primary-foreground">Books Qualified Calls</h3>
-            <p className="mt-1 text-xs text-ink-muted">Synced live to your calendar. You just show up and sell.</p>
-            <div className="mt-4 rounded-lg border border-ink-border bg-ink-elevated p-2.5">
-              <span className="text-[10px] text-ink-muted block">Next Booking</span>
-              <strong className="text-xs font-semibold text-success font-display">Thu · 2:00 PM (VP Growth)</strong>
-            </div>
-          </div>
-
-          {/* Card 3: 24/7 AI Reply Agent */}
-          <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
-            <div className="flex items-center justify-between">
-              <span className="rounded-full border border-ai/30 bg-ai/10 px-2 py-0.5 text-[10px] font-semibold text-ai-bright font-display">
-                AI Powered
-              </span>
-              <Bot className="size-4 text-primary" />
-            </div>
-            <h3 className="mt-4 font-display text-base font-bold text-primary-foreground">AI Reply Agent</h3>
-            <p className="mt-1 text-xs text-ink-muted">Answers questions, handles objections, and routes intent.</p>
-            <div className="mt-4 rounded-lg border border-ink-border bg-ink-elevated p-2.5">
-              <span className="text-[10px] text-ink-muted italic">&ldquo;Interested! What are next steps?&rdquo;</span>
-              <span className="mt-1 text-[10px] font-semibold text-primary block">→ Sent 15-min calendar link</span>
-            </div>
-          </div>
-
-          {/* Card 4: 8M+ Verified Decision Makers */}
-          <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
-            <div className="flex items-center justify-between">
-              <span className="rounded-full border border-infra/30 bg-infra/10 px-2 py-0.5 text-[10px] font-semibold text-infra font-display">
-                Verified
-              </span>
-              <Database className="size-4 text-primary" />
-            </div>
-            <h3 className="mt-4 font-display text-base font-bold text-primary-foreground">Triple-Verified Leads</h3>
-            <p className="mt-1 text-xs text-ink-muted">Targeted B2B lists enriched with validated emails.</p>
-            <div className="mt-4 rounded-lg border border-ink-border bg-ink-elevated p-2.5">
-              <span className="text-[10px] text-ink-muted block">Target Decision-Makers</span>
-              <strong className="text-xs font-semibold text-primary-foreground font-display">8M+ V2P Decision Makers</strong>
-            </div>
-          </div>
-        </div>
-
-        {/* Guarantee Callout Strip (Receptionist Style) */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 rounded-2xl border border-ink-border bg-ink-card/60 px-6 py-4 backdrop-blur-sm text-xs sm:text-sm text-ink-muted">
-          <div className="flex items-center gap-2">
-            <Zap className="size-4 text-primary" />
-            <strong className="text-primary-foreground font-display">Live in 7–14 Days</strong>
-          </div>
-          <span className="text-ink-border hidden sm:inline">•</span>
-          <div className="flex items-center gap-2">
-            <CircleCheck className="size-4 text-success" />
-            <strong className="text-primary-foreground font-display">10 Guaranteed Appointments</strong>
-          </div>
-          <span className="text-ink-border hidden sm:inline">•</span>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="size-4 text-brand-light" />
-            <strong className="text-primary-foreground font-display">100% Done-For-You</strong>
-          </div>
-        </div>
+        {/* Feature Sub-Bullets */}
+        <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-ink-muted">
+          <li className="flex items-center gap-1.5"><CircleCheck className="size-4 text-success" /> Live in 7–14 Days</li>
+          <li className="flex items-center gap-1.5"><CircleCheck className="size-4 text-success" /> Done-For-You Execution</li>
+          <li className="flex items-center gap-1.5"><CircleCheck className="size-4 text-success" /> No Long-Term Lock-in</li>
+          <li className="flex items-center gap-1.5"><CircleCheck className="size-4 text-success" /> Cancel Anytime</li>
+        </ul>
       </div>
     </section>
   );
