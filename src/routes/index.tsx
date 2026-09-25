@@ -166,38 +166,113 @@ function Hero() {
     <section id="top" className="dark-grid relative overflow-hidden border-b border-ink-border py-12 text-primary-foreground sm:py-16 lg:py-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,color-mix(in_oklab,var(--primary)_12%,transparent),transparent_48%)]" />
       <div className="page-container relative flex flex-col items-center text-center">
-        <span className="eyebrow eyebrow-dark"><Rocket className="h-3.5 w-3.5 text-primary" /> You don&apos;t need more software. You need more meetings.</span>
+        {/* Eyebrow Pill */}
+        <span className="eyebrow eyebrow-dark">
+          <Rocket className="h-3.5 w-3.5 text-primary" /> You Don&apos;t Need More Software. You Need More Meetings.
+        </span>
         
+        {/* Main Headline */}
         <h1 className="font-hero mt-7 max-w-5xl text-[clamp(2.7rem,7vw,6rem)] font-black leading-[1.08]">
           We Build Your <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">100K Email GTM</span>{" "}
           <span className="inline-block rounded-md bg-primary px-2.5 py-1 text-primary-foreground sm:px-4">Engine</span> And Run It Every Day—So You Stop Losing Pipeline to <span className="text-brand-light">Guesswork.</span>
         </h1>
 
+        {/* Subtitle */}
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
           One partner builds your complete outbound email infrastructure—targeting, lead supply, campaigns, AI-assisted replies, and optimization—<strong className="text-primary-foreground font-semibold">then runs it for you, every single day.</strong>
         </p>
 
-        {/* Commitment Badge */}
-        <div className="mt-6 flex max-w-lg items-start gap-3 rounded-xl border border-success/40 bg-ink-card/90 px-5 py-3.5 text-left shadow-soft transition-transform hover:scale-[1.01]">
-          <CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-success" />
-          <div>
-            <strong className="block text-sm sm:text-base font-display">10 High-Qualified V2P Appointments in 90 Days</strong>
-            <span className="mt-0.5 block text-xs text-ink-muted sm:text-sm">We handle the complete engine while you focus on selling and closing.</span>
-          </div>
-        </div>
-
-        {/* Hero CTA & Trust Metrics */}
+        {/* CTA Group */}
         <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
           <CtaButton>Book Your Strategy Call</CtaButton>
           <Button asChild variant="outline" size="lg" className="h-12 rounded-xl border-ink-border bg-ink-card px-6 font-display font-semibold text-primary-foreground hover:bg-ink-elevated hover:text-primary-foreground">
-            <a href="#calculator">Calculate Pipeline ROI <TrendingUp className="ml-2 size-4" /></a>
+            <a href="#calculator">See How It Works ↘</a>
           </Button>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-muted">
-          <span className="flex items-center gap-1.5"><CircleCheck className="size-3.5 text-success" /> Setup in 7–14 Days</span>
-          <span className="flex items-center gap-1.5"><CircleCheck className="size-3.5 text-success" /> Done-for-you execution</span>
-          <span className="flex items-center gap-1.5"><CircleCheck className="size-3.5 text-success" /> No long-term lock-in</span>
+        {/* Receptionist-Style Live Engine Feature Cards */}
+        <div className="mt-14 grid w-full max-w-5xl gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
+          {/* Card 1: 100K Outbound Sending */}
+          <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2 py-0.5 text-[10px] font-semibold text-success">
+                <span className="size-1.5 rounded-full bg-success animate-pulse" /> Live Sending
+              </span>
+              <Mail className="size-4 text-primary" />
+            </div>
+            <h3 className="mt-4 font-display text-base font-bold text-primary-foreground">100K Outbound / Mo</h3>
+            <p className="mt-1 text-xs text-ink-muted">50 inboxes warmed and rotated with zero spam friction.</p>
+            <div className="mt-4 rounded-lg border border-ink-border bg-ink-elevated p-2.5">
+              <span className="text-[10px] text-ink-muted block">Current Status</span>
+              <strong className="text-xs font-semibold text-brand-light font-display">99.4% Inbox Placement</strong>
+            </div>
+          </div>
+
+          {/* Card 2: Books Appointments Mid-Campaign */}
+          <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
+            <div className="flex items-center justify-between">
+              <span className="rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-brand-light font-display">
+                Automated
+              </span>
+              <CalendarCheck className="size-4 text-primary" />
+            </div>
+            <h3 className="mt-4 font-display text-base font-bold text-primary-foreground">Books Qualified Calls</h3>
+            <p className="mt-1 text-xs text-ink-muted">Synced live to your calendar. You just show up and sell.</p>
+            <div className="mt-4 rounded-lg border border-ink-border bg-ink-elevated p-2.5">
+              <span className="text-[10px] text-ink-muted block">Next Booking</span>
+              <strong className="text-xs font-semibold text-success font-display">Thu · 2:00 PM (VP Growth)</strong>
+            </div>
+          </div>
+
+          {/* Card 3: 24/7 AI Reply Agent */}
+          <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
+            <div className="flex items-center justify-between">
+              <span className="rounded-full border border-ai/30 bg-ai/10 px-2 py-0.5 text-[10px] font-semibold text-ai-bright font-display">
+                AI Powered
+              </span>
+              <Bot className="size-4 text-primary" />
+            </div>
+            <h3 className="mt-4 font-display text-base font-bold text-primary-foreground">AI Reply Agent</h3>
+            <p className="mt-1 text-xs text-ink-muted">Answers questions, handles objections, and routes intent.</p>
+            <div className="mt-4 rounded-lg border border-ink-border bg-ink-elevated p-2.5">
+              <span className="text-[10px] text-ink-muted italic">&ldquo;Interested! What are next steps?&rdquo;</span>
+              <span className="mt-1 text-[10px] font-semibold text-primary block">→ Sent 15-min calendar link</span>
+            </div>
+          </div>
+
+          {/* Card 4: 8M+ Verified Decision Makers */}
+          <div className="rounded-2xl border border-ink-border bg-ink-card/90 p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
+            <div className="flex items-center justify-between">
+              <span className="rounded-full border border-infra/30 bg-infra/10 px-2 py-0.5 text-[10px] font-semibold text-infra font-display">
+                Verified
+              </span>
+              <Database className="size-4 text-primary" />
+            </div>
+            <h3 className="mt-4 font-display text-base font-bold text-primary-foreground">Triple-Verified Leads</h3>
+            <p className="mt-1 text-xs text-ink-muted">Targeted B2B lists enriched with validated emails.</p>
+            <div className="mt-4 rounded-lg border border-ink-border bg-ink-elevated p-2.5">
+              <span className="text-[10px] text-ink-muted block">Target Decision-Makers</span>
+              <strong className="text-xs font-semibold text-primary-foreground font-display">8M+ V2P Decision Makers</strong>
+            </div>
+          </div>
+        </div>
+
+        {/* Guarantee Callout Strip (Receptionist Style) */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 rounded-2xl border border-ink-border bg-ink-card/60 px-6 py-4 backdrop-blur-sm text-xs sm:text-sm text-ink-muted">
+          <div className="flex items-center gap-2">
+            <Zap className="size-4 text-primary" />
+            <strong className="text-primary-foreground font-display">Live in 7–14 Days</strong>
+          </div>
+          <span className="text-ink-border hidden sm:inline">•</span>
+          <div className="flex items-center gap-2">
+            <CircleCheck className="size-4 text-success" />
+            <strong className="text-primary-foreground font-display">10 Guaranteed Appointments</strong>
+          </div>
+          <span className="text-ink-border hidden sm:inline">•</span>
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="size-4 text-brand-light" />
+            <strong className="text-primary-foreground font-display">100% Done-For-You</strong>
+          </div>
         </div>
       </div>
     </section>
