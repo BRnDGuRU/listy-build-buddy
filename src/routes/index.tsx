@@ -1,22 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
+  Activity,
   ArrowRight,
   ArrowUpRight,
   BadgeCheck,
+  BarChart3,
   Bot,
   BriefcaseBusiness,
   Building2,
   Calendar,
   CalendarCheck,
   Check,
+  CheckCircle2,
   ChevronDown,
   CircleCheck,
+  Cpu,
   Database,
+  FileText,
   Globe2,
+  Layers,
   Mail,
   Menu,
   MessageSquareText,
+  Quote,
   Rocket,
+  Send,
   ServerCog,
   Settings2,
   ShieldCheck,
@@ -367,6 +375,334 @@ function VolumeSliderSection() {
   );
 }
 
+function LiveCommandCenterSection() {
+  return (
+    <section className="relative scroll-mt-24 border-b border-ink-border bg-ink px-4 py-16 md:py-20 text-primary-foreground">
+      <div className="page-container">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow eyebrow-dark">
+            <Activity className="size-3.5 text-primary" /> Real-Time Telemetry
+          </span>
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            Live Command Center <br className="hidden sm:inline" />
+            <span className="text-brand-light">Operating 24/7 For Your Pipeline</span>
+          </h2>
+          <p className="mt-4 text-base text-ink-muted sm:text-lg">
+            Every inbox, reply, and calendar booking is tracked in real-time. Here is how your outbound engine operates daily.
+          </p>
+        </div>
+
+        <div className="mt-12 overflow-hidden rounded-3xl border border-ink-border bg-ink-card/90 shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink-border bg-ink-elevated px-5 py-3.5">
+            <div className="flex items-center gap-2">
+              <span className="size-3 rounded-full bg-destructive/80" />
+              <span className="size-3 rounded-full bg-warning/80" />
+              <span className="size-3 rounded-full bg-success/80" />
+              <span className="ml-2 rounded-lg border border-ink-border bg-ink px-3 py-1 font-mono text-[11px] text-ink-muted">
+                gtm.brndguru.com/command-center
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-xs font-semibold text-success">
+                <span className="size-2 rounded-full bg-success animate-pulse" /> Live Outbound Engine
+              </span>
+            </div>
+          </div>
+
+          <div className="p-6 md:p-8">
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+              <div className="rounded-2xl border border-ink-border bg-ink-elevated/70 p-4 transition-all hover:border-primary/40">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-ink-muted">Outbound Sent</span>
+                  <Mail className="size-4 text-primary" />
+                </div>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="font-display text-2xl font-black text-primary-foreground sm:text-3xl">84,290</span>
+                  <span className="text-xs font-bold text-success">+14%</span>
+                </div>
+                <p className="mt-1 text-[11px] text-ink-muted">50 inboxes active</p>
+              </div>
+
+              <div className="rounded-2xl border border-ink-border bg-ink-elevated/70 p-4 transition-all hover:border-primary/40">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-ink-muted">Inbox Placement</span>
+                  <ShieldCheck className="size-4 text-brand-light" />
+                </div>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="font-display text-2xl font-black text-brand-light sm:text-3xl">99.4%</span>
+                  <span className="text-xs font-bold text-success">Optimal</span>
+                </div>
+                <p className="mt-1 text-[11px] text-ink-muted">Zero spam friction</p>
+              </div>
+
+              <div className="rounded-2xl border border-ink-border bg-ink-elevated/70 p-4 transition-all hover:border-primary/40">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-ink-muted">Replies Classified</span>
+                  <Bot className="size-4 text-ai-bright" />
+                </div>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="font-display text-2xl font-black text-primary-foreground sm:text-3xl">1,420</span>
+                  <span className="text-xs font-bold text-success">+22%</span>
+                </div>
+                <p className="mt-1 text-[11px] text-ink-muted">AI agent handled</p>
+              </div>
+
+              <div className="rounded-2xl border border-ink-border bg-ink-elevated/70 p-4 transition-all hover:border-primary/40">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-ink-muted">Meetings Booked</span>
+                  <CalendarCheck className="size-4 text-success" />
+                </div>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="font-display text-2xl font-black text-success sm:text-3xl">38</span>
+                  <span className="text-xs font-bold text-success font-display">Target Exceeded</span>
+                </div>
+                <p className="mt-1 text-[11px] text-ink-muted">100% qualified V2P</p>
+              </div>
+            </div>
+
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+              <div className="rounded-2xl border border-ink-border bg-ink-elevated/50 p-5 lg:col-span-2">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="font-display text-xs font-bold uppercase tracking-wider text-primary-foreground">
+                    Deliverability & Meeting Trajectory
+                  </p>
+                  <div className="flex items-center gap-4 text-xs text-ink-muted">
+                    <span className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-primary" /> Outbound Volume</span>
+                    <span className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-success" /> Booked Calls</span>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <svg viewBox="0 0 500 160" className="w-full h-40">
+                    <defs>
+                      <linearGradient id="primaryGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <line x1="0" y1="35" x2="500" y2="35" stroke="var(--color-ink-border)" strokeWidth="1" strokeDasharray="3 3" />
+                    <line x1="0" y1="80" x2="500" y2="80" stroke="var(--color-ink-border)" strokeWidth="1" strokeDasharray="3 3" />
+                    <line x1="0" y1="125" x2="500" y2="125" stroke="var(--color-ink-border)" strokeWidth="1" strokeDasharray="3 3" />
+                    <path d="M0,140 L70,120 L140,110 L210,85 L280,70 L350,50 L420,40 L500,25 L500,160 L0,160 Z" fill="url(#primaryGradient)" />
+                    <polyline points="0,140 70,120 140,110 210,85 280,70 350,50 420,40 500,25" fill="none" stroke="var(--color-primary)" strokeWidth="3" strokeLinecap="round" />
+                    <polyline points="0,150 70,142 140,135 210,120 280,105 350,85 420,65 500,45" fill="none" stroke="var(--color-success)" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                  <div className="flex justify-between text-[10px] text-ink-muted">
+                    <span>Week 1</span>
+                    <span>Week 2</span>
+                    <span>Week 4</span>
+                    <span>Week 6</span>
+                    <span>Week 8</span>
+                    <span>Week 10</span>
+                    <span>Week 12</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-ink-border bg-ink-elevated/50 p-5">
+                <div className="flex items-center justify-between">
+                  <p className="font-display text-xs font-bold uppercase tracking-wider text-primary-foreground">Live Reply Stream</p>
+                  <span className="size-2 rounded-full bg-success animate-pulse" />
+                </div>
+                <div className="mt-4 space-y-3">
+                  <div className="rounded-xl border border-ink-border bg-ink-card p-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-primary-foreground">VP Growth @ SaaS</span>
+                      <span className="rounded bg-success/20 px-1.5 py-0.5 text-[9px] font-bold text-success">BOOKED</span>
+                    </div>
+                    <p className="mt-1 text-xs text-ink-muted line-clamp-1">&ldquo;Let&apos;s do Thursday 2pm. Looking forward to it.&rdquo;</p>
+                  </div>
+                  <div className="rounded-xl border border-ink-border bg-ink-card p-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-primary-foreground">CEO @ B2B Agency</span>
+                      <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[9px] font-bold text-brand-light">INTERESTED</span>
+                    </div>
+                    <p className="mt-1 text-xs text-ink-muted line-clamp-1">&ldquo;Send over your calendar link and case studies.&rdquo;</p>
+                  </div>
+                  <div className="rounded-xl border border-ink-border bg-ink-card p-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-primary-foreground">Head of Sales @ Tech</span>
+                      <span className="rounded bg-ai/20 px-1.5 py-0.5 text-[9px] font-bold text-ai-bright">AI ROUTED</span>
+                    </div>
+                    <p className="mt-1 text-xs text-ink-muted line-clamp-1">&ldquo;Replied within 90s — qualifying pipeline intent.&rdquo;</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const campaignScenarios = [
+  {
+    id: "saas",
+    name: "B2B SaaS",
+    target: "VP of Sales & CROs",
+    subject: "quick question re: {Competitor_Gap} vs pipeline",
+    body: "Hi {First_Name},\n\nNoticed {Company} is scaling outbound, but most SaaS CROs we talk to lose 40% of inbound meetings to missed lead response times.\n\nWe built a 100K outbound engine that books 10+ guaranteed enterprise meetings every 90 days—with zero SDR headcount.\n\nWorth a 7-minute look this Thursday?",
+    followUp: "Hey {First_Name}, saw you’re expanding the sales team on LinkedIn. We just helped CloudScale add $142K in qualified pipeline in month 1.\n\nOpen to seeing their campaign framework?",
+    aiReplySnippet: "Candidate asked about pricing and domain safety → AI answered with security architecture breakdown and forwarded calendar booking link.",
+    metric: "4.8% Reply Rate",
+  },
+  {
+    id: "agency",
+    name: "Growth Agency",
+    target: "Agency Founders & Managing Directors",
+    subject: "{Company} + client acquisition infrastructure",
+    body: "Hey {First_Name},\n\nMost agencies we speak with are tired of unpredictable referral pipelines and volatile ad spend.\n\nWe install a done-for-you 100K cold email infrastructure that consistently delivers 10 qualified retainer clients—fully managed by us daily.\n\nWould you be open to checking out the numbers?",
+    followUp: "Following up on this, {First_Name}—here is a quick breakdown of how we set up 50 secondary domains to protect your primary domain brand reputation.",
+    aiReplySnippet: "Prospect asked: 'How much time does my team need to spend?' → AI replied: 'Zero time—we handle list enrichment, copy, deliverability, and replies.'",
+    metric: "6.2% Reply Rate",
+  },
+  {
+    id: "fintech",
+    name: "FinTech & Payments",
+    target: "CFOs & Heads of Finance",
+    subject: "automating reconciliation workflows for {Company}",
+    body: "Hi {First_Name},\n\nSaw {Company}'s recent expansion into cross-border operations. High transaction volume usually means finance teams lose 15+ hours weekly on manual audit exceptions.\n\nWe help FinTech leaders eliminate payment latency with an automated infrastructure layer.\n\nAre you available for a brief chat next Tuesday?",
+    followUp: "Hi {First_Name}, sharing our recent case study on how we reduced payment exception handling time by 72% for multi-currency platforms.",
+    aiReplySnippet: "CFO responded asking for SOC2 compliance → AI instantly provided security verification link and scheduled 15-min discovery call.",
+    metric: "5.1% Reply Rate",
+  },
+  {
+    id: "services",
+    name: "Professional Services",
+    target: "Managing Partners & Practice Leads",
+    subject: "partner pipeline capacity for Q3",
+    body: "Dear {First_Name},\n\nWith consulting demand shifting toward fixed-scope advisory, partner-led outreach is often too slow to fill next quarter’s billing capacity.\n\nWe build and operate a high-intent outbound system reaching verified C-suite decision makers on autopilot.\n\nWould you be against a 10-minute introduction?",
+    followUp: "Following up, {First_Name}—thought you might find our B2B decision-maker reach benchmark report useful.",
+    aiReplySnippet: "Managing partner asked about partner compensation models → AI replied with meeting agenda and routed call to partner calendar.",
+    metric: "5.9% Reply Rate",
+  },
+];
+
+function CampaignPreviewSection() {
+  const [activeScenario, setActiveScenario] = useState(0);
+  const [activeTab, setActiveTab] = useState<"step1" | "step2" | "reply">("step1");
+  const current = campaignScenarios[activeScenario];
+
+  return (
+    <section className="section-space bg-background">
+      <div className="page-container">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow">
+            <FileText className="size-3.5 text-primary" /> Live Campaign Playbooks
+          </span>
+          <h2 className="section-title mt-5">See High-Converting Cold Email In Action</h2>
+          <p className="mt-4 text-muted-foreground">
+            Explore the exact personalization hooks, follow-up sequences, and AI objection handling we deploy for your industry.
+          </p>
+        </div>
+
+        {/* Industry Scenario Tabs */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          {campaignScenarios.map((scen, idx) => (
+            <button
+              key={scen.id}
+              type="button"
+              onClick={() => {
+                setActiveScenario(idx);
+                setActiveTab("step1");
+              }}
+              className={`rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                activeScenario === idx
+                  ? "bg-primary text-primary-foreground shadow-soft"
+                  : "border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
+              }`}
+            >
+              {scen.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Email Sequence Box */}
+        <div className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border bg-soft px-6 py-4">
+            <div className="flex items-center gap-3">
+              <span className="rounded-lg border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs font-bold text-primary font-display">
+                Target: {current.target}
+              </span>
+              <span className="text-xs font-semibold text-success flex items-center gap-1 font-display">
+                <CheckCircle2 className="size-3.5" /> {current.metric}
+              </span>
+            </div>
+            {/* Step Toggle */}
+            <div className="flex rounded-xl border border-border bg-background p-1 text-xs font-semibold">
+              <button
+                type="button"
+                onClick={() => setActiveTab("step1")}
+                className={`rounded-lg px-3 py-1.5 transition-colors cursor-pointer ${
+                  activeTab === "step1" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Email 1 (Hook)
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("step2")}
+                className={`rounded-lg px-3 py-1.5 transition-colors cursor-pointer ${
+                  activeTab === "step2" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Email 2 (Case Study)
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("reply")}
+                className={`rounded-lg px-3 py-1.5 transition-colors cursor-pointer ${
+                  activeTab === "reply" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                AI Reply Routing
+              </button>
+            </div>
+          </div>
+
+          <div className="p-6 sm:p-8">
+            {activeTab === "step1" && (
+              <div className="space-y-4">
+                <div className="rounded-xl border border-border bg-soft p-3 text-xs sm:text-sm font-mono text-muted-foreground">
+                  <span className="font-bold text-foreground">Subject:</span> {current.subject}
+                </div>
+                <div className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-foreground font-sans bg-background rounded-2xl border border-border p-6">
+                  {current.body}
+                </div>
+              </div>
+            )}
+
+            {activeTab === "step2" && (
+              <div className="space-y-4">
+                <div className="rounded-xl border border-border bg-soft p-3 text-xs sm:text-sm font-mono text-muted-foreground">
+                  <span className="font-bold text-foreground">Subject:</span> Re: {current.subject} (Follow-Up +3 Days)
+                </div>
+                <div className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-foreground font-sans bg-background rounded-2xl border border-border p-6">
+                  {current.followUp}
+                </div>
+              </div>
+            )}
+
+            {activeTab === "reply" && (
+              <div className="rounded-2xl border border-border bg-soft p-6">
+                <div className="flex items-center gap-2 text-primary font-bold text-sm font-display">
+                  <Bot className="size-4" /> AI Auto-Classification &amp; Intent Routing
+                </div>
+                <p className="mt-3 text-sm sm:text-base leading-relaxed text-foreground">
+                  {current.aiReplySnippet}
+                </p>
+                <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-success font-display">
+                  <span className="size-2 rounded-full bg-success animate-pulse" /> Direct Calendar Lock · Qualified Meeting Added
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function OutcomeStrip() {
   return (
     <section className="border-y border-border bg-soft">
@@ -513,6 +849,86 @@ function EnginePillarsSection() {
   );
 }
 
+const techIntegrations = [
+  {
+    category: "Lead Data & Enrichment",
+    description: "Waterfall-enriched prospect intelligence and triple verification.",
+    tools: [
+      { name: "Clay", role: "Waterfall Data Enrichment", badge: "Enrichment" },
+      { name: "Apollo.io", role: "8M+ Verified B2B Database", badge: "Lead Sourcing" },
+      { name: "ZoomInfo", role: "Direct Dials & Mobile Numbers", badge: "Intelligence" },
+      { name: "MillionVerifier", role: "Zero-Bounce Email Scrubbing", badge: "Verification" },
+    ],
+  },
+  {
+    category: "Sending & Deliverability",
+    description: "Multi-domain infrastructure isolated from your primary brand domain.",
+    tools: [
+      { name: "Smartlead.ai", role: "Automated Warmup & Inbox Rotation", badge: "Deliverability" },
+      { name: "Instantly.ai", role: "Distributed Inboxes & Scale", badge: "Sending" },
+      { name: "Google Workspace", role: "Dedicated Secondary Domains", badge: "Infrastructure" },
+      { name: "Microsoft 365", role: "Enterprise MX & SPF/DKIM/DMARC", badge: "Security" },
+    ],
+  },
+  {
+    category: "CRM & Calendar Sync",
+    description: "Automatic meeting creation and pipeline reporting directly to your team.",
+    tools: [
+      { name: "HubSpot", role: "Real-Time Contact & Deal Sync", badge: "CRM" },
+      { name: "Salesforce", role: "Opportunity Pipeline Tracking", badge: "Enterprise" },
+      { name: "Calendly", role: "Instant Frictionless Scheduling", badge: "Booking" },
+      { name: "Slack", role: "Live New Meeting Notifications", badge: "Alerts" },
+    ],
+  },
+];
+
+function TechStackSection() {
+  return (
+    <section className="section-space dark-grid text-primary-foreground">
+      <div className="page-container">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow eyebrow-dark">
+            <Layers className="size-3.5 text-primary" /> Integrated Ecosystem
+          </span>
+          <h2 className="section-title mt-5">
+            Built On The World&apos;s Best <br className="hidden sm:inline" />
+            <span className="text-brand-light">Deliverability &amp; Data Infrastructure</span>
+          </h2>
+          <p className="mt-4 text-ink-muted">
+            We configure, manage, and monitor the top-tier outbound tech stack so your team never has to deal with configuration overhead.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-3">
+          {techIntegrations.map((group) => (
+            <div key={group.category} className="rounded-3xl border border-ink-border bg-ink-card/90 p-7 shadow-soft flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-light font-display">
+                  {group.category}
+                </span>
+                <p className="mt-1 text-xs text-ink-muted">{group.description}</p>
+                <div className="mt-6 space-y-3">
+                  {group.tools.map((tool) => (
+                    <div key={tool.name} className="flex items-center justify-between rounded-xl border border-ink-border bg-ink-elevated p-3.5 transition-all hover:border-primary/50">
+                      <div>
+                        <strong className="block text-sm font-bold text-primary-foreground font-display">{tool.name}</strong>
+                        <span className="text-[11px] text-ink-muted">{tool.role}</span>
+                      </div>
+                      <span className="rounded-md border border-ink-border bg-ink px-2 py-0.5 text-[10px] font-semibold text-primary font-display">
+                        {tool.badge}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function OldWaySection() {
   return (
     <section className="section-space dark-grid text-primary-foreground">
@@ -652,6 +1068,82 @@ function CommitmentSection() {
             <li key={item} className="flex gap-3 font-semibold"><Check className="h-5 w-5 shrink-0" />{item}</li>
           ))}
         </ul>
+      </div>
+    </section>
+  );
+}
+
+const testimonials = [
+  {
+    name: "Austin O.",
+    role: "Founder & CEO",
+    company: "CloudScale SaaS",
+    metric: "+$142,000 Pipeline Added",
+    rating: 5,
+    quote: "We went from 3 cold calls a week to 38 qualified enterprise demos in our very first month. The AI reply agent booked meetings directly into our calendar while our team was asleep. This engine paid for itself 10x over.",
+  },
+  {
+    name: "Marcus T.",
+    role: "Head of Growth",
+    company: "Apex Media Agency",
+    metric: "99.4% Deliverability Rate",
+    rating: 5,
+    quote: "Setting up 50 domains, DNS records, and warming schedules used to be an operational nightmare. Brnd Guru launched our entire 100K engine in 9 days and we hit our 10-meeting commitment in the first 3 weeks.",
+  },
+  {
+    name: "Sarah K.",
+    role: "VP of Revenue",
+    company: "Nexus Technologies",
+    metric: "14 Qualified Meetings / Mo",
+    rating: 5,
+    quote: "The quality of the triple-verified lead list is night and day compared to standard databases. Zero spam complaints, high-level C-suite replies, and 4 closed enterprise contracts in our first quarter.",
+  },
+];
+
+function TestimonialsSection() {
+  return (
+    <section className="section-space bg-soft">
+      <div className="page-container">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-bold text-foreground shadow-sm">
+            <div className="flex text-amber-500">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="size-3.5 fill-amber-500 text-amber-500" />
+              ))}
+            </div>
+            <span className="ml-1">4.9 / 5 Client Rating</span>
+          </div>
+          <h2 className="section-title mt-5">Loved By B2B Founders &amp; Sales Leaders</h2>
+          <p className="mt-4 text-muted-foreground">
+            See how high-growth teams scale their pipeline with the 100K Email GTM Engine.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <div key={t.name} className="flex flex-col justify-between rounded-3xl border border-border bg-card p-7 sm:p-8 shadow-card transition-all duration-300 hover:-translate-y-1">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex text-amber-500">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star key={i} className="size-3.5 fill-amber-500 text-amber-500" />
+                    ))}
+                  </div>
+                  <span className="rounded-full border border-success/30 bg-success/10 px-2.5 py-0.5 text-[11px] font-bold text-success font-display">
+                    {t.metric}
+                  </span>
+                </div>
+                <p className="mt-5 text-sm sm:text-base leading-relaxed text-foreground font-sans">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+              </div>
+              <div className="mt-6 border-t border-border pt-4">
+                <strong className="block font-display text-base font-bold text-foreground">{t.name}</strong>
+                <span className="text-xs text-muted-foreground">{t.role} · {t.company}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -857,18 +1349,22 @@ function HomePage() {
     <main className="min-h-screen overflow-x-hidden">
       <Header />
       <Hero />
+      <LiveCommandCenterSection />
       <VolumeSliderSection />
       <OutcomeStrip />
       <CapabilityStrip />
+      <CampaignPreviewSection />
       <ProblemSection />
       <PipelineSection />
       <IncludedSection />
       <EnginePillarsSection />
+      <TechStackSection />
       <OldWaySection />
       <InfrastructureSection />
       <AiWorkflowSection />
       <ProcessSection />
       <CommitmentSection />
+      <TestimonialsSection />
       <RoadmapSection />
       <InvestmentSection />
       <FitSection />
