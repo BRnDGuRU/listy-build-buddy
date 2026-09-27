@@ -1391,16 +1391,21 @@ function FinalCta() {
         <Reveal>
           <CalendarCheck className="mx-auto h-11 w-11 text-brand-light" />
           <p className="mt-6 font-display text-xs font-bold uppercase tracking-widest text-brand-light">
-            Launch Fast. Optimize. Scale.
+            Stop Chasing. Start Closing.
           </p>
           <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl">
-            Ready To Launch Your AI GTM Engine?
+            Let&apos;s Build Your Predictable Pipeline.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-ink-muted sm:text-base">
-            Book a 30-minute strategy call with Shivanshu Kumar to map out your ICP, architecture, and 14-day launch sprint.
+            Book a 30-minute strategy call with Shivanshu Kumar to map out your ICP, AI ecosystem architecture, and 14-day launch sprint.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-center gap-3">
             <CtaButton>Book Your Strategy Call</CtaButton>
+            <div className="flex items-center gap-4 text-xs text-ink-muted">
+              <span className="flex items-center gap-1.5"><Check className="size-3.5 text-primary" /> 30 Min Strategy Call</span>
+              <span className="text-ink-border">•</span>
+              <span className="flex items-center gap-1.5"><Check className="size-3.5 text-primary" /> No Obligation</span>
+            </div>
           </div>
         </Reveal>
       </div>
