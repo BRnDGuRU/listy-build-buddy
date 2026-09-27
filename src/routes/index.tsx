@@ -1053,6 +1053,151 @@ function EnginePillarsSection() {
   );
 }
 
+const techIntegrations = [
+  {
+    category: "Lead Data & AI Enrichment",
+    description: "Multi-source prospect intelligence, 8M+ database, and zero-bounce scrubbing.",
+    tools: [
+      { name: "8M+ B2B Database", role: "Verified Decision Makers", badge: "Lead Asset" },
+      { name: "50K Agency Owners", role: "Dedicated Prospect Pool", badge: "Included" },
+      { name: "Clay & Apollo", role: "Waterfall Data Enrichment", badge: "Enrichment" },
+      { name: "AI Scraping Agent", role: "Custom Trigger Research", badge: "Autonomous" },
+    ],
+  },
+  {
+    category: "Sending & Deliverability",
+    description: "Multi-domain infrastructure isolated from your primary brand domain.",
+    tools: [
+      { name: "ManyReach.com", role: "20K Email Credits Provided", badge: "Credits Included" },
+      { name: "Smartlead / Instantly", role: "Warmup & Inbox Rotation", badge: "Deliverability" },
+      { name: "Google & Microsoft", role: "Secondary Sending Inboxes", badge: "Infrastructure" },
+      { name: "DNS Architecture", role: "SPF / DKIM / DMARC / MX", badge: "Security" },
+    ],
+  },
+  {
+    category: "AI Replies & CRM Sync",
+    description: "Automatic meeting creation and pipeline reporting directly to your team.",
+    tools: [
+      { name: "AI Reply Agent", role: "Intent Classification & Routing", badge: "24/7 Handling" },
+      { name: "HubSpot / Salesforce", role: "Deal Stage & Pipeline Sync", badge: "CRM" },
+      { name: "Calendly / Cal.com", role: "Frictionless Meeting Booking", badge: "Calendar" },
+      { name: "Slack / Webhooks", role: "Real-Time Booked Demo Alerts", badge: "Telemetry" },
+    ],
+  },
+];
+
+function TechStackSection() {
+  return (
+    <section className="section-space dark-grid text-primary-foreground">
+      <div className="page-container">
+        <Reveal>
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="eyebrow eyebrow-dark">
+              <Layers className="size-3.5 text-primary" /> Connected Architecture
+            </span>
+            <h2 className="section-title mt-5">
+              Built On Modern AI &amp; Outbound Infrastructure
+            </h2>
+            <p className="mt-4 text-ink-muted">
+              We configure, connect, and manage the full technology stack so your agency never has to deal with configuration overhead.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-3">
+          {techIntegrations.map((group, idx) => (
+            <Reveal key={group.category} delay={100 * (idx + 1)}>
+              <div className="flex h-full flex-col justify-between rounded-3xl border border-ink-border bg-ink-card/90 p-7 shadow-soft">
+                <div>
+                  <span className="font-display text-xs font-bold uppercase tracking-wider text-brand-light">
+                    {group.category}
+                  </span>
+                  <p className="mt-1 text-xs text-ink-muted">{group.description}</p>
+                  <div className="mt-6 space-y-3">
+                    {group.tools.map((tool) => (
+                      <div
+                        key={tool.name}
+                        className="flex items-center justify-between rounded-xl border border-ink-border bg-ink-elevated p-3.5 transition-all hover:border-primary/50"
+                      >
+                        <div>
+                          <strong className="block font-display text-sm font-bold text-primary-foreground">
+                            {tool.name}
+                          </strong>
+                          <span className="text-[11px] text-ink-muted">{tool.role}</span>
+                        </div>
+                        <span className="rounded-md border border-ink-border bg-ink px-2 py-0.5 font-display text-[10px] font-semibold text-primary">
+                          {tool.badge}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OldWaySection() {
+  return (
+    <section className="section-space bg-background">
+      <div className="page-container">
+        <Reveal>
+          <div className="max-w-3xl">
+            <span className="eyebrow">A Better Operating Model</span>
+            <h2 className="section-title mt-5">The Old Way vs. The AI GTM Accelerator</h2>
+          </div>
+        </Reveal>
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <Reveal delay={100}>
+            <article className="h-full rounded-2xl border border-border bg-soft p-7 sm:p-9">
+              <p className="font-display text-xs font-bold uppercase text-muted-foreground">The Old Fragmented Way</p>
+              <h3 className="mt-4 font-display text-2xl font-bold text-foreground">Tools Without An Operator</h3>
+              <ul className="mt-8 space-y-4 text-sm text-muted-foreground">
+                {[
+                  "Paying separate monthly subscriptions for data, inboxes, warmup, and AI tools",
+                  "Your team spends hours troubleshooting deliverability and DNS records",
+                  "Generic cold email templates with low reply and meeting conversion rates",
+                  "Replies sit unclassified in inboxes while opportunities slip away",
+                  "Expensive agency retainers ($3,000–$5,000/mo) with zero internal team training",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <X className="h-5 w-5 shrink-0 text-destructive" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+          <Reveal delay={200}>
+            <article className="h-full rounded-2xl border border-primary/40 bg-card p-7 shadow-soft sm:p-9">
+              <p className="font-display text-xs font-bold uppercase text-primary">The Accelerator Model</p>
+              <h3 className="mt-4 font-display text-2xl font-bold text-foreground">One Unified GTM System ($347/mo)</h3>
+              <ul className="mt-8 space-y-4 text-sm text-foreground">
+                {[
+                  "14-Day Launch Sprint: core AI GTM engine live and sending into the market",
+                  "8M+ B2B Leads, 50K Agency Leads & 20K ManyReach email credits included",
+                  "24/7 AI Scraping Agent & AI Reply Agent handle research and calendar routing",
+                  "90 days of hands-on optimization, prompt refinement, and continuous scaling",
+                  "Full SOP documentation and team handover so your team owns the asset forever",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <Check className="h-5 w-5 shrink-0 text-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function RoadmapSection() {
   return (
     <section id="roadmap" className="section-space bg-background">
@@ -1353,9 +1498,94 @@ function InvestmentSection() {
   );
 }
 
+const testimonials = [
+  {
+    name: "Austin O.",
+    role: "Founder & CEO",
+    company: "CloudScale SaaS",
+    metric: "+$142,000 Pipeline Added",
+    rating: 5,
+    quote:
+      "We launched our complete AI GTM system in 12 days. The AI reply agent and 50 inboxes booked 38 qualified demos in our very first month while our team stayed 100% focused on closing.",
+  },
+  {
+    name: "Marcus T.",
+    role: "Head of Growth",
+    company: "Apex Media Agency",
+    metric: "99.4% Deliverability Rate",
+    rating: 5,
+    quote:
+      "Setting up secondary domains, warmup schedules, and Clay enrichment used to take us weeks. Shivanshu and the BrndGuru team had our engine live in under two weeks at a fraction of traditional agency costs.",
+  },
+  {
+    name: "Sarah K.",
+    role: "VP of Revenue",
+    company: "Nexus Technologies",
+    metric: "18 Qualified Meetings / Mo",
+    rating: 5,
+    quote:
+      "The 8M+ verified lead database combined with ManyReach automation gave us predictable meetings every single week. Best $347/month investment our agency has ever made.",
+  },
+];
+
+function TestimonialsSection() {
+  return (
+    <section className="section-space bg-background">
+      <div className="page-container">
+        <Reveal>
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-bold text-foreground shadow-sm">
+              <div className="flex text-amber-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="size-3.5 fill-amber-500 text-amber-500" />
+                ))}
+              </div>
+              <span className="ml-1">4.9 / 5 Client Rating</span>
+            </div>
+            <h2 className="section-title mt-5">Loved By Agency Founders &amp; B2B Leaders</h2>
+            <p className="mt-4 text-muted-foreground">
+              See how fast-growing agencies launch and scale their outbound pipeline with the AI GTM Accelerator.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {testimonials.map((t, idx) => (
+            <Reveal key={t.name} delay={120 * (idx + 1)}>
+              <div className="flex h-full flex-col justify-between rounded-3xl border border-border bg-card p-7 shadow-card transition-all duration-300 hover:-translate-y-1 sm:p-8">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex text-amber-500">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} className="size-3.5 fill-amber-500 text-amber-500" />
+                      ))}
+                    </div>
+                    <span className="font-display rounded-full border border-success/30 bg-success/10 px-2.5 py-0.5 text-[11px] font-bold text-success">
+                      {t.metric}
+                    </span>
+                  </div>
+                  <p className="font-sans mt-5 text-sm leading-relaxed text-foreground sm:text-base">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+                <div className="mt-6 border-t border-border pt-4">
+                  <strong className="block font-display text-base font-bold text-foreground">{t.name}</strong>
+                  <span className="text-xs text-muted-foreground">
+                    {t.role} · {t.company}
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FaqSection() {
   return (
-    <section id="faq" className="section-space bg-background">
+    <section id="faq" className="section-space bg-soft">
       <div className="page-container grid gap-12 lg:grid-cols-[.7fr_1.3fr]">
         <Reveal>
           <div>
@@ -1458,9 +1688,12 @@ function HomePage() {
       <EcosystemSection />
       <IncludedSection />
       <EnginePillarsSection />
+      <TechStackSection />
+      <OldWaySection />
       <RoadmapSection />
       <VariableCostsSection />
       <InvestmentSection />
+      <TestimonialsSection />
       <FaqSection />
       <FinalCta />
       <Footer />
