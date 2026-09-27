@@ -16,19 +16,20 @@ import {
   Compass,
   Cpu,
   Database,
-  FileSpreadsheet,
   Globe2,
   GraduationCap,
   Layers,
   Mail,
   Menu,
   MessageSquareText,
+  Play,
   Rocket,
   Search,
   ServerCog,
   Settings2,
   ShieldCheck,
   Sparkles,
+  Star,
   Target,
   Users,
   Workflow,
@@ -370,7 +371,7 @@ function CtaButton({
       asChild
       size="lg"
       variant={inverse ? "secondary" : "default"}
-      className="h-12 rounded-xl px-7 font-display font-bold shadow-soft transition-all duration-300 hover:-translate-y-0.5"
+      className="h-12 rounded-full px-8 font-display font-bold shadow-soft transition-all duration-300 hover:-translate-y-0.5"
     >
       <a href="#strategy-call">
         {children}
@@ -409,229 +410,520 @@ function Logo({ inverse = false }: { inverse?: boolean }) {
 function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur-xl transition-all duration-300">
-      <div className="page-container flex items-center justify-between gap-4 py-3 md:py-3.5">
-        <Logo />
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
-          <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#ecosystem">
-            Ecosystem
-          </a>
-          <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#included">
-            Included Assets
-          </a>
-          <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#roadmap">
-            90-Day Blueprint
-          </a>
-          <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#variable-costs">
-            Infrastructure
-          </a>
-          <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#investment">
-            Investment
-          </a>
-          <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#faq">
-            FAQ
-          </a>
-        </nav>
-        <div className="flex shrink-0 items-center gap-3">
-          <Button
-            asChild
-            size="sm"
-            className="hidden rounded-full bg-primary px-5 py-2 text-xs font-semibold text-primary-foreground shadow-soft transition-transform duration-200 hover:scale-[1.03] sm:inline-flex sm:text-sm"
-          >
-            <a href="#strategy-call">Apply for Accelerator →</a>
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            size="icon"
-            className="size-9 rounded-lg border-border bg-card text-foreground hover:bg-muted hover:text-foreground lg:hidden"
-            onClick={() => setOpen((value) => !value)}
-            aria-expanded={open}
-            aria-label="Toggle navigation"
-          >
-            {open ? <X className="size-4" /> : <Menu className="size-4" />}
-          </Button>
-        </div>
-      </div>
-      {open && (
-        <nav
-          className="animate-in fade-in slide-in-from-top-2 border-t border-border bg-background/95 px-5 py-5 duration-200 backdrop-blur-xl lg:hidden"
-          aria-label="Mobile navigation"
-        >
-          <div className="flex flex-col gap-4">
-            {[
-              ["Ecosystem", "#ecosystem"],
-              ["Included Assets", "#included"],
-              ["90-Day Blueprint", "#roadmap"],
-              ["Infrastructure", "#variable-costs"],
-              ["Investment", "#investment"],
-              ["FAQ", "#faq"],
-            ].map(([label, href]) => (
-              <a
-                key={label}
-                className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
-                href={href}
-                onClick={() => setOpen(false)}
-              >
-                {label}
-              </a>
-            ))}
-            <div className="pt-2">
-              <Button
-                asChild
-                size="lg"
-                className="w-full rounded-xl bg-primary font-semibold text-primary-foreground shadow-soft"
-              >
-                <a href="#strategy-call" onClick={() => setOpen(false)}>
-                  Apply for Accelerator →
-                </a>
-              </Button>
-            </div>
+    <div className="sticky top-0 z-50 w-full transition-colors duration-200">
+      {/* ListKit-style Top Announcement Bar */}
+      <a
+        href="#strategy-call"
+        className="block w-full bg-primary px-4 py-2 text-center text-[12px] font-semibold leading-snug tracking-[-0.2px] text-primary-foreground transition-colors hover:bg-primary/90 sm:text-[13px]"
+      >
+        <span aria-hidden="true" className="mr-1.5">🚀</span>
+        <strong>14-Day AI GTM Launch Sprint</strong> • 90-Day Hands-on Implementation &amp; Optimization for just <strong>$347/month</strong> →
+      </a>
+
+      <header className="border-b border-border/80 bg-background/90 backdrop-blur-xl transition-all duration-300">
+        <div className="page-container flex h-[66px] items-center justify-between gap-6 py-2">
+          <Logo />
+          <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
+            <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#ecosystem">
+              Ecosystem
+            </a>
+            <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#included">
+              Included Assets
+            </a>
+            <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#roadmap">
+              90-Day Blueprint
+            </a>
+            <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#variable-costs">
+              Infrastructure
+            </a>
+            <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#investment">
+              Investment
+            </a>
+            <a className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground" href="#faq">
+              FAQ
+            </a>
+          </nav>
+          <div className="flex shrink-0 items-center gap-3">
+            <Button
+              asChild
+              size="sm"
+              className="hidden rounded-full bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground shadow-soft transition-transform duration-200 hover:scale-[1.03] sm:inline-flex sm:text-sm"
+            >
+              <a href="#strategy-call">Book a Strategy Call →</a>
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              className="size-9 rounded-lg border-border bg-card text-foreground hover:bg-muted hover:text-foreground lg:hidden"
+              onClick={() => setOpen((value) => !value)}
+              aria-expanded={open}
+              aria-label="Toggle navigation"
+            >
+              {open ? <X className="size-4" /> : <Menu className="size-4" />}
+            </Button>
           </div>
-        </nav>
-      )}
-    </header>
+        </div>
+        {open && (
+          <nav
+            className="animate-in fade-in slide-in-from-top-2 border-t border-border bg-background/95 px-5 py-5 duration-200 backdrop-blur-xl lg:hidden"
+            aria-label="Mobile navigation"
+          >
+            <div className="flex flex-col gap-4">
+              {[
+                ["Ecosystem", "#ecosystem"],
+                ["Included Assets", "#included"],
+                ["90-Day Blueprint", "#roadmap"],
+                ["Infrastructure", "#variable-costs"],
+                ["Investment", "#investment"],
+                ["FAQ", "#faq"],
+              ].map(([label, href]) => (
+                <a
+                  key={label}
+                  className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+                  href={href}
+                  onClick={() => setOpen(false)}
+                >
+                  {label}
+                </a>
+              ))}
+              <div className="pt-2">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full rounded-full bg-primary font-semibold text-primary-foreground shadow-soft"
+                >
+                  <a href="#strategy-call" onClick={() => setOpen(false)}>
+                    Book a Strategy Call →
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </nav>
+        )}
+      </header>
+    </div>
   );
 }
 
 function Hero() {
+  const rotatingWords = ["14 Days", "24/7 Speed", "90-Day Scale"];
+  const [rotIndex, setRotIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState<"scraping" | "replies" | "infra">("scraping");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, [rotatingWords.length]);
+
   return (
     <section
       id="top"
-      className="relative overflow-hidden border-b border-border bg-background py-14 text-foreground sm:py-18 lg:py-24"
+      aria-labelledby="hero-heading"
+      className="relative overflow-hidden bg-[radial-gradient(45%_60%_at_2%_50%,rgba(255,107,0,0.13),transparent_70%),radial-gradient(42%_58%_at_98%_52%,rgba(255,107,0,0.11),transparent_70%)] px-5 pb-16 pt-12 text-foreground sm:px-8 md:py-20"
     >
-      {/* Ambient Orange Radial & Grid */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,color-mix(in_oklab,var(--primary)_14%,transparent),transparent_70%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,color-mix(in_oklab,var(--border)_40%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_oklab,var(--border)_40%,transparent)_1px,transparent_1px)] bg-[size:40px_40px] opacity-60 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      <div className="relative z-10 mx-auto flex max-w-[1040px] flex-col items-center gap-10 sm:gap-12">
+        {/* Top Header Group (ListKit Style) */}
+        <div className="flex w-full flex-col items-center gap-6">
+          <div className="flex w-full flex-col items-center gap-4">
+            {/* Clean Pill Eyebrow */}
+            <Reveal>
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-center text-[13px] font-semibold tracking-[-0.15px] text-primary sm:text-sm">
+                <Sparkles className="size-3.5 text-primary" /> AI GTM Agency Accelerator • Launch Fast. Optimize. Scale.
+              </span>
+            </Reveal>
 
-      <div className="page-container relative flex flex-col items-center text-center">
-        {/* Eyebrow Pill */}
-        <Reveal>
-          <span className="eyebrow">
-            <Rocket className="h-3.5 w-3.5 text-primary" /> AI GTM Agency Accelerator • Launch Fast. Optimize. Scale.
-          </span>
-        </Reveal>
-
-        {/* Main Headline */}
-        <Reveal delay={100}>
-          <h1 className="font-hero mt-7 max-w-6xl text-[clamp(2.5rem,6.5vw,5.2rem)] font-black leading-[1.08] tracking-tight text-foreground">
-            Launch Your{" "}
-            <span className="inline-block rounded-xl bg-primary px-3.5 py-1 text-primary-foreground shadow-soft sm:rounded-2xl sm:px-4">
-              AI-Powered GTM System
-            </span>{" "}
-            In 14 Days. <br className="hidden sm:inline" />
-            Then Optimize &amp; Scale It For{" "}
-            <span className="font-bold text-primary">$347/Month.</span>
-          </h1>
-        </Reveal>
-
-        {/* Subtitle */}
-        <Reveal delay={200}>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-xl">
-            Launch fast in a 14-day sprint, then spend the next 90 days optimizing, automating, and scaling your outbound
-            engine with hands-on implementation, training, and support from Shivanshu Kumar.
-          </p>
-        </Reveal>
-
-        {/* CTA Group */}
-        <Reveal delay={250}>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
-            <CtaButton>Apply for the Accelerator</CtaButton>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="h-12 rounded-xl border-border bg-card px-6 font-display font-semibold text-foreground shadow-sm transition-all duration-200 hover:border-primary/50 hover:bg-primary-soft/20 hover:text-primary"
-            >
-              <a href="#ecosystem">Explore The Ecosystem ↘</a>
-            </Button>
+            {/* Giant Clean Headline with Animated Rotator */}
+            <Reveal delay={100}>
+              <h1
+                id="hero-heading"
+                className="text-balance text-center text-[34px] font-bold leading-[1.04] tracking-[-0.05em] text-foreground sm:text-[52px] md:text-[72px]"
+              >
+                <span className="block">
+                  Launch your <span className="text-primary">AI GTM System</span> in{" "}
+                  <span className="relative inline-block align-baseline font-[inherit] leading-[inherit] tabular-nums text-primary">
+                    <span className="invisible px-1">{rotatingWords[rotIndex]}</span>
+                    <span
+                      key={rotatingWords[rotIndex]}
+                      className="animate-rotnum-in absolute inset-0 text-center font-bold text-primary underline decoration-primary decoration-[3.5px] underline-offset-8"
+                    >
+                      {rotatingWords[rotIndex]}
+                    </span>
+                  </span>
+                  , <span className="text-primary">immediately.</span>
+                </span>
+              </h1>
+            </Reveal>
           </div>
-        </Reveal>
 
-        {/* 4 Feature Badges (Glance Highlights) */}
-        <div className="mt-14 grid w-full max-w-6xl gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
-          {/* Badge 1: 14 DAYS */}
-          <Reveal delay={100}>
-            <div className="h-full rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
-                  <Clock className="size-3 text-primary" /> Launch Sprint
-                </span>
-                <Rocket className="size-4 text-primary" />
-              </div>
-              <h3 className="mt-4 font-display text-xl font-bold text-foreground">14 DAYS</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Core AI GTM system designed, built, and launched LIVE.</p>
-              <div className="mt-4 rounded-lg border border-border bg-soft p-2.5">
-                <span className="block text-[10px] text-muted-foreground">Sprint Phase</span>
-                <strong className="font-display text-xs font-semibold text-primary">Fast Time to Market</strong>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Badge 2: 90 DAYS */}
+          {/* Clean Subtitle Paragraph (ListKit Style with Underline & Highlight Box) */}
           <Reveal delay={200}>
-            <div className="h-full rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2 py-0.5 text-[10px] font-semibold text-success">
-                  <Activity className="size-3 text-success" /> Hands-On
-                </span>
-                <Settings2 className="size-4 text-primary" />
-              </div>
-              <h3 className="mt-4 font-display text-xl font-bold text-foreground">90 DAYS</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Ongoing optimization, prompt tuning, and team training.</p>
-              <div className="mt-4 rounded-lg border border-border bg-soft p-2.5">
-                <span className="block text-[10px] text-muted-foreground">Implementation</span>
-                <strong className="font-display text-xs font-semibold text-success">Continuous Scaling</strong>
-              </div>
-            </div>
+            <p className="max-w-3xl text-center text-base font-medium leading-[1.38] tracking-[-0.025em] text-muted-foreground sm:text-xl md:text-2xl">
+              With BrndGuru, you launch high-volume AI cold email systems in 14 days: domains, inboxes, warmup, 8M+ leads, verification, AI scraping &amp; reply agents, and 20K ManyReach credits.{" "}
+              <span className="underline decoration-primary decoration-[3px] underline-offset-4 font-semibold text-foreground">
+                No paying thousands for disconnected agencies or tools
+              </span>{" "}
+              — it&apos;s all built, managed, and scaled for just $347/month.{" "}
+              <span className="box-decoration-clone rounded-[6px] bg-primary/15 px-2 py-0.5 text-foreground font-semibold">
+                The only hands-on AI GTM accelerator that does this.
+              </span>
+            </p>
           </Reveal>
 
-          {/* Badge 3: 24/7 AUTOMATION */}
-          <Reveal delay={300}>
-            <div className="h-full rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
-                  <Bot className="size-3 text-primary" /> AI Agents
-                </span>
-                <Zap className="size-4 text-primary" />
+          {/* Dual Pill CTA Buttons & Fast Direct Apply (ListKit Style) */}
+          <Reveal delay={250}>
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href="#strategy-call"
+                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-primary bg-primary px-8 py-4 text-base font-semibold leading-none tracking-[-0.03em] text-primary-foreground shadow-[0_4px_16px_-2px_rgba(255,107,0,0.4)] transition-all duration-150 hover:bg-primary/90 hover:scale-[1.02] sm:text-lg"
+                >
+                  Book a Strategy Call <ArrowRight className="size-4" />
+                </a>
+                <a
+                  href="#roadmap"
+                  className="inline-flex cursor-pointer items-center justify-center rounded-full border border-border bg-card px-8 py-4 text-base font-semibold leading-none tracking-[-0.03em] text-foreground shadow-sm transition-colors duration-150 hover:border-primary/40 hover:bg-muted sm:text-lg"
+                >
+                  Explore 90-Day Blueprint
+                </a>
               </div>
-              <h3 className="mt-4 font-display text-xl font-bold text-foreground">24/7 AGENTS</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Autonomous scraping, research, and reply classification.</p>
-              <div className="mt-4 rounded-lg border border-border bg-soft p-2.5">
-                <span className="block text-[10px] text-muted-foreground">Credits Included</span>
-                <strong className="font-display text-xs font-semibold text-brand-light">20K ManyReach Credits</strong>
-              </div>
-            </div>
-          </Reveal>
 
-          {/* Badge 4: $347 / MO */}
-          <Reveal delay={400}>
-            <div className="h-full rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold text-foreground">
-                  <ShieldCheck className="size-3 text-primary" /> Fixed Retainer
+              <p className="text-center text-[14px] font-medium tracking-[-0.02em] text-muted-foreground sm:text-[15px]">
+                When you sign up, the strategy, scraping agents &amp; inboxes are launched in 14 days. Zero tech headache.
+              </p>
+
+              <a
+                href="#investment"
+                className="mt-1 inline-flex cursor-pointer flex-col items-center gap-1 rounded-full border border-primary/30 bg-card px-7 py-3 text-center shadow-[0_4px_14px_-2px_rgba(255,107,0,0.15)] transition-all duration-150 hover:bg-primary-soft/30 hover:border-primary/60"
+              >
+                <span className="inline-flex items-center gap-2 text-[16px] font-bold tracking-[-0.03em] text-primary sm:text-[17px]">
+                  Or Apply Directly For The Accelerator Now <ArrowRight className="size-4" />
                 </span>
-                <CircleCheck className="size-4 text-primary" />
-              </div>
-              <h3 className="mt-4 font-display text-xl font-bold text-foreground">$347 / MO</h3>
-              <p className="mt-1 text-xs text-muted-foreground">90-day minimum implementation &amp; scaling commitment.</p>
-              <div className="mt-4 rounded-lg border border-border bg-soft p-2.5">
-                <span className="block text-[10px] text-muted-foreground">Lead Assets</span>
-                <strong className="font-display text-xs font-semibold text-foreground">8M+ B2B / 50K Agency</strong>
-              </div>
+                <span className="text-[12px] font-medium tracking-[-0.02em] text-muted-foreground sm:text-[13px]">
+                  skip the discovery call, start your 14-day launch sprint
+                </span>
+              </a>
             </div>
           </Reveal>
         </div>
 
-        {/* Hero Mission Statement Callout */}
-        <Reveal delay={450}>
-          <div className="mt-8 max-w-4xl rounded-2xl border border-border bg-card/90 p-5 text-center shadow-sm backdrop-blur-sm sm:p-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary font-display">
-              BUILD IT → LAUNCH IT → OPTIMIZE IT → TRAIN YOUR TEAM
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              The goal is not another collection of AI tools. The goal is a connected, revenue-producing GTM ecosystem your agency can understand, operate, and continuously scale.
-            </p>
+        {/* Social Proof Trust Bar (ListKit Style) */}
+        <Reveal delay={300}>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold tracking-[-0.02em] text-foreground sm:text-sm">
+            <span>8M+ triple-verified leads</span>
+            <span aria-hidden="true" className="text-muted-foreground font-normal">•</span>
+            <span>50K Agency Owners</span>
+            <span aria-hidden="true" className="text-muted-foreground font-normal">•</span>
+            <span>20K ManyReach Credits</span>
+            <span aria-hidden="true" className="text-muted-foreground font-normal">•</span>
+            <span>99.4% Deliverability</span>
+            <span aria-hidden="true" className="text-muted-foreground font-normal">•</span>
+            <div className="inline-flex items-center gap-1.5">
+              <div className="flex text-amber-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="size-3.5 fill-amber-500 text-amber-500" />
+                ))}
+              </div>
+              <span className="font-bold">Top Rated GTM Engine – 4.9/5</span>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* ListKit-Style Interactive Showcase Window */}
+        <Reveal scale delay={350} className="w-full">
+          <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+            {/* Window Titlebar with Tab Switchers */}
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-muted/50 px-5 py-3.5">
+              <div className="flex items-center gap-2">
+                <span className="size-3 rounded-full bg-destructive/80" />
+                <span className="size-3 rounded-full bg-warning/80" />
+                <span className="size-3 rounded-full bg-success/80" />
+                <span className="ml-2 rounded-lg border border-border bg-background px-3 py-1 font-mono text-[11px] text-muted-foreground">
+                  gtm.brndguru.com/ai-engine
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-xs font-semibold text-success">
+                  <span className="size-2 rounded-full bg-success animate-pulse" /> Live AI Engine
+                </span>
+              </div>
+            </div>
+
+            {/* Interactive Tab Controls */}
+            <div className="grid grid-cols-3 border-b border-border bg-card text-center text-xs font-bold sm:text-sm">
+              <button
+                type="button"
+                onClick={() => setActiveTab("scraping")}
+                className={`flex items-center justify-center gap-2 border-b-2 py-3.5 transition-all ${
+                  activeTab === "scraping"
+                    ? "border-primary bg-primary-soft/30 text-primary font-bold"
+                    : "border-transparent text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Bot className="size-4 text-primary" />
+                <span className="hidden sm:inline">01</span> AI Lead Scraping
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("replies")}
+                className={`flex items-center justify-center gap-2 border-b-2 py-3.5 transition-all ${
+                  activeTab === "replies"
+                    ? "border-primary bg-primary-soft/30 text-primary font-bold"
+                    : "border-transparent text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <MessageSquareText className="size-4 text-primary" />
+                <span className="hidden sm:inline">02</span> AI Reply Agent
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("infra")}
+                className={`flex items-center justify-center gap-2 border-b-2 py-3.5 transition-all ${
+                  activeTab === "infra"
+                    ? "border-primary bg-primary-soft/30 text-primary font-bold"
+                    : "border-transparent text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <ShieldCheck className="size-4 text-primary" />
+                <span className="hidden sm:inline">03</span> Deliverability &amp; Inboxes
+              </button>
+            </div>
+
+            {/* Tab 1: AI Scraping & Lead Enrichment */}
+            {activeTab === "scraping" && (
+              <div className="p-6 sm:p-8 animate-in fade-in duration-300">
+                <div className="grid gap-6 lg:grid-cols-3">
+                  <div className="lg:col-span-2 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground font-display">
+                        Active Lead Extraction Feed (8M+ Database)
+                      </span>
+                      <span className="rounded-md border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary font-display">
+                        Auto-Enriching
+                      </span>
+                    </div>
+
+                    <div className="space-y-2.5">
+                      {[
+                        {
+                          name: "Alex Vance",
+                          title: "CEO & Founder",
+                          company: "ScaleGrowth Media (US)",
+                          email: "alex@scalegrowth.io",
+                          tech: "HubSpot • Shopify • ManyReach",
+                          badge: "Triple-Verified",
+                        },
+                        {
+                          name: "Elena Rostova",
+                          title: "Head of Marketing",
+                          company: "Apex Tech Agency (US)",
+                          email: "elena@apextech.com",
+                          tech: "Salesforce • Klaviyo • Stripe",
+                          badge: "50K Agency List",
+                        },
+                        {
+                          name: "David Sterling",
+                          title: "Managing Director",
+                          company: "Sterling B2B Partners",
+                          email: "david@sterlingb2b.com",
+                          tech: "ActiveCampaign • Apollo",
+                          badge: "Triple-Verified",
+                        },
+                      ].map((lead) => (
+                        <div
+                          key={lead.email}
+                          className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl border border-border bg-soft p-3.5 transition-all hover:border-primary/40 hover:bg-card"
+                        >
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2">
+                              <strong className="text-sm font-bold text-foreground font-display">{lead.name}</strong>
+                              <span className="text-xs text-muted-foreground">· {lead.title}</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground truncate">{lead.company} · {lead.email}</p>
+                            <span className="mt-1 inline-block text-[10px] text-primary font-medium font-mono">{lead.tech}</span>
+                          </div>
+                          <span className="shrink-0 rounded-full border border-success/30 bg-success/10 px-2.5 py-0.5 text-[11px] font-bold text-success">
+                            ✓ {lead.badge}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-border bg-soft p-5 flex flex-col justify-between">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground font-display">
+                        Asset Summary
+                      </span>
+                      <strong className="mt-2 block font-display text-3xl font-black text-primary">8M+ Leads</strong>
+                      <p className="mt-1 text-xs text-muted-foreground">Pre-filtered by role, revenue, industry, and tech stack.</p>
+                      
+                      <div className="mt-4 space-y-2 border-t border-border pt-3 text-xs">
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Agency Owners Asset:</span>
+                          <strong className="text-foreground">50,000 Leads</strong>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">USA Business Data:</span>
+                          <strong className="text-foreground">Included</strong>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Zero-Bounce Target:</span>
+                          <strong className="text-success">&lt; 1.5% Bounce</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 rounded-xl border border-primary/30 bg-primary/10 p-3 text-center">
+                      <span className="text-[11px] font-bold text-primary">All Lead Assets Supplied From Day 1</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Tab 2: AI Reply Agent */}
+            {activeTab === "replies" && (
+              <div className="p-6 sm:p-8 animate-in fade-in duration-300">
+                <div className="grid gap-6 lg:grid-cols-3">
+                  <div className="lg:col-span-2 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground font-display">
+                        Incoming Prospect Stream &amp; Automated Classification
+                      </span>
+                      <span className="size-2 rounded-full bg-success animate-pulse" />
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="rounded-xl border border-border bg-soft p-4">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-foreground">Marcus Chen · VP Growth</span>
+                          <span className="rounded bg-success/20 px-2 py-0.5 text-[10px] font-bold text-success font-display">
+                            BOOKED DEMO
+                          </span>
+                        </div>
+                        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                          &ldquo;We need to scale outreach to 50k emails next month. Let&apos;s do Thursday at 2:00 PM.&rdquo;
+                        </p>
+                        <div className="mt-2.5 flex items-center gap-2 text-[11px] font-semibold text-primary">
+                          <Check className="size-3.5" /> AI Reply Agent synced calendar invite &amp; updated CRM deal stage.
+                        </div>
+                      </div>
+
+                      <div className="rounded-xl border border-border bg-soft p-4">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-foreground">Sarah Jenkins · Founder</span>
+                          <span className="rounded bg-primary/20 px-2 py-0.5 text-[10px] font-bold text-primary font-display">
+                            INTERESTED
+                          </span>
+                        </div>
+                        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                          &ldquo;Can you share how your ManyReach integration and scraping workflows work?&rdquo;
+                        </p>
+                        <div className="mt-2.5 flex items-center gap-2 text-[11px] font-semibold text-primary">
+                          <Bot className="size-3.5" /> AI Reply Agent drafted contextual case study response in 45 seconds.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-border bg-soft p-5 flex flex-col justify-between">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground font-display">
+                        Agent Performance
+                      </span>
+                      <strong className="mt-2 block font-display text-3xl font-black text-primary">24/7</strong>
+                      <p className="mt-1 text-xs text-muted-foreground">Instant classification, objection handling &amp; routing.</p>
+                      
+                      <div className="mt-4 space-y-2 border-t border-border pt-3 text-xs">
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Avg Response Time:</span>
+                          <strong className="text-foreground">&lt; 90 Seconds</strong>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Classification Accuracy:</span>
+                          <strong className="text-success">98.8%</strong>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Appointment Workflow:</span>
+                          <strong className="text-foreground">Synced Live</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 rounded-xl border border-success/30 bg-success/10 p-3 text-center">
+                      <span className="text-[11px] font-bold text-success">Zero Leads Lost in Inboxes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Tab 3: Sending Infrastructure & Inboxes */}
+            {activeTab === "infra" && (
+              <div className="p-6 sm:p-8 animate-in fade-in duration-300">
+                <div className="grid gap-6 lg:grid-cols-3">
+                  <div className="lg:col-span-2 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground font-display">
+                        Multi-Domain Inbox Warmup &amp; Rotation Pool
+                      </span>
+                      <span className="rounded-md border border-success/30 bg-success/10 px-2 py-0.5 text-[10px] font-bold text-success font-display">
+                        99.4% Inbox Rate
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                      {["domain-alpha.com", "reach-engine.co", "agency-gtm.net", "get-scale.io", "outbound-flow.com", "brnd-pipeline.org"].map((domain, i) => (
+                        <div key={domain} className="rounded-xl border border-border bg-soft p-3 text-xs">
+                          <div className="flex items-center justify-between">
+                            <span className="font-mono text-[11px] font-semibold text-foreground truncate">{domain}</span>
+                            <span className="size-1.5 rounded-full bg-success" />
+                          </div>
+                          <div className="mt-2 flex justify-between text-[10px] text-muted-foreground">
+                            <span>Inboxes: 2/2</span>
+                            <span className="text-success font-bold">100% Score</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="rounded-xl border border-border bg-soft p-3.5 text-xs text-muted-foreground flex items-center gap-3">
+                      <ShieldCheck className="size-5 text-primary shrink-0" />
+                      <span>SPF, DKIM, DMARC, MX, and Custom Tracking Domains configured automatically on secondary domains.</span>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-border bg-soft p-5 flex flex-col justify-between">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground font-display">
+                        Included Credits
+                      </span>
+                      <strong className="mt-2 block font-display text-3xl font-black text-primary">20,000</strong>
+                      <p className="mt-1 text-xs text-muted-foreground">ManyReach.com email credits provided from our side.</p>
+                      
+                      <div className="mt-4 space-y-2 border-t border-border pt-3 text-xs">
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Domain Protection:</span>
+                          <strong className="text-foreground">Full Isolation</strong>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Sending Warmup:</span>
+                          <strong className="text-success">Automated Gradual</strong>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground">Rotation Logic:</span>
+                          <strong className="text-foreground">24/7 Smart Cycle</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 rounded-xl border border-primary/30 bg-primary/10 p-3 text-center">
+                      <span className="text-[11px] font-bold text-primary">Zero Spam Friction Guaranteed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </Reveal>
       </div>
@@ -684,186 +976,6 @@ function EcosystemSection() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function LiveCommandCenterSection() {
-  return (
-    <section className="relative scroll-mt-24 border-b border-ink-border bg-ink-card px-4 py-16 text-primary-foreground md:py-20">
-      <div className="page-container">
-        <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow eyebrow-dark">
-              <Activity className="size-3.5 text-primary" /> Real-Time Telemetry
-            </span>
-            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Live Command Center <br className="hidden sm:inline" />
-              <span className="text-brand-light">Operating 24/7 For Your Agency</span>
-            </h2>
-            <p className="mt-4 text-base text-ink-muted sm:text-lg">
-              Automated scraping, AI enrichment, deliverability monitoring, and reply routing unified into a single live dashboard.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal scale delay={150}>
-          <div className="mt-12 overflow-hidden rounded-3xl border border-ink-border bg-ink shadow-2xl backdrop-blur-xl">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink-border bg-ink-elevated px-5 py-3.5">
-              <div className="flex items-center gap-2">
-                <span className="size-3 rounded-full bg-destructive/80" />
-                <span className="size-3 rounded-full bg-warning/80" />
-                <span className="size-3 rounded-full bg-success/80" />
-                <span className="ml-2 rounded-lg border border-ink-border bg-ink px-3 py-1 font-mono text-[11px] text-ink-muted">
-                  gtm.brndguru.com/accelerator-telemetry
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-xs font-semibold text-success">
-                  <span className="size-2 rounded-full bg-success animate-pulse" /> Live AI GTM Engine
-                </span>
-              </div>
-            </div>
-
-            <div className="p-6 md:p-8">
-              <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-                <div className="rounded-2xl border border-ink-border bg-ink-elevated/70 p-4 transition-all hover:border-primary/40">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-ink-muted">Lead Asset Pool</span>
-                    <Database className="size-4 text-primary" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-2">
-                    <span className="font-display text-2xl font-black text-primary-foreground sm:text-3xl">8M+</span>
-                    <span className="text-xs font-bold text-success">+50K Agency</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-ink-muted">Verified Decision Makers</p>
-                </div>
-
-                <div className="rounded-2xl border border-ink-border bg-ink-elevated/70 p-4 transition-all hover:border-primary/40">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-ink-muted">Inbox Deliverability</span>
-                    <ShieldCheck className="size-4 text-brand-light" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-2">
-                    <span className="font-display text-2xl font-black text-brand-light sm:text-3xl">99.4%</span>
-                    <span className="text-xs font-bold text-success">Optimal</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-ink-muted">SPF/DKIM/DMARC active</p>
-                </div>
-
-                <div className="rounded-2xl border border-ink-border bg-ink-elevated/70 p-4 transition-all hover:border-primary/40">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-ink-muted">AI Replies Classified</span>
-                    <Bot className="size-4 text-ai-bright" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-2">
-                    <span className="font-display text-2xl font-black text-primary-foreground sm:text-3xl">24/7</span>
-                    <span className="text-xs font-bold text-success">Autonomous</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-ink-muted">Intent classification &amp; routing</p>
-                </div>
-
-                <div className="rounded-2xl border border-ink-border bg-ink-elevated/70 p-4 transition-all hover:border-primary/40">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-ink-muted">ManyReach Credits</span>
-                    <Mail className="size-4 text-success" />
-                  </div>
-                  <div className="mt-2 flex items-baseline gap-2">
-                    <span className="font-display text-2xl font-black text-success sm:text-3xl">20,000</span>
-                    <span className="font-display text-xs font-bold text-success">Supplied</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-ink-muted">Included with ManyReach</p>
-                </div>
-              </div>
-
-              <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-                <div className="rounded-2xl border border-ink-border bg-ink-elevated/50 p-5 lg:col-span-2">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="font-display text-xs font-bold uppercase tracking-wider text-primary-foreground">
-                      Outreach Scaling &amp; Response Velocity
-                    </p>
-                    <div className="flex items-center gap-4 text-xs text-ink-muted">
-                      <span className="flex items-center gap-1.5">
-                        <span className="size-2 rounded-full bg-primary" /> Outreach Volume
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <span className="size-2 rounded-full bg-success" /> Booked Appointments
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <svg viewBox="0 0 500 160" className="h-40 w-full">
-                      <defs>
-                        <linearGradient id="primaryGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.3" />
-                          <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0" />
-                        </linearGradient>
-                      </defs>
-                      <line x1="0" y1="35" x2="500" y2="35" stroke="var(--color-ink-border)" strokeWidth="1" strokeDasharray="3 3" />
-                      <line x1="0" y1="80" x2="500" y2="80" stroke="var(--color-ink-border)" strokeWidth="1" strokeDasharray="3 3" />
-                      <line x1="0" y1="125" x2="500" y2="125" stroke="var(--color-ink-border)" strokeWidth="1" strokeDasharray="3 3" />
-                      <path d="M0,140 L70,120 L140,110 L210,85 L280,70 L350,50 L420,40 L500,25 L500,160 L0,160 Z" fill="url(#primaryGradient)" />
-                      <polyline points="0,140 70,120 140,110 210,85 280,70 350,50 420,40 500,25" fill="none" stroke="var(--color-primary)" strokeWidth="3" strokeLinecap="round" />
-                      <polyline points="0,150 70,142 140,135 210,120 280,105 350,85 420,65 500,45" fill="none" stroke="var(--color-success)" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                    <div className="flex justify-between text-[10px] text-ink-muted">
-                      <span>Day 1 (Foundation)</span>
-                      <span>Day 14 (Launch)</span>
-                      <span>Day 30 (Optimize)</span>
-                      <span>Day 60 (Scale)</span>
-                      <span>Day 90 (Handoff)</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-ink-border bg-ink-elevated/50 p-5">
-                  <div className="flex items-center justify-between">
-                    <p className="font-display text-xs font-bold uppercase tracking-wider text-primary-foreground">
-                      Live AI Agent Pipeline
-                    </p>
-                    <span className="size-2 rounded-full bg-success animate-pulse" />
-                  </div>
-                  <div className="mt-4 space-y-3">
-                    <div className="rounded-xl border border-ink-border bg-ink p-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-primary-foreground">AI Scraping Agent</span>
-                        <span className="rounded bg-success/20 px-1.5 py-0.5 text-[9px] font-bold text-success">
-                          ENRICHING
-                        </span>
-                      </div>
-                      <p className="mt-1 line-clamp-1 text-xs text-ink-muted">
-                        Scraping 500 agency owners with custom tech stack triggers.
-                      </p>
-                    </div>
-                    <div className="rounded-xl border border-ink-border bg-ink p-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-primary-foreground">AI Reply Agent</span>
-                        <span className="rounded bg-primary/20 px-1.5 py-0.5 text-[9px] font-bold text-brand-light">
-                          ROUTING
-                        </span>
-                      </div>
-                      <p className="mt-1 line-clamp-1 text-xs text-ink-muted">
-                        Qualified prospect requested demo link → Calendar booked.
-                      </p>
-                    </div>
-                    <div className="rounded-xl border border-ink-border bg-ink p-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-primary-foreground">CRM Sync Workflow</span>
-                        <span className="rounded bg-ai/20 px-1.5 py-0.5 text-[9px] font-bold text-ai-bright">
-                          AUTOMATED
-                        </span>
-                      </div>
-                      <p className="mt-1 line-clamp-1 text-xs text-ink-muted">
-                        Real-time deal stage created &amp; Slack alert dispatched.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
@@ -1330,7 +1442,6 @@ function HomePage() {
       <Header />
       <Hero />
       <EcosystemSection />
-      <LiveCommandCenterSection />
       <IncludedSection />
       <EnginePillarsSection />
       <RoadmapSection />

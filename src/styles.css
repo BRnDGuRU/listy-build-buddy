@@ -176,6 +176,24 @@
   50% { transform: translateY(-7px); }
 }
 
+@keyframes rotnumIn {
+  0% { opacity: 0; transform: translateY(60%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotnumOut {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-60%); }
+}
+
+.animate-rotnum-in {
+  animation: rotnumIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-rotnum-out {
+  animation: rotnumOut 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(26px);
