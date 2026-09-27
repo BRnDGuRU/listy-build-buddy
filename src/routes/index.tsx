@@ -319,11 +319,11 @@ const outcomes = [
 ];
 
 const volumeTiers = [
-  { volume: "10,000", inboxes: 10, estInfra: "$150–$250", label: "10k / mo" },
-  { volume: "25,000", inboxes: 25, estInfra: "$250–$450", label: "25k / mo" },
-  { volume: "50,000", inboxes: 50, estInfra: "$450–$850", label: "50k / mo" },
-  { volume: "100,000", inboxes: 100, estInfra: "$850–$1,450", label: "100k / mo" },
-  { volume: "200,000+", inboxes: 200, estInfra: "$1,450–$2,000+", label: "200k+ / mo" },
+  { volume: "25,000", inboxes: 25, leads: "15,000", meetings: "5–8", estInfra: "$250–$450", label: "25k / mo" },
+  { volume: "50,000", inboxes: 50, leads: "30,000", meetings: "8–12", estInfra: "$450–$850", label: "50k / mo" },
+  { volume: "100,000", inboxes: 100, leads: "60,000", meetings: "10–20", estInfra: "$850–$1,450", label: "100k / mo" },
+  { volume: "150,000", inboxes: 150, leads: "90,000", meetings: "20–35", estInfra: "$1,200–$1,750", label: "150k / mo" },
+  { volume: "200,000", inboxes: 200, leads: "120,000", meetings: "35–50+", estInfra: "$1,450–$2,000+", label: "200k / mo" },
 ];
 
 const faqs = [
@@ -1165,25 +1165,34 @@ function VariableCostsSection() {
               ))}
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-ink-border pt-6 sm:grid-cols-3">
+            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-ink-border pt-6 sm:grid-cols-4">
               <div className="rounded-xl border border-ink-border bg-ink-elevated p-4 text-center">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Est. Inboxes Needed</p>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Dedicated Inboxes</p>
                 <strong className="mt-1 block font-display text-2xl font-bold text-primary-foreground">
                   {currentTier.inboxes}
                 </strong>
                 <span className="text-[10px] text-ink-muted">Warmed &amp; Rotated</span>
               </div>
               <div className="rounded-xl border border-ink-border bg-ink-elevated p-4 text-center">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Est. Variable Spend</p>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Verified Prospects</p>
                 <strong className="mt-1 block font-display text-2xl font-bold text-brand-light">
-                  {currentTier.estInfra}
+                  {currentTier.leads}
                 </strong>
-                <span className="text-[10px] text-ink-muted">Domains &amp; Inboxes</span>
+                <span className="text-[10px] text-ink-muted">Zero-Bounce Target</span>
               </div>
-              <div className="col-span-2 rounded-xl border border-primary/40 bg-primary/10 p-4 text-center sm:col-span-1">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-primary">BrndGuru Retainer</p>
-                <strong className="mt-1 block font-display text-2xl font-bold text-primary">$347 / mo</strong>
-                <span className="text-[10px] text-primary/80">Strategy &amp; Management</span>
+              <div className="rounded-xl border border-ink-border bg-ink-elevated p-4 text-center">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Est. Booked Calls</p>
+                <strong className="mt-1 block font-display text-2xl font-bold text-success">
+                  {currentTier.meetings}
+                </strong>
+                <span className="text-[10px] font-semibold text-success">Per Month</span>
+              </div>
+              <div className="rounded-xl border border-ink-border bg-ink-elevated p-4 text-center">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Management</p>
+                <strong className="mt-1 block font-display text-2xl font-bold text-primary">
+                  100%
+                </strong>
+                <span className="text-[10px] text-ink-muted">Fully Done For You</span>
               </div>
             </div>
           </div>
