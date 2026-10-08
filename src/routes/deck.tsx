@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
-  BarChart3,
   Bot,
   BrainCircuit,
   Building2,
@@ -11,15 +10,12 @@ import {
   ChevronLeft,
   ChevronRight,
   Database,
-  ExternalLink,
   GraduationCap,
-  HelpCircle,
   Layers,
   LayoutGrid,
   Mail,
   Maximize2,
   Minimize2,
-  Rocket,
   ServerCog,
   ShieldCheck,
   Sparkles,
@@ -79,39 +75,37 @@ const slides: SlideData[] = [
     notes:
       "Welcome the prospect. Introduce the core value proposition: we build an automated 24/7 outbound machine with them in 14 days, then spend the next 90 days scaling it, tuning AI prompts, and training their team to run it independently.",
     content: (
-      <div className="flex flex-1 flex-col justify-center">
-        <div className="max-w-4xl">
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 font-display text-sm font-bold text-primary shadow-sm">
-              <Zap className="size-4 text-primary" />
-              14-Day Launch Sprint
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-5 py-2.5 font-display text-sm font-semibold text-zinc-700">
-              <Sparkles className="size-4 text-amber-500" />
-              90-Day Hands-on Scale
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-5 py-2.5 font-display text-sm font-semibold text-zinc-700">
-              <Mail className="size-4 text-primary" />
-              24/7 Outbound Automation
-            </span>
-          </div>
+      <div className="flex w-full flex-col items-center justify-center text-center">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 font-display text-sm font-bold text-primary shadow-sm">
+            <Zap className="size-4 text-primary" />
+            14-Day Launch Sprint
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-5 py-2.5 font-display text-sm font-semibold text-zinc-700">
+            <Sparkles className="size-4 text-amber-500" />
+            90-Day Hands-on Scale
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-5 py-2.5 font-display text-sm font-semibold text-zinc-700">
+            <Mail className="size-4 text-primary" />
+            24/7 Outbound Automation
+          </span>
+        </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-zinc-200 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
-              <p className="text-xs font-bold uppercase tracking-wider text-primary">Lead Fuel</p>
-              <p className="mt-2 font-display text-2xl font-extrabold text-zinc-900">8M+ Leads</p>
-              <p className="mt-1 text-xs text-zinc-500">Verified B2B & agency data included from day 1.</p>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
-              <p className="text-xs font-bold uppercase tracking-wider text-primary">Outbound Credits</p>
-              <p className="mt-2 font-display text-2xl font-extrabold text-zinc-900">20K Credits</p>
-              <p className="mt-1 text-xs text-zinc-500">Provided directly from our side via ManyReach.</p>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
-              <p className="text-xs font-bold uppercase tracking-wider text-primary">Flat Investment</p>
-              <p className="mt-2 font-display text-2xl font-extrabold text-zinc-900">$347 / mo</p>
-              <p className="mt-1 text-xs text-zinc-500">No bloated $5k retainers. Total ownership.</p>
-            </div>
+        <div className="mt-8 grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-zinc-200 bg-white/90 p-6 text-center shadow-sm backdrop-blur-sm">
+            <p className="text-xs font-bold uppercase tracking-wider text-primary">Lead Fuel</p>
+            <p className="mt-2 font-display text-2xl font-extrabold text-zinc-900">8M+ Leads</p>
+            <p className="mt-1 text-xs text-zinc-500">Verified B2B & agency data included from day 1.</p>
+          </div>
+          <div className="rounded-2xl border border-zinc-200 bg-white/90 p-6 text-center shadow-sm backdrop-blur-sm">
+            <p className="text-xs font-bold uppercase tracking-wider text-primary">Outbound Credits</p>
+            <p className="mt-2 font-display text-2xl font-extrabold text-zinc-900">20K Credits</p>
+            <p className="mt-1 text-xs text-zinc-500">Provided directly from our side via ManyReach.</p>
+          </div>
+          <div className="rounded-2xl border border-zinc-200 bg-white/90 p-6 text-center shadow-sm backdrop-blur-sm">
+            <p className="text-xs font-bold uppercase tracking-wider text-primary">Flat Investment</p>
+            <p className="mt-2 font-display text-2xl font-extrabold text-zinc-900">$347 / mo</p>
+            <p className="mt-1 text-xs text-zinc-500">No bloated $5k retainers. Total ownership.</p>
           </div>
         </div>
       </div>
@@ -130,81 +124,81 @@ const slides: SlideData[] = [
     notes:
       "Point out the contrast: cold email works, but piecemeal execution fails. Agencies hire expensive SDRs ($4k/mo) or pay $3k–$5k retainers to agencies that hide data and lock them out.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="flex flex-col justify-between rounded-2xl border border-red-200 bg-red-50/40 p-8 shadow-sm">
+      <div className="mt-6 grid w-full max-w-4xl grid-cols-1 gap-6 text-left md:grid-cols-2">
+        <div className="flex flex-col justify-between rounded-2xl border border-red-200 bg-red-50/40 p-7 shadow-sm">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-100/60 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-red-700">
               The Broken Old Way
             </div>
-            <h3 className="mt-4 font-display text-xl font-bold text-zinc-900">
+            <h3 className="mt-3.5 font-display text-lg font-bold text-zinc-900">
               Fragmented Tools & Burning Cash
             </h3>
-            <ul className="mt-6 space-y-3.5 text-sm text-zinc-600">
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-600">
+            <ul className="mt-5 space-y-3 text-xs leading-relaxed text-zinc-600">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-red-100 text-[10px] font-bold text-red-600">
                   ✕
                 </span>
                 <span>Scattered VAs and manual list scraping with 30%+ bounce rates.</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-600">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-red-100 text-[10px] font-bold text-red-600">
                   ✕
                 </span>
                 <span>Burned primary domains due to poor DNS & warmup protocols.</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-600">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-red-100 text-[10px] font-bold text-red-600">
                   ✕
                 </span>
                 <span>24–48 hour delay answering replies — losing prospects to competitors.</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-600">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-red-100 text-[10px] font-bold text-red-600">
                   ✕
                 </span>
                 <span>Paying $3,000–$5,000/month retainers with zero collateral ownership.</span>
               </li>
             </ul>
           </div>
-          <p className="mt-6 text-xs text-red-700 font-medium">Outcome: High costs, zero predictability, wasted pipeline.</p>
+          <p className="mt-5 text-[11px] font-semibold text-red-700">Outcome: High costs, zero predictability, wasted pipeline.</p>
         </div>
 
-        <div className="flex flex-col justify-between rounded-2xl border border-primary/30 bg-primary/5 p-8 shadow-sm">
+        <div className="flex flex-col justify-between rounded-2xl border border-primary/30 bg-primary/5 p-7 shadow-sm">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary">
               The AI Rev Engine Way
             </div>
-            <h3 className="mt-4 font-display text-xl font-bold text-zinc-900">
+            <h3 className="mt-3.5 font-display text-lg font-bold text-zinc-900">
               Unified, Autonomous & High-Speed
             </h3>
-            <ul className="mt-6 space-y-3.5 text-sm text-zinc-700">
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-xs font-bold text-primary">
+            <ul className="mt-5 space-y-3 text-xs leading-relaxed text-zinc-700">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/20 text-[10px] font-bold text-primary">
                   ✓
                 </span>
                 <span>Verified 8M+ B2B data with AI waterfall enrichment.</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-xs font-bold text-primary">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/20 text-[10px] font-bold text-primary">
                   ✓
                 </span>
                 <span>Multi-inbox infrastructure with automated SPF/DKIM/DMARC health checks.</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-xs font-bold text-primary">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/20 text-[10px] font-bold text-primary">
                   ✓
                 </span>
                 <span>AI reply agents responding in minutes and routing directly to calendar.</span>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-xs font-bold text-primary">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/20 text-[10px] font-bold text-primary">
                   ✓
                 </span>
                 <span>Transparent $347/month — your team owns 100% of workflows & assets.</span>
               </li>
             </ul>
           </div>
-          <p className="mt-6 text-xs text-primary font-bold">Outcome: Predictable booked calls on your calendar every week.</p>
+          <p className="mt-5 text-[11px] font-bold text-primary">Outcome: Predictable booked calls on your calendar every week.</p>
         </div>
       </div>
     ),
@@ -221,7 +215,7 @@ const slides: SlideData[] = [
     notes:
       "Walk the client through the four core stages. Stage 1 fuels the system with curated data; Stage 2 enriches and qualifies prospects; Stage 3 sends multi-inbox sequences 24/7; Stage 4 handles responses immediately and drops qualified appointments on the calendar.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-6 grid w-full max-w-5xl grid-cols-1 gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
         {[
           {
             num: "01",
@@ -235,49 +229,49 @@ const slides: SlideData[] = [
             title: "AI INTELLIGENCE",
             subtitle: "Enrich & Qualify",
             icon: BrainCircuit,
-            items: ["Deep Lead Research", "Data Waterfall Enrichment", "ICP Qualification", "Dynamic Personalization"],
+            items: ["Deep Lead Research", "Data Enrichment", "ICP Qualification", "Personalization"],
           },
           {
             num: "03",
             title: "EMAIL EXECUTION",
             subtitle: "24/7 Outreach",
             icon: Mail,
-            items: ["Multi-Inbox Outreach", "Smart Follow-Ups", "20K ManyReach Credits", "Rotational Warming"],
+            items: ["Multi-Inbox Outreach", "Smart Follow-Ups", "20K Credits", "Rotational Warming"],
           },
           {
             num: "04",
             title: "REPLY → MEETING",
             subtitle: "Book The Calls",
             icon: CalendarCheck,
-            items: ["AI Reply Agent", "Intent Classification", "Objection Handling", "Calendar Auto-Routing"],
+            items: ["AI Reply Agent", "Intent Classification", "Objection Handling", "Calendar Routing"],
           },
         ].map((step) => {
           const Icon = step.icon;
           return (
             <div
               key={step.num}
-              className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-primary/40"
+              className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-primary/40"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-2xl font-black text-primary">{step.num}</span>
-                  <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Icon className="size-5" />
+                  <span className="font-display text-xl font-black text-primary">{step.num}</span>
+                  <div className="flex size-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Icon className="size-4.5" />
                   </div>
                 </div>
-                <h3 className="mt-4 font-display text-lg font-bold text-zinc-900">{step.title}</h3>
-                <p className="text-xs font-semibold uppercase tracking-wider text-primary">{step.subtitle}</p>
-                <ul className="mt-6 space-y-2.5 text-xs text-zinc-600">
+                <h3 className="mt-3 font-display text-base font-bold text-zinc-900">{step.title}</h3>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-primary">{step.subtitle}</p>
+                <ul className="mt-4 space-y-2 text-xs text-zinc-600">
                   {step.items.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-primary" />
+                    <li key={idx} className="flex items-center gap-1.5">
+                      <span className="size-1 rounded-full bg-primary" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="mt-6 border-t border-zinc-100 pt-3 text-[11px] font-medium text-zinc-400">
-                Automated Stage
+              <div className="mt-4 border-t border-zinc-100 pt-2 text-[10px] font-medium text-zinc-400">
+                Automated 24/7 Stage
               </div>
             </div>
           );
@@ -297,7 +291,7 @@ const slides: SlideData[] = [
     notes:
       "Emphasize the hard cost savings here: purchasing 8 million leads from Apollo or ZoomInfo costs thousands alone. We include the leads and 20,000 ManyReach sending credits directly in the program.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-6 grid w-full max-w-5xl grid-cols-1 gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
         {[
           {
             icon: Database,
@@ -328,20 +322,20 @@ const slides: SlideData[] = [
           return (
             <div
               key={i}
-              className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm transition hover:shadow-md"
+              className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:shadow-md"
             >
               <div>
-                <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <Icon className="size-6" />
+                <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Icon className="size-5" />
                 </div>
-                <span className="mt-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
+                <span className="mt-3 inline-block rounded-full border border-primary/20 bg-primary/5 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary">
                   {inc.badge}
                 </span>
-                <h3 className="mt-2 font-display text-xl font-bold text-zinc-900">{inc.title}</h3>
-                <p className="mt-3 text-xs leading-relaxed text-zinc-500">{inc.desc}</p>
+                <h3 className="mt-1.5 font-display text-base font-bold text-zinc-900">{inc.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-zinc-500">{inc.desc}</p>
               </div>
-              <div className="mt-6 flex items-center gap-1.5 text-xs font-bold text-emerald-600">
-                <Check className="size-4" />
+              <div className="mt-4 flex items-center gap-1 text-[11px] font-bold text-emerald-600">
+                <Check className="size-3.5" />
                 Included with $347/mo
               </div>
             </div>
@@ -362,73 +356,73 @@ const slides: SlideData[] = [
     notes:
       "Explain the power of having specialized agents: one works top-of-funnel doing real-time research and personalization; the other works bottom-of-funnel categorizing replies and scheduling calls in minutes while prospects are hot.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-orange-50/30 p-8 shadow-sm">
+      <div className="mt-6 grid w-full max-w-4xl grid-cols-1 gap-6 text-left md:grid-cols-2">
+        <div className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-orange-50/30 p-7 shadow-sm">
           <div>
             <div className="flex items-center justify-between">
-              <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                <Bot className="size-6" />
+              <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Bot className="size-5.5" />
               </span>
-              <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-bold text-zinc-700">
+              <span className="rounded-full border border-zinc-200 bg-white px-2.5 py-0.5 text-[10px] font-bold text-zinc-700">
                 Agent 01 · Inbound Top-of-Funnel
               </span>
             </div>
-            <h3 className="mt-6 font-display text-2xl font-bold text-zinc-900">
+            <h3 className="mt-4 font-display text-lg font-bold text-zinc-900">
               AI Lead Scraping & Enrichment Agent
             </h3>
-            <p className="mt-3 text-sm text-zinc-600">
+            <p className="mt-2 text-xs text-zinc-600">
               Automated prospect discovery and deep enrichment agent that researches targets before outreach.
             </p>
-            <div className="mt-6 space-y-3">
-              <div className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 text-xs text-zinc-700">
-                <CheckCircle2 className="size-4 shrink-0 text-primary" />
-                <span>Deep website scraping, LinkedIn profile data, and tech stack detection.</span>
+            <div className="mt-4 space-y-2.5">
+              <div className="flex items-start gap-2.5 rounded-xl border border-zinc-200/80 bg-white p-3 text-xs text-zinc-700">
+                <CheckCircle2 className="size-3.5 shrink-0 text-primary mt-0.5" />
+                <span>Deep website scraping, LinkedIn data, and tech stack detection.</span>
               </div>
-              <div className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 text-xs text-zinc-700">
-                <CheckCircle2 className="size-4 shrink-0 text-primary" />
+              <div className="flex items-start gap-2.5 rounded-xl border border-zinc-200/80 bg-white p-3 text-xs text-zinc-700">
+                <CheckCircle2 className="size-3.5 shrink-0 text-primary mt-0.5" />
                 <span>Filters out invalid, non-ICP, or unresponsive accounts automatically.</span>
               </div>
-              <div className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 text-xs text-zinc-700">
-                <CheckCircle2 className="size-4 shrink-0 text-primary" />
+              <div className="flex items-start gap-2.5 rounded-xl border border-zinc-200/80 bg-white p-3 text-xs text-zinc-700">
+                <CheckCircle2 className="size-3.5 shrink-0 text-primary mt-0.5" />
                 <span>Writes custom dynamic personalization hooks based on live company news.</span>
               </div>
             </div>
           </div>
-          <p className="mt-6 text-xs font-semibold text-primary">Operates 24/7 without manual VA oversight.</p>
+          <p className="mt-4 text-[11px] font-semibold text-primary">Operates 24/7 without manual VA oversight.</p>
         </div>
 
-        <div className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-amber-50/30 p-8 shadow-sm">
+        <div className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-amber-50/30 p-7 shadow-sm">
           <div>
             <div className="flex items-center justify-between">
-              <span className="flex size-12 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600">
-                <BrainCircuit className="size-6" />
+              <span className="flex size-11 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600">
+                <BrainCircuit className="size-5.5" />
               </span>
-              <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-bold text-zinc-700">
+              <span className="rounded-full border border-zinc-200 bg-white px-2.5 py-0.5 text-[10px] font-bold text-zinc-700">
                 Agent 02 · Bottom-of-Funnel Closer
               </span>
             </div>
-            <h3 className="mt-6 font-display text-2xl font-bold text-zinc-900">
+            <h3 className="mt-4 font-display text-lg font-bold text-zinc-900">
               AI Lead Reply & Triage Agent
             </h3>
-            <p className="mt-3 text-sm text-zinc-600">
+            <p className="mt-2 text-xs text-zinc-600">
               AI-assisted response classification, objection handling, and automatic calendar routing.
             </p>
-            <div className="mt-6 space-y-3">
-              <div className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 text-xs text-zinc-700">
-                <CheckCircle2 className="size-4 shrink-0 text-amber-500" />
-                <span>Instant sentiment analysis: classifies positive, objection, OOO, or unsubscribe.</span>
+            <div className="mt-4 space-y-2.5">
+              <div className="flex items-start gap-2.5 rounded-xl border border-zinc-200/80 bg-white p-3 text-xs text-zinc-700">
+                <CheckCircle2 className="size-3.5 shrink-0 text-amber-500 mt-0.5" />
+                <span>Instant sentiment analysis: classifies positive, objection, or OOO.</span>
               </div>
-              <div className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 text-xs text-zinc-700">
-                <CheckCircle2 className="size-4 shrink-0 text-amber-500" />
-                <span>Drafts contextual, objection-handling replies matching your tone of voice.</span>
+              <div className="flex items-start gap-2.5 rounded-xl border border-zinc-200/80 bg-white p-3 text-xs text-zinc-700">
+                <CheckCircle2 className="size-3.5 shrink-0 text-amber-500 mt-0.5" />
+                <span>Drafts contextual, objection-handling replies matching your voice.</span>
               </div>
-              <div className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 text-xs text-zinc-700">
-                <CheckCircle2 className="size-4 shrink-0 text-amber-500" />
-                <span>Pushes qualified calendar booking links directly into active prospect threads.</span>
+              <div className="flex items-start gap-2.5 rounded-xl border border-zinc-200/80 bg-white p-3 text-xs text-zinc-700">
+                <CheckCircle2 className="size-3.5 shrink-0 text-amber-500 mt-0.5" />
+                <span>Pushes qualified calendar booking links directly into active threads.</span>
               </div>
             </div>
           </div>
-          <p className="mt-6 text-xs font-semibold text-amber-600">8x higher meeting booking rates due to rapid replies.</p>
+          <p className="mt-4 text-[11px] font-semibold text-amber-600">8x higher meeting booking rates due to rapid replies.</p>
         </div>
       </div>
     ),
@@ -445,12 +439,12 @@ const slides: SlideData[] = [
     notes:
       "Review the six pillars briefly. Show that this is not just an email blast script, but a full GTM operating system that integrates with their CRM and trains their team.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid w-full max-w-4xl grid-cols-1 gap-3.5 text-left sm:grid-cols-2 lg:grid-cols-3">
         {[
           {
             num: "01",
             icon: Target,
-            title: "GTM Strategy & Offer Positioning",
+            title: "GTM Strategy & Positioning",
             desc: "Define ICP, offer positioning, acquisition strategy, and campaign architecture tailored to your agency.",
           },
           {
@@ -488,19 +482,19 @@ const slides: SlideData[] = [
           return (
             <div
               key={p.num}
-              className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-primary/40"
+              className="flex flex-col justify-between rounded-xl border border-zinc-200 bg-white p-4 shadow-sm transition hover:border-primary/40"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-sm font-bold text-primary">{p.num}</span>
-                  <div className="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Icon className="size-4" />
+                  <span className="font-display text-xs font-bold text-primary">{p.num}</span>
+                  <div className="flex size-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Icon className="size-3.5" />
                   </div>
                 </div>
-                <h4 className="mt-3 font-display text-base font-bold text-zinc-900">{p.title}</h4>
-                <p className="mt-2 text-xs leading-relaxed text-zinc-500">{p.desc}</p>
+                <h4 className="mt-2.5 font-display text-sm font-bold text-zinc-900">{p.title}</h4>
+                <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-500">{p.desc}</p>
               </div>
-              <div className="mt-4 border-t border-zinc-100 pt-2 text-[10px] font-bold text-emerald-600">
+              <div className="mt-3 border-t border-zinc-100 pt-1.5 text-[10px] font-bold text-emerald-600">
                 ✓ Fully Implemented
               </div>
             </div>
@@ -521,44 +515,42 @@ const slides: SlideData[] = [
     notes:
       "Emphasize speed: Week 1 is strategy and domain architecture; Week 2 is building workflows and pushing the launch button. Within 14 days, outbound is running.",
     content: (
-      <div className="mt-8 flex flex-1 flex-col justify-center">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="relative rounded-2xl border border-primary/30 bg-primary/5 p-8 shadow-sm">
-            <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-              Week 1 · Days 1–7
-            </span>
-            <h3 className="mt-4 font-display text-2xl font-bold text-zinc-900">
-              GTM Foundation & Architecture
-            </h3>
-            <p className="mt-2 text-xs font-semibold text-primary">
-              Focus: ICP + Offer + Strategy + Ecosystem Mapping
-            </p>
-            <p className="mt-4 text-sm text-zinc-600 leading-relaxed">
-              Define the ideal client profile, craft high-converting offer positioning, set up secondary sending domains, and blueprint the automated pipeline.
-            </p>
-            <div className="mt-6 rounded-xl border border-primary/20 bg-white p-4">
-              <p className="text-xs font-bold text-zinc-800">Key Deliverable:</p>
-              <p className="text-xs text-primary font-medium">Clear GTM Blueprint & Domain Setup Complete</p>
-            </div>
+      <div className="mt-6 grid w-full max-w-3xl grid-cols-1 gap-6 text-left md:grid-cols-2">
+        <div className="relative rounded-2xl border border-primary/30 bg-primary/5 p-7 shadow-sm">
+          <span className="inline-flex rounded-full bg-primary px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
+            Week 1 · Days 1–7
+          </span>
+          <h3 className="mt-4 font-display text-xl font-bold text-zinc-900">
+            GTM Foundation & Architecture
+          </h3>
+          <p className="mt-1 text-xs font-semibold text-primary">
+            Focus: ICP + Offer + Strategy + Ecosystem Mapping
+          </p>
+          <p className="mt-3 text-xs text-zinc-600 leading-relaxed">
+            Define the ideal client profile, craft high-converting offer positioning, set up secondary sending domains, and blueprint the automated pipeline.
+          </p>
+          <div className="mt-5 rounded-xl border border-primary/20 bg-white p-3.5">
+            <p className="text-[11px] font-bold text-zinc-800">Key Deliverable:</p>
+            <p className="text-xs text-primary font-medium">Clear GTM Blueprint & Domain Setup Complete</p>
           </div>
+        </div>
 
-          <div className="relative rounded-2xl border border-amber-300 bg-amber-50/40 p-8 shadow-sm">
-            <span className="inline-flex rounded-full bg-amber-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-              Week 2 · Days 8–14
-            </span>
-            <h3 className="mt-4 font-display text-2xl font-bold text-zinc-900">
-              Build & Live Launch Sprint
-            </h3>
-            <p className="mt-2 text-xs font-semibold text-amber-600">
-              Focus: AI Agents, Workflows, Automations & Live Sequences
-            </p>
-            <p className="mt-4 text-sm text-zinc-600 leading-relaxed">
-              Configure sending inboxes, connect the AI scraping and reply agents, finalize email sequences, test deliverability, and launch live campaigns.
-            </p>
-            <div className="mt-6 rounded-xl border border-amber-200 bg-white p-4">
-              <p className="text-xs font-bold text-zinc-800">Key Deliverable:</p>
-              <p className="text-xs text-amber-600 font-medium">Live AI GTM System Actively Sending</p>
-            </div>
+        <div className="relative rounded-2xl border border-amber-300 bg-amber-50/40 p-7 shadow-sm">
+          <span className="inline-flex rounded-full bg-amber-500 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
+            Week 2 · Days 8–14
+          </span>
+          <h3 className="mt-4 font-display text-xl font-bold text-zinc-900">
+            Build & Live Launch Sprint
+          </h3>
+          <p className="mt-1 text-xs font-semibold text-amber-600">
+            Focus: AI Agents, Workflows, Automations & Sequences
+          </p>
+          <p className="mt-3 text-xs text-zinc-600 leading-relaxed">
+            Configure sending inboxes, connect the AI scraping and reply agents, finalize email sequences, test deliverability, and launch live campaigns.
+          </p>
+          <div className="mt-5 rounded-xl border border-amber-200 bg-white p-3.5">
+            <p className="text-[11px] font-bold text-zinc-800">Key Deliverable:</p>
+            <p className="text-xs text-amber-600 font-medium">Live AI GTM System Actively Sending</p>
           </div>
         </div>
       </div>
@@ -576,7 +568,7 @@ const slides: SlideData[] = [
     notes:
       "Most agency programs vanish right after launch. We stay by their side for 90 days: Month 1 optimizes, Month 2 scales volume, Month 3 trains their team so they achieve true independence.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="mt-6 grid w-full max-w-4xl grid-cols-1 gap-4 text-left md:grid-cols-3">
         {[
           {
             stage: "Stage 03",
@@ -605,20 +597,20 @@ const slides: SlideData[] = [
         ].map((m, idx) => (
           <div
             key={idx}
-            className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+            className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"
           >
             <div>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-primary">{m.stage}</span>
-                <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-[11px] font-semibold text-zinc-600">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-primary">{m.stage}</span>
+                <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-semibold text-zinc-600">
                   {m.time}
                 </span>
               </div>
-              <h3 className="mt-4 font-display text-xl font-bold text-zinc-900">{m.title}</h3>
-              <p className="mt-1 text-xs font-medium text-amber-600">{m.focus}</p>
-              <p className="mt-4 text-xs leading-relaxed text-zinc-500">{m.desc}</p>
+              <h3 className="mt-3 font-display text-base font-bold text-zinc-900">{m.title}</h3>
+              <p className="mt-1 text-[11px] font-medium text-amber-600">{m.focus}</p>
+              <p className="mt-3 text-xs leading-relaxed text-zinc-500">{m.desc}</p>
             </div>
-            <div className="mt-6 rounded-xl border border-zinc-100 bg-zinc-50 p-3 text-xs">
+            <div className="mt-5 rounded-xl border border-zinc-100 bg-zinc-50 p-2.5 text-xs">
               <span className="font-semibold text-zinc-700">Outcome: </span>
               <span className="font-bold text-primary">{m.deliv}</span>
             </div>
@@ -639,36 +631,36 @@ const slides: SlideData[] = [
     notes:
       "Show how all top tools are connected. Clients don't have to glue tools together themselves; we connect everything seamlessly.",
     content: (
-      <div className="mt-8 flex flex-1 flex-col justify-center">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mt-6 flex w-full max-w-4xl flex-col items-center">
+        <div className="grid w-full grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-6 text-center">
           {[
-            { name: "ManyReach", role: "Sending & Rotational Inboxes", badge: "20K Credits" },
-            { name: "Clay", role: "Waterfall Data Enrichment", badge: "Agentic" },
-            { name: "OpenAI / Claude", role: "Contextual AI Reply & Triage", badge: "LLM" },
-            { name: "GoHighLevel", role: "CRM & Automated Booking", badge: "CRM" },
-            { name: "Make / Zapier", role: "Webhooks & Sync Automations", badge: "Integration" },
-            { name: "Apollo / ListKit", role: "Lead Scraping & Filters", badge: "Database" },
+            { name: "ManyReach", role: "Sending Inboxes", badge: "20K Credits" },
+            { name: "Clay", role: "Data Enrichment", badge: "Agentic" },
+            { name: "OpenAI/Claude", role: "AI Reply Triage", badge: "LLM" },
+            { name: "GoHighLevel", role: "CRM & Calendar", badge: "CRM" },
+            { name: "Make / Zapier", role: "Webhooks & Sync", badge: "Integration" },
+            { name: "Apollo / ListKit", role: "Lead Scraping", badge: "Database" },
           ].map((tool, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition hover:border-primary/50"
+              className="flex flex-col items-center justify-center rounded-xl border border-zinc-200 bg-white p-4 text-center shadow-sm transition hover:border-primary/50"
             >
-              <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 font-display text-lg font-bold text-primary">
+              <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 font-display text-base font-bold text-primary">
                 {tool.name[0]}
               </div>
-              <p className="mt-3 font-display text-sm font-bold text-zinc-900">{tool.name}</p>
-              <p className="mt-1 text-[11px] text-zinc-500">{tool.role}</p>
-              <span className="mt-3 inline-block rounded-full bg-zinc-100 px-2 py-0.5 text-[9px] font-bold text-zinc-600">
+              <p className="mt-2.5 font-display text-xs font-bold text-zinc-900">{tool.name}</p>
+              <p className="mt-1 text-[10px] text-zinc-500">{tool.role}</p>
+              <span className="mt-2 inline-block rounded-full bg-zinc-100 px-2 py-0.5 text-[8px] font-bold text-zinc-600">
                 {tool.badge}
               </span>
             </div>
           ))}
         </div>
-        <div className="mt-8 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 text-center text-xs text-zinc-600">
+        <div className="mt-6 w-full max-w-2xl rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-center text-xs text-zinc-600">
           <p className="font-semibold text-zinc-900">
             Full Ownership: All accounts, domains, and data feeds belong directly to your agency.
           </p>
-          <p className="mt-1 text-zinc-500">
+          <p className="mt-1 text-[11px] text-zinc-500">
             No proprietary lock-in. If you ever leave, you keep 100% of the architecture and assets.
           </p>
         </div>
@@ -687,16 +679,16 @@ const slides: SlideData[] = [
     notes:
       "Explain the math of cold email. Higher volume yields more meetings. The $347/month management fee stays the same regardless of tier — only the direct infrastructure costs scale with volume.",
     content: (
-      <div className="mt-6 flex flex-1 flex-col justify-center">
-        <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+      <div className="mt-6 flex w-full max-w-3xl flex-col items-center justify-center">
+        <div className="w-full overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
           <table className="w-full text-left text-xs">
-            <thead className="border-b border-zinc-200 bg-zinc-50 text-[11px] font-bold uppercase tracking-wider text-zinc-500">
+            <thead className="border-b border-zinc-200 bg-zinc-50 text-[10px] font-bold uppercase tracking-wider text-zinc-500">
               <tr>
-                <th className="px-5 py-3.5">Monthly Volume</th>
-                <th className="px-5 py-3.5">Inboxes</th>
-                <th className="px-5 py-3.5">Verified Leads</th>
-                <th className="px-5 py-3.5 text-primary">Expected Meetings</th>
-                <th className="px-5 py-3.5">Est. Tool / Infra Cost</th>
+                <th className="px-4 py-3">Monthly Volume</th>
+                <th className="px-4 py-3">Inboxes</th>
+                <th className="px-4 py-3">Verified Leads</th>
+                <th className="px-4 py-3 text-primary">Expected Meetings</th>
+                <th className="px-4 py-3">Est. Tool Cost</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-100 font-medium text-zinc-700">
@@ -711,17 +703,17 @@ const slides: SlideData[] = [
                   key={i}
                   className={row.highlight ? "bg-primary/5 font-bold text-zinc-900" : "hover:bg-zinc-50/60"}
                 >
-                  <td className="px-5 py-3.5 font-display text-sm">{row.vol}</td>
-                  <td className="px-5 py-3.5">{row.inboxes} inboxes</td>
-                  <td className="px-5 py-3.5">{row.leads}</td>
-                  <td className="px-5 py-3.5 font-bold text-primary">{row.meetings}</td>
-                  <td className="px-5 py-3.5 text-zinc-500">{row.infra}</td>
+                  <td className="px-4 py-2.5 font-display text-xs">{row.vol}</td>
+                  <td className="px-4 py-2.5">{row.inboxes} inboxes</td>
+                  <td className="px-4 py-2.5">{row.leads}</td>
+                  <td className="px-4 py-2.5 font-bold text-primary">{row.meetings}</td>
+                  <td className="px-4 py-2.5 text-zinc-500">{row.infra}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-center text-xs text-zinc-500">
+        <p className="mt-3 text-center text-[11px] text-zinc-500">
           *Infra costs are paid directly to domain & software vendors with zero agency markup.
         </p>
       </div>
@@ -739,73 +731,73 @@ const slides: SlideData[] = [
     notes:
       "Emphasize the trust factor: traditional cold outreach agencies charge $5,000/mo, spend $400 on tools, and pocket $4,600 while keeping client accounts on their own domains. We separate management ($347/mo) from infrastructure so the client owns everything.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="flex flex-col justify-between rounded-2xl border border-primary/30 bg-primary/5 p-8 shadow-sm">
+      <div className="mt-6 grid w-full max-w-4xl grid-cols-1 gap-6 text-left md:grid-cols-2">
+        <div className="flex flex-col justify-between rounded-2xl border border-primary/30 bg-primary/5 p-7 shadow-sm">
           <div>
             <span className="rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
               What You Pay Us: $347 / mo
             </span>
-            <h3 className="mt-4 font-display text-2xl font-bold text-zinc-900">
+            <h3 className="mt-3.5 font-display text-xl font-bold text-zinc-900">
               Strategy, Execution & Training
             </h3>
-            <ul className="mt-6 space-y-3 text-sm text-zinc-700">
+            <ul className="mt-5 space-y-2.5 text-xs text-zinc-700">
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-primary" />
+                <Check className="size-3.5 text-primary" />
                 <span>14-Day Rapid Launch Sprint</span>
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-primary" />
+                <Check className="size-3.5 text-primary" />
                 <span>90-Day Optimization & Hands-on Implementation</span>
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-primary" />
+                <Check className="size-3.5 text-primary" />
                 <span>AI Scraping and Reply Agent Configuration</span>
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-primary" />
+                <Check className="size-3.5 text-primary" />
                 <span>Deliverability Monitoring & DNS Health</span>
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-primary" />
+                <Check className="size-3.5 text-primary" />
                 <span>Complete SOP Handover & In-House Team Training</span>
               </li>
             </ul>
           </div>
-          <p className="mt-6 text-xs font-bold text-primary">Uncapped value with zero hidden retainers.</p>
+          <p className="mt-5 text-[11px] font-bold text-primary">Uncapped value with zero hidden retainers.</p>
         </div>
 
-        <div className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm">
+        <div className="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm">
           <div>
             <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-zinc-700">
               What You Pay Vendors: $150–$1,450+
             </span>
-            <h3 className="mt-4 font-display text-2xl font-bold text-zinc-900">
+            <h3 className="mt-3.5 font-display text-xl font-bold text-zinc-900">
               Direct Infrastructure Pass-Through
             </h3>
-            <ul className="mt-6 space-y-3 text-sm text-zinc-600">
+            <ul className="mt-5 space-y-2.5 text-xs text-zinc-600">
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-zinc-400" />
+                <Check className="size-3.5 text-zinc-400" />
                 <span>Secondary Domains (Google Workspace / Outlook)</span>
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-zinc-400" />
+                <Check className="size-3.5 text-zinc-400" />
                 <span>Sending software (ManyReach / Smartlead)</span>
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-zinc-400" />
+                <Check className="size-3.5 text-zinc-400" />
                 <span>Email validation & verification API credits</span>
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-zinc-400" />
+                <Check className="size-3.5 text-zinc-400" />
                 <span>CRM & Webhook triggers (GoHighLevel, Make)</span>
               </li>
               <li className="flex items-center gap-2">
-                <Check className="size-4 text-zinc-400" />
+                <Check className="size-3.5 text-zinc-400" />
                 <span>Scale up or down on your own schedule</span>
               </li>
             </ul>
           </div>
-          <p className="mt-6 text-xs text-zinc-500 font-medium">You hold the credit cards. You own the assets.</p>
+          <p className="mt-5 text-[11px] text-zinc-500 font-medium">You hold the credit cards. You own the assets.</p>
         </div>
       </div>
     ),
@@ -822,7 +814,7 @@ const slides: SlideData[] = [
     notes:
       "Rapidly read through the 12 deliverables. They aren't buying advice; they are buying an entire engine with documented SOPs, workflows, and trained staff.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="mt-6 grid w-full max-w-4xl grid-cols-2 gap-3 text-left sm:grid-cols-3 lg:grid-cols-4">
         {[
           "Complete GTM Strategy",
           "AI Ecosystem Architecture",
@@ -839,12 +831,12 @@ const slides: SlideData[] = [
         ].map((item, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 rounded-xl border border-zinc-200 bg-white p-4 shadow-sm transition hover:border-primary/50"
+            className="flex items-center gap-2.5 rounded-xl border border-zinc-200 bg-white p-3.5 shadow-sm transition hover:border-primary/50"
           >
-            <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
+            <div className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
               ✓
             </div>
-            <span className="font-display text-xs font-bold text-zinc-800">{item}</span>
+            <span className="font-display text-[11px] font-bold text-zinc-800">{item}</span>
           </div>
         ))}
       </div>
@@ -862,29 +854,29 @@ const slides: SlideData[] = [
     notes:
       "Highlight our Implementation Commitment: If an agreed implementation component hasn't been delivered because of our side, we continue hands-on support at no additional management fee until it is complete. We don't walk away.",
     content: (
-      <div className="mt-6 flex flex-1 flex-col items-center justify-center text-center">
-        <div className="max-w-3xl rounded-3xl border-2 border-primary/30 bg-gradient-to-b from-primary/5 to-white p-10 shadow-lg">
-          <div className="mx-auto flex size-20 items-center justify-center rounded-2xl bg-primary text-white shadow-md">
-            <ShieldCheck className="size-10" />
+      <div className="mt-6 flex w-full max-w-2xl flex-col items-center justify-center text-center">
+        <div className="w-full rounded-3xl border-2 border-primary/30 bg-gradient-to-b from-primary/5 to-white p-8 shadow-md">
+          <div className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-primary text-white shadow-sm">
+            <ShieldCheck className="size-8" />
           </div>
-          <h3 className="mt-6 font-display text-2xl font-bold text-zinc-900 sm:text-3xl">
+          <h3 className="mt-4 font-display text-xl font-bold text-zinc-900 sm:text-2xl">
             The Implementation Commitment
           </h3>
-          <p className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg">
+          <p className="mt-3 text-sm leading-relaxed text-zinc-600 sm:text-base">
             “If an agreed implementation component has not been delivered because of our side,{" "}
             <span className="font-bold text-primary">
               we continue hands-on implementation support at no additional management fee
             </span>{" "}
             until that agreed component is completed.”
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-zinc-700">
-            <span className="rounded-full border border-zinc-200 bg-white px-4 py-2">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-[11px] font-bold text-zinc-700">
+            <span className="rounded-full border border-zinc-200 bg-white px-3.5 py-1.5">
               ✓ No Fine-Print Tricks
             </span>
-            <span className="rounded-full border border-zinc-200 bg-white px-4 py-2">
+            <span className="rounded-full border border-zinc-200 bg-white px-3.5 py-1.5">
               ✓ Clear Milestone Tracking
             </span>
-            <span className="rounded-full border border-zinc-200 bg-white px-4 py-2">
+            <span className="rounded-full border border-zinc-200 bg-white px-3.5 py-1.5">
               ✓ Mutual Partnership Focus
             </span>
           </div>
@@ -904,42 +896,42 @@ const slides: SlideData[] = [
     notes:
       "Deliver the close: an internal SDR costs $4,000 to $6,000/month plus taxes and benefits. An agency charges $3,000 to $5,000/mo. Here, you get the entire engine, 8M+ leads, 20k credits, and 90 days of execution for $347/month.",
     content: (
-      <div className="mt-6 flex flex-1 flex-col items-center justify-center">
-        <div className="w-full max-w-xl rounded-3xl border-2 border-primary bg-white p-8 text-center shadow-xl">
-          <span className="inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
+      <div className="mt-6 flex w-full max-w-md flex-col items-center justify-center text-center">
+        <div className="w-full rounded-3xl border-2 border-primary bg-white p-7 text-center shadow-lg">
+          <span className="inline-block rounded-full bg-primary px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white">
             All-Inclusive Accelerator
           </span>
-          <div className="mt-6">
-            <span className="font-hero text-6xl font-black text-zinc-900">$347</span>
-            <span className="text-lg font-bold text-zinc-500"> / month</span>
+          <div className="mt-4">
+            <span className="font-hero text-5xl font-black text-zinc-900">$347</span>
+            <span className="text-base font-bold text-zinc-500"> / month</span>
           </div>
-          <p className="mt-2 text-xs font-semibold text-primary">
+          <p className="mt-1.5 text-xs font-semibold text-primary">
             14-Day Launch Sprint + 90-Day Implementation & Training
           </p>
 
-          <div className="mt-8 space-y-3 text-left text-xs text-zinc-700">
-            <div className="flex items-center gap-3 rounded-xl bg-zinc-50 p-3">
-              <Check className="size-4 shrink-0 text-primary" />
+          <div className="mt-6 space-y-2.5 text-left text-xs text-zinc-700">
+            <div className="flex items-center gap-2.5 rounded-xl bg-zinc-50 p-2.5">
+              <Check className="size-3.5 shrink-0 text-primary" />
               <span>
-                <strong>14-Day Launch Sprint:</strong> ICP, copy, domains, and agents live in 2 weeks.
+                <strong>14-Day Launch Sprint:</strong> ICP, copy, domains & agents live in 2 weeks.
               </span>
             </div>
-            <div className="flex items-center gap-3 rounded-xl bg-zinc-50 p-3">
-              <Check className="size-4 shrink-0 text-primary" />
+            <div className="flex items-center gap-2.5 rounded-xl bg-zinc-50 p-2.5">
+              <Check className="size-3.5 shrink-0 text-primary" />
               <span>
                 <strong>90 Days of Optimization:</strong> Weekly A/B testing and prompt tuning.
               </span>
             </div>
-            <div className="flex items-center gap-3 rounded-xl bg-zinc-50 p-3">
-              <Check className="size-4 shrink-0 text-primary" />
+            <div className="flex items-center gap-2.5 rounded-xl bg-zinc-50 p-2.5">
+              <Check className="size-3.5 shrink-0 text-primary" />
               <span>
-                <strong>Data Assets:</strong> 8M+ B2B Leads, 50K Agency Owners, 20K ManyReach credits.
+                <strong>Data Assets:</strong> 8M+ B2B Leads, 50K Agency Owners, 20K credits.
               </span>
             </div>
-            <div className="flex items-center gap-3 rounded-xl bg-zinc-50 p-3">
-              <Check className="size-4 shrink-0 text-primary" />
+            <div className="flex items-center gap-2.5 rounded-xl bg-zinc-50 p-2.5">
+              <Check className="size-3.5 shrink-0 text-primary" />
               <span>
-                <strong>Team Handover:</strong> Full SOPs and live coaching for complete independence.
+                <strong>Team Handover:</strong> Full SOPs and live coaching for independence.
               </span>
             </div>
           </div>
@@ -948,7 +940,7 @@ const slides: SlideData[] = [
             href="https://calendar.google.com"
             target="_blank"
             rel="noreferrer"
-            className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3.5 font-display text-sm font-bold text-white shadow-md transition hover:bg-primary/90"
+            className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-display text-sm font-bold text-white shadow-md transition hover:bg-primary/90"
           >
             <span>Book Implementation Call</span>
             <ArrowRight className="size-4" />
@@ -969,7 +961,7 @@ const slides: SlideData[] = [
     notes:
       "Walk through the common questions: why 14 days, why infra is separate, and what happens after 90 days. Conclude with total reassurance.",
     content: (
-      <div className="mt-6 grid flex-1 grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="mt-6 grid w-full max-w-4xl grid-cols-1 gap-4 text-left md:grid-cols-2">
         {[
           {
             q: "Why is the system launched in 14 days instead of 90 days?",
@@ -988,9 +980,9 @@ const slides: SlideData[] = [
             a: "By day 90, your team is fully trained and equipped with complete SOPs to run and scale the AI GTM engine independently. You retain full ownership of all assets, workflows, and tools.",
           },
         ].map((faq, idx) => (
-          <div key={idx} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <div key={idx} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
             <h4 className="font-display text-sm font-bold text-zinc-900">{faq.q}</h4>
-            <p className="mt-3 text-xs leading-relaxed text-zinc-500">{faq.a}</p>
+            <p className="mt-2 text-xs leading-relaxed text-zinc-500">{faq.a}</p>
           </div>
         ))}
       </div>
@@ -1008,40 +1000,38 @@ const slides: SlideData[] = [
     notes:
       "Close the presentation. Guide the client to book the onboarding call and get started on Day 1 of the 14-day sprint.",
     content: (
-      <div className="mt-6 flex flex-1 flex-col items-center justify-center text-center">
-        <div className="max-w-2xl">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-              <span className="font-display text-2xl font-black text-primary">01</span>
-              <p className="mt-2 font-display text-sm font-bold text-zinc-900">Onboarding Call</p>
-              <p className="mt-1 text-xs text-zinc-500">ICP deep dive & offer positioning questionnaire.</p>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-              <span className="font-display text-2xl font-black text-primary">02</span>
-              <p className="mt-2 font-display text-sm font-bold text-zinc-900">14-Day Sprint</p>
-              <p className="mt-1 text-xs text-zinc-500">Domains, inboxes, AI agents & sequences live.</p>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-              <span className="font-display text-2xl font-black text-primary">03</span>
-              <p className="mt-2 font-display text-sm font-bold text-zinc-900">Scale & Train</p>
-              <p className="mt-1 text-xs text-zinc-500">90 days of optimization and team handover.</p>
-            </div>
+      <div className="mt-6 flex w-full max-w-2xl flex-col items-center justify-center text-center">
+        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm text-center">
+            <span className="font-display text-2xl font-black text-primary">01</span>
+            <p className="mt-1.5 font-display text-sm font-bold text-zinc-900">Onboarding Call</p>
+            <p className="mt-1 text-xs text-zinc-500">ICP deep dive & offer positioning questionnaire.</p>
           </div>
+          <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm text-center">
+            <span className="font-display text-2xl font-black text-primary">02</span>
+            <p className="mt-1.5 font-display text-sm font-bold text-zinc-900">14-Day Sprint</p>
+            <p className="mt-1 text-xs text-zinc-500">Domains, inboxes, AI agents & sequences live.</p>
+          </div>
+          <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm text-center">
+            <span className="font-display text-2xl font-black text-primary">03</span>
+            <p className="mt-1.5 font-display text-sm font-bold text-zinc-900">Scale & Train</p>
+            <p className="mt-1 text-xs text-zinc-500">90 days of optimization and team handover.</p>
+          </div>
+        </div>
 
-          <div className="mt-10">
-            <a
-              href="https://calendar.google.com"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-display text-base font-bold text-white shadow-lg transition hover:scale-105 hover:bg-primary/90"
-            >
-              <span>Get Started with $347 / mo</span>
-              <ArrowRight className="size-5" />
-            </a>
-            <p className="mt-3 text-xs text-zinc-400">
-              Covered by our Hands-On Implementation Guarantee.
-            </p>
-          </div>
+        <div className="mt-8">
+          <a
+            href="https://calendar.google.com"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 font-display text-sm font-bold text-white shadow-lg transition hover:scale-105 hover:bg-primary/90"
+          >
+            <span>Get Started with $347 / mo</span>
+            <ArrowRight className="size-4.5" />
+          </a>
+          <p className="mt-2.5 text-xs text-zinc-400">
+            Covered by our Hands-On Implementation Guarantee.
+          </p>
         </div>
       </div>
     ),
@@ -1150,8 +1140,8 @@ function DeckPage() {
         />
       </div>
 
-      {/* Main Slide Canvas */}
-      <div className="relative flex size-full flex-col justify-between p-6 md:p-12">
+      {/* Main Slide Canvas - Perfectly Centered Container */}
+      <div className="relative mx-auto flex size-full max-w-6xl flex-col justify-between px-6 py-6 md:px-12 md:py-8">
         {/* Background Subtle Grid & Orange Glow */}
         <div
           aria-hidden="true"
@@ -1190,13 +1180,13 @@ function DeckPage() {
           </div>
         </header>
 
-        {/* Slide Body Content */}
-        <main className="relative z-10 my-auto flex min-h-0 flex-1 flex-col justify-center py-4">
-          <div>
+        {/* Slide Body Content - Vertically & Horizontally Centered */}
+        <main className="relative z-10 my-auto flex min-h-0 flex-1 flex-col items-center justify-center py-4 pb-20 w-full text-center">
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <p className="font-display text-xs font-bold uppercase tracking-widest text-primary">
               {currentSlide.kicker}
             </p>
-            <h1 className="mt-2 font-hero text-2xl font-black tracking-tight text-zinc-900 sm:text-3xl md:text-5xl lg:text-5xl">
+            <h1 className="mt-2 font-hero text-2xl font-black tracking-tight text-zinc-900 sm:text-3xl md:text-4xl lg:text-5xl text-center">
               {currentSlide.title}{" "}
               {currentSlide.titleHighlight && (
                 <span className="bg-gradient-to-r from-primary to-amber-500 bg-clip-text text-transparent">
@@ -1205,13 +1195,15 @@ function DeckPage() {
               )}
             </h1>
             {currentSlide.subtitle && (
-              <p className="mt-2 max-w-3xl text-xs text-zinc-500 sm:text-sm md:text-base">
+              <p className="mt-2 max-w-2xl text-center text-xs text-zinc-500 sm:text-sm md:text-base">
                 {currentSlide.subtitle}
               </p>
             )}
           </div>
 
-          {currentSlide.content}
+          <div className="mx-auto mt-4 flex w-full flex-1 flex-col items-center justify-center">
+            {currentSlide.content}
+          </div>
         </main>
 
         {/* Slide Footer */}
