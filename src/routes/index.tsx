@@ -1670,6 +1670,9 @@ function Footer() {
           <a href="#faq" className="hover:text-primary-foreground">
             FAQ
           </a>
+          <a href="/deck" className="hover:text-primary-foreground">
+            Sales Deck
+          </a>
           <a href="#strategy-call" className="inline-flex items-center gap-1 text-brand-light">
             Book a call <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
