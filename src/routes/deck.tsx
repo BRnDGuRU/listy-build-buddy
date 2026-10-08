@@ -937,7 +937,7 @@ const slides: SlideData[] = [
           </div>
 
           <a
-            href="https://calendar.google.com"
+            href="https://www.brndgurumedia.com/widget/bookings/brndguru"
             target="_blank"
             rel="noreferrer"
             className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-display text-sm font-bold text-white shadow-md transition hover:bg-primary/90"
@@ -1021,12 +1021,12 @@ const slides: SlideData[] = [
 
         <div className="mt-8">
           <a
-            href="https://calendar.google.com"
+            href="https://www.brndgurumedia.com/widget/bookings/brndguru"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 font-display text-sm font-bold text-white shadow-lg transition hover:scale-105 hover:bg-primary/90"
           >
-            <span>Get Started with $347 / mo</span>
+            <span>Book Implementation Call</span>
             <ArrowRight className="size-4.5" />
           </a>
           <p className="mt-2.5 text-xs text-zinc-400">

@@ -362,10 +362,13 @@ const faqs = [
 function CtaButton({
   children = "Book Strategy Call",
   inverse = false,
+  href = "#strategy-call",
 }: {
   children?: ReactNode;
   inverse?: boolean;
+  href?: string;
 }) {
+  const isExternal = href.startsWith("http");
   return (
     <Button
       asChild
@@ -373,7 +376,10 @@ function CtaButton({
       variant={inverse ? "secondary" : "default"}
       className="h-12 rounded-full px-8 font-display font-bold shadow-soft transition-all duration-300 hover:-translate-y-0.5"
     >
-      <a href="#strategy-call">
+      <a
+        href={href}
+        {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+      >
         {children}
         <ArrowRight className="size-4" />
       </a>
@@ -1630,7 +1636,9 @@ function FinalCta() {
             Book a 30-minute strategy call with Shivanshu Kumar to map out your ICP, AI ecosystem architecture, and 14-day launch sprint.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3">
-            <CtaButton>Book Your Strategy Call</CtaButton>
+            <CtaButton href="https://www.brndgurumedia.com/widget/bookings/brndguru">
+              Book Your Strategy Call
+            </CtaButton>
             <div className="flex items-center gap-4 text-xs text-ink-muted">
               <span className="flex items-center gap-1.5"><Check className="size-3.5 text-primary" /> 30 Min Strategy Call</span>
               <span className="text-ink-border">•</span>
@@ -1673,7 +1681,12 @@ function Footer() {
           <a href="/deck" className="hover:text-primary-foreground">
             Sales Deck
           </a>
-          <a href="#strategy-call" className="inline-flex items-center gap-1 text-brand-light">
+          <a
+            href="https://www.brndgurumedia.com/widget/bookings/brndguru"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-brand-light"
+          >
             Book a call <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </div>
