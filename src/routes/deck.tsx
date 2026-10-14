@@ -1045,7 +1045,7 @@ function DeckPage() {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const totalSlides = slides.length;
-  const currentSlide = slides[currentSlideIndex];
+  const currentSlide = slides[currentSlideIndex]!;
 
   // Navigation handlers
   const nextSlide = () => {
