@@ -105,7 +105,7 @@ function Reveal({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
         }
@@ -1257,7 +1257,7 @@ function RoadmapSection() {
 
 function VariableCostsSection() {
   const [tierIndex, setTierIndex] = useState(2);
-  const currentTier = volumeTiers[tierIndex];
+  const currentTier = volumeTiers[tierIndex]!;
 
   return (
     <section id="variable-costs" className="border-y border-ink-border bg-ink py-16 text-primary-foreground md:py-24">
