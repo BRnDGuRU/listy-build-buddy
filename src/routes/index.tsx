@@ -1454,7 +1454,7 @@ function InvestmentSection() {
                   <div>
                     <span className="text-xs font-bold uppercase text-ink-muted">Infrastructure</span>
                     <div className="mt-1 flex items-baseline gap-2">
-                      <strong className="font-display text-3xl font-bold text-primary sm:text-4xl">$750**</strong>
+                      <strong className="font-display text-3xl font-bold text-primary sm:text-4xl">$750</strong>
                       <span className="text-sm font-semibold text-ink-muted">/ month</span>
                     </div>
                     <p className="mt-1 text-xs text-ink-muted">Infrastructure, senders, lead scraping costs and all related tools</p>
