@@ -1434,12 +1434,33 @@ function InvestmentSection() {
 
             <div className="dark-grid flex flex-col justify-between p-7 text-primary-foreground sm:p-10">
               <div>
-                <span className="text-xs font-bold uppercase text-ink-muted">Fixed Service Retainer</span>
-                <div className="mt-3 flex items-baseline gap-2">
-                  <strong className="font-display text-4xl font-bold text-primary sm:text-5xl">$347</strong>
-                  <span className="text-sm font-semibold text-ink-muted">/ month</span>
+                <div className="space-y-4">
+                  <div className="border-b border-ink-border pb-4">
+                    <span className="text-xs font-bold uppercase text-ink-muted">One-Time Activation</span>
+                    <div className="mt-1 flex items-baseline gap-2">
+                      <strong className="font-display text-3xl font-bold text-primary sm:text-4xl">$650</strong>
+                      <span className="text-sm font-semibold text-ink-muted">one-time</span>
+                    </div>
+                    <p className="mt-1 text-xs text-ink-muted">Campaign &amp; sender setup, AI reply agent setup, AI scraping agent setup</p>
+                  </div>
+                  <div className="border-b border-ink-border pb-4">
+                    <span className="text-xs font-bold uppercase text-ink-muted">Service Retainer</span>
+                    <div className="mt-1 flex items-baseline gap-2">
+                      <strong className="font-display text-3xl font-bold text-primary sm:text-4xl">$347</strong>
+                      <span className="text-sm font-semibold text-ink-muted">/ month</span>
+                    </div>
+                    <p className="mt-1 text-xs text-ink-muted">Strategy, implementation, optimization &amp; training</p>
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold uppercase text-ink-muted">Infrastructure</span>
+                    <div className="mt-1 flex items-baseline gap-2">
+                      <strong className="font-display text-3xl font-bold text-primary sm:text-4xl">$750**</strong>
+                      <span className="text-sm font-semibold text-ink-muted">/ month</span>
+                    </div>
+                    <p className="mt-1 text-xs text-ink-muted">Infrastructure, senders, lead scraping costs and all related tools</p>
+                  </div>
                 </div>
-                <p className="mt-2 text-xs font-semibold text-brand-light">90-Day Minimum Implementation Commitment</p>
+                <p className="mt-4 text-xs font-semibold text-brand-light">90-Day Minimum Implementation Commitment</p>
                 <div className="my-6 border-t border-ink-border" />
                 <ul className="space-y-2.5 text-xs text-ink-muted">
                   <li className="flex items-center gap-2">
